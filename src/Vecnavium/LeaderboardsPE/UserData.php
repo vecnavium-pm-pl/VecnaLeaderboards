@@ -51,7 +51,6 @@ class UserData {
 
     public function addDeath() {
         $this->deaths++;
-        $this->killStreak = 0;
         $this->save();
     }
 
