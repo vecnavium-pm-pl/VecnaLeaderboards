@@ -1,11 +1,13 @@
 [![Discord](https://img.shields.io/discord/837701868649709568.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jWFB56RqUN) 
+
 ## VecnaLeaderboards
-# This plugin will be an advanced Leaderboards plugin, with tons of supported feature, simple fast and easy!
+This plugin will be an advanced Leaderboards plugin, with tons of supported feature, simple fast and easy!
 
 This plugin's current feature is only the beginning, ton more other features for this plugin is planned and will be improved from time to time! 
 
 
 # Features 
+
 
 • Ability to create top killers leaderboard
 
@@ -17,6 +19,7 @@ This plugin's current feature is only the beginning, ton more other features for
 
 
 # Planned features
+
 
 • [] Database support for player statistics cross server saves.
 
@@ -33,13 +36,12 @@ This plugin's current feature is only the beginning, ton more other features for
 • [] Ability to configure the Player Statistics 
 
 
-
 # Commands & Permissions 
 
 |Command|Description|Permissions|
 |:--:|:--:|:--:|
 |/leaderboard|Create floating leaderboard text|`lbpe.text`
-|/stats|Shows Player Statistics|Everyone|
+|/stats|Shows Player Statistics|`Everyone`|
 
 # BugReport
 
