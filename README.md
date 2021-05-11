@@ -38,7 +38,7 @@ Have other suggestions? Let me know in the [Support Discord](https://discord.gg/
 
 |Command|Description|Permissions|
 |:--:|:--:|:--:|
-|/leaderboard|Create floating leaderboard text|`vecnaleaderboards.text`
+|/leaderboard|Create floating leaderboard text|`vecnaleaderboards.lb`
 |/stats|Shows Player Statistics|`Everyone`|
 
 # BugReport
