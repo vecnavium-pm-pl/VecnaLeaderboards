@@ -40,7 +40,7 @@ This plugin's current feature is only the beginning, ton more other features for
 
 |Command|Description|Permissions|
 |:--:|:--:|:--:|
-|/leaderboard|Create floating leaderboard text|`lbpe.text`
+|/leaderboard|Create floating leaderboard text|`vecnaleaderboards.text`
 |/stats|Shows Player Statistics|`Everyone`|
 
 # BugReport
