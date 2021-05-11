@@ -1,6 +1,6 @@
 name: VecnaLeaderboards
 author: Vecnavium
-main: Vecnavium\LeaderboardsPE\Main
+main: Vecnavium\VecnaLeaderboards\Main
 version: "1.0.0"
 api: [3.0.0]
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
@@ -17,9 +17,9 @@ commands:
     aliases: ['lb']
     
 permissions:
-  lbpe.lb:
+  vecnaleaderboards.lb:
       default: op
       description: "Permission to create Leaderboard"
-  lbpe.stats:
+  vecnaleaderboards.stats:
     default: true
     description: "Shows Player Statistics"
