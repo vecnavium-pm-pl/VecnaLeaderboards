@@ -81,7 +81,7 @@ class Main extends PluginBase {
                         $data = $this->getData($player->getName());
                         $name = $player->getName();
                     } else {
-                        $sender->sendMessage(C::RED . "VecnaLeaderboards: This players is either not online or does not exist.");
+                        $sender->sendMessage(C::RED . "This players is either not online or does not exist.");
                         return true;
                     }
                 } else {
