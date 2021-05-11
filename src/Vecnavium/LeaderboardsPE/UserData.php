@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Vecnavium\LeaderboardsPE;
+namespace Vecnavium\VecnaLeaderboards;
 
-use Vecnavium\LeaderboardsPE\Main;
+use Vecnavium\VecnaLeaderboards\Main;
 
 class UserData {
 

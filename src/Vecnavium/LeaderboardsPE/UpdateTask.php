@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vecnavium\LeaderboardsPE;
+namespace Vecnavium\VecnaLeaderboards;
 
 use pocketmine\scheduler\Task;
-use Vecnavium\LeaderboardsPE\Main;
+use Vecnavium\VecnaLeaderboards\Main;
 
 class UpdateTask extends Task {
 

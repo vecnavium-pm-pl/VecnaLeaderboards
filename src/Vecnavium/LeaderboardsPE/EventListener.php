@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vecnavium\LeaderboardsPE;
+namespace Vecnavium\VecnaLeaderboards;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;

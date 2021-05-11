@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vecnavium\LeaderboardsPE;
+namespace Vecnavium\VecnaLeaderboards;
 
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
@@ -14,8 +14,8 @@ use pocketmine\command\ConsoleCommandSender;
 use pocketmine\math\Vector3;
 use pocketmine\level\particle\FloatingTextParticle;
 
-use Vecnavium\LeaderboardsPE\EventListener;
-use Vecnavium\LeaderboardsPE\UserData;
+use Vecnavium\VecnaLeaderboards\EventListener;
+use Vecnavium\VecnaLeaderboards\UserData;
 
 class Main extends PluginBase {
 
