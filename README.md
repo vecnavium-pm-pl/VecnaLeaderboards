@@ -20,21 +20,19 @@ This plugin's current feature is only the beginning, ton more other features for
 
 # Planned features
 
-
-• [] Database support for player statistics cross server saves.
-
 • [] Top money leaderboard (EconomyAPI)
 
 • [] Top kill streaks leaderboard and announcements for kill streaks.
 
 • [] Leaderboard setup being in a UI Form. (Maybe)
 
-• [] Player levels & rewards based on kill amounts
+• [] Player levels & rewards based on kill amounts.
 
-• [] KDR Player Statistics & Leaderboard
+• [] KDR Player Statistics & Leaderboard.
 
-• [] Ability to configure the Player Statistics 
+• [] Player Levels leaderboard & Player Statistics
 
+Have other suggestions? Let me know in the [Support Discord](https://discord.gg/jWFB56RqUN) or Create an [Issue](https://github.com/Vecnavium/VecnaLeaderboards/issues/new) about your suggestion!
 
 # Commands & Permissions 
 
