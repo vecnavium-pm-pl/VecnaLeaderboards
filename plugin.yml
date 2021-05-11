@@ -9,11 +9,11 @@ commands:
   stats:
     description: Shows Player Statistics
     usage: /stats <Player>
-    permission: lbpe.stats
+    permission: vecnaleaderboards.stats
   leaderboard:
     description: Create floating leaderboard text
     usage: /leaderboard
-    permission: lbpe.lb
+    permission: vecnaleaderboards.lb
     aliases: ['lb']
     
 permissions:
