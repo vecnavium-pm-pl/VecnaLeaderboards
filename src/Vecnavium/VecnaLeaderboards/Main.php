@@ -64,6 +64,20 @@ class Main extends PluginBase {
         $data->addKill();
     }
 
+    public function handleStreak(Player $player, Player $v) {
+        $killer = $this->getData($player->getName());
+        $loser = $this->getData($v->getName());
+        $oldStreak = $loser->getStreak();
+        if($oldStreak >= 5) {
+            $v->sendMessage(C::GRAY . "" . C::DARK_GREEN . "KillStreak alert:" . C::GRAY . "> " . C::WHITE . "Your " . $oldStreak . " killstreak was ended by " . $player->getName() . "!");
+            $player->sendMessage(C::GRAY . "" . C::DARK_RED . "KillStreak alert:" . C::GRAY . "> " . C::WHITE . "You have ended " . $v->getName() . "'s " . $oldStreak . " killstreak!");
+        }
+        $newStreak = $killer->getStreak();
+        if(is_int($newStreak / 5)) {
+            $this->getServer()->broadcastMessage(C::GRAY . "" . C::DARK_RED . "KillStreak alert:" . C::GRAY . "> " . C::WHITE . $player->getName() . " is on a " . $newStreak . " killstreak. Go kill them to end their streak! ");
+        }
+    }
+
     public function addDeath(Player $player) {
         $this->getData($player->getName())->addDeath();
         return;
@@ -72,6 +86,9 @@ class Main extends PluginBase {
     public function getData($name) {
         return new UserData($this, $name);
     }
+
+    # To-do: Configurable stats message
+
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
         if(strtolower($command->getName()) == "stats") {
             if($sender instanceof Player) {
@@ -88,7 +105,7 @@ class Main extends PluginBase {
                     $data = $this->getData($sender->getName());
                     $name = $sender->getName();
                 }
-                $sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() .  "\n" .  C::RED . "=============");
+                $sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "* Killstreak: " . $data->getStreak() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() .  "\n" .  C::RED . "=============");
                 return true;
             } else {
                 $sender->sendMessage(C::RED . "Please run this command ingame!");
@@ -98,12 +115,12 @@ class Main extends PluginBase {
         if(strtolower($command->getName()) == "leaderboard") {
             if($sender instanceof Player) {
                 if(isset($args[0])) {
-                    if(in_array($args[0], [ "kills"])) {
+                    if(in_array($args[0], [ "kills", "streaks"])) {
                         $v3 = implode("_", [round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)]);
                         $this->texts->set($v3, $args[0]);
                         $this->texts->save();
                         $this->createText(new Vector3(round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)), $args[0], null);
-                        $sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "PE" . C::GRAY . "] \n" . C::GREEN . $args[0] . "Leaderboard has been created!");
+                        $sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . "Leaderboard has been created!");
                         return true;
                     } elseif(in_array($args[0], ["del", "remove", "delete"])) {
                         $text = $this->isNearText($sender);
@@ -127,7 +144,7 @@ class Main extends PluginBase {
                             return true;
                         }
                     } else {
-                        $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+                        $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
                         return true;
                     }
                 } else {
@@ -160,6 +177,9 @@ class Main extends PluginBase {
         switch($type) {
             case "kills":
                 $string = "kills";
+                break;
+            case "streaks":
+                $string = "killstreak";
                 break;
             default:
                 break;
