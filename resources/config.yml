@@ -3,21 +3,25 @@
 #==========================================#
 ---
 #====================================================================================#
+
+
 #Leaderboard texts config
 #Set up on what world you wish to create & spawn in the leaderboard.
 texts:
   world: "world"
 
-
-#How often do you want this to update?
-  timer: 30
+#How often do you want all leaderboards to update to latest stats?
+  leaderboard-timer: 30
 
 
 #Config the title to the text you want for it to display at the top for each statistic leaderboard.
 #Use "&" for colors
+
   kills: "&l&l| Kills Leaderboard |"
   
   streaks: "&l&l| Streaks Leaderboard |"
+
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
-  top: 10
+  leaderboard-top-length: 10
+
 #====================================================================================#
