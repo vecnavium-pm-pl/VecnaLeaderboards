@@ -188,8 +188,8 @@ class Main extends PluginBase {
             if(pathinfo($file, PATHINFO_EXTENSION) == "yml") {
                 $yaml = file_get_contents($this->getDataFolder() . "data/" . $file);
                 $rawData = yaml_parse($yaml);
-                if(isset($rawData[$string])) {
-                    $stats[$rawData["name"]] = $rawData[$string];
+                if(isset($rawData[$type])) {
+                    $stats[$rawData["name"]] = $rawData[$type];
                 }
             }
         }
