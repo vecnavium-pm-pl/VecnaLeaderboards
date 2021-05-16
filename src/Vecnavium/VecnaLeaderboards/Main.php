@@ -33,7 +33,7 @@ class Main extends PluginBase {
         $this->texts = new Config($this->getDataFolder() . "leaderboards.yml", Config::YAML);
         $listener = new EventListener($this);
         $this->getServer()->getPluginManager()->registerEvents($listener, $this);
-            $interval = $this->cfg->get("texts")["timer"] ?? 60;
+            $interval = $this->cfg->get("texts")["leaderboard-timer"] ?? 60;
             $this->getScheduler()->scheduleDelayedRepeatingTask(new UpdateTask($this), $interval * 20, $interval * 20);
         }
     public function joinText(string $name) {
@@ -48,6 +48,11 @@ class Main extends PluginBase {
     public function createText(Vector3 $location, string $type = "levels", $players = null) {
         $typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
         $id = implode("_", [$location->getX(), $location->getY(), $location->getZ()]);
+        $level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
+        if($level === null){
+            $this->getLogger()->error("Log goes here");
+            return;
+        }
         $this->getServer()->getLevelByName($this->cfg->get("texts")["world"])->addParticle($particle = new FloatingTextParticle($location, C::WHITE . "================", $typetitle . "\n" . $this->getRankings($type)), $players);
         $this->particles[$id] = $particle;
     }
@@ -86,8 +91,6 @@ class Main extends PluginBase {
     public function getData($name) {
         return new UserData($this, $name);
     }
-
-    # To-do: Configurable stats message
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
         if(strtolower($command->getName()) == "stats") {
@@ -133,6 +136,7 @@ class Main extends PluginBase {
                                 if(isset($this->particles[$text])) {
                                     unset($this->particles[$text]);
                                 }
+
                                 $sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
                                 return true;
                             } else {
@@ -148,7 +152,7 @@ class Main extends PluginBase {
                         return true;
                     }
                 } else {
-                    $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+                    $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
                     return true;
                 }
             } else {
@@ -198,7 +202,7 @@ class Main extends PluginBase {
         $i = 1;
         foreach($stats as $name => $number) {
             $finalRankings .= C::RED . $i . ".) " . $name . ": " . $number . "\n";
-            if($i > $this->getConfig()->get("texts")["top"]) {
+            if($i > $this->getConfig()->get("texts")["leaderboard-top-length"]) {
                 return $finalRankings;
             }
             if(count($stats) <= $i) {
