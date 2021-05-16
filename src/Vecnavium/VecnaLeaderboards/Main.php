@@ -49,10 +49,6 @@ class Main extends PluginBase {
         $typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
         $id = implode("_", [$location->getX(), $location->getY(), $location->getZ()]);
         $level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
-        if($level === null){
-            $this->getLogger()->error("Log goes here");
-            return;
-        }
         $this->getServer()->getLevelByName($this->cfg->get("texts")["world"])->addParticle($particle = new FloatingTextParticle($location, C::WHITE . "================", $typetitle . "\n" . $this->getRankings($type)), $players);
         $this->particles[$id] = $particle;
     }
