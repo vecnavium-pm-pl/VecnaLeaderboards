@@ -22,7 +22,6 @@ class Main extends PluginBase {
     private $particles = [];
 
     public function onEnable() {
-        $this->getServer()->getCommandMap()->register("stats", new StatsCommand($this));
         $this->saveDefaultConfig();
         $this->reloadConfig();
         @mkdir($this->getDataFolder());
@@ -31,6 +30,7 @@ class Main extends PluginBase {
         $this->texts = new Config($this->getDataFolder() . "leaderboards.yml", Config::YAML);
         $listener = new EventListener($this);
         $this->getServer()->getPluginManager()->registerEvents($listener, $this);
+        $this->getServer()->getCommandMap()->register("stats", new StatsCommand($this));
         $interval = $this->cfg->get("texts")["leaderboard-timer"] ?? 60;
         $this->getScheduler()->scheduleDelayedRepeatingTask(new UpdateTask($this), $interval * 20, $interval * 20);
     }
@@ -79,12 +79,61 @@ class Main extends PluginBase {
 
     public function addDeath(Player $player) {
         $this->getData($player->getName())->addDeath();
+        return;
     }
 
-    public function getData($name): UserData {
+    public function getData($name) {
         return new UserData($this, $name);
     }
 
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
+        if(strtolower($command->getName()) == "leaderboard") {
+            if($sender instanceof Player) {
+                if(isset($args[0])) {
+                    if(in_array($args[0], [ "kills", "streaks"])) {
+                        $v3 = implode("_", [round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)]);
+                        $this->texts->set($v3, $args[0]);
+                        $this->texts->save();
+                        $this->createText(new Vector3(round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)), $args[0], null);
+                        $sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . "Leaderboard has been created!");
+                        return true;
+                    } elseif(in_array($args[0], ["del", "remove", "delete"])) {
+                        $text = $this->isNearText($sender);
+                        if(isset($this->particles[$text])) {
+                            if($this->particles[$text] instanceof FloatingTextParticle) {
+                                $this->particles[$text]->setInvisible();
+                                $this->getServer()->getLevelByName($this->cfg->get("texts")["world"])->addParticle($this->particles[$text], [$sender]);
+                                $this->texts->remove($text);
+                                $this->texts->save();
+                                if(isset($this->particles[$text])) {
+                                    unset($this->particles[$text]);
+                                }
+
+                                $sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
+                                return true;
+                            } else {
+                                $sender->sendMessage(C::RED . "ERROR: Leaderboard not found. \nBe sure to be close to the Leaderboard to delete it!");
+                                return true;
+                            }
+                        } else {
+                            $sender->sendMessage(C::RED . "ERROR: Leaderboard not found. \nBe sure to be close to the Leaderboard to delete it!");
+                            return true;
+                        }
+                    } else {
+                        $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
+                        return true;
+                    }
+                } else {
+                    $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
+                    return true;
+                }
+            } else {
+                $sender->sendMessage(C::RED . "ERROR: Please run this command ingame");
+                return true;
+            }
+        }
+        return true;
+    }
     public function isNearText($player) {
         foreach($this->texts->getAll() as $loc => $type) {
             $v3 = explode("_", $loc);
@@ -97,9 +146,10 @@ class Main extends PluginBase {
         }
         return false;
     }
-    public function getRankings(string $type): string {
+    public function getRankings(string $type) {
         $files = scandir($this->getDataFolder() . "data/");
         $stats = [];
+
         switch($type) {
             case "kills":
                 $string = "kills";
@@ -135,55 +185,7 @@ class Main extends PluginBase {
         return "";
     }
     public function colorize(string $text) {
-        return str_replace("&", "§", $text);
+        $newText = str_replace("&", "§", $text);
+        return $newText;
     }
-
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
-    if(strtolower($command->getName()) == "leaderboard") {
-        if($sender instanceof Player) {
-            if(isset($args[0])) {
-                if(in_array($args[0], [ "kills", "streaks"])) {
-                    $v3 = implode("_", [round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)]);
-                    $this->texts->set($v3, $args[0]);
-                    $this->texts->save();
-                    $this->createText(new Vector3(round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)), $args[0]);
-                    $sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . "Leaderboard has been created!");
-                    return true;
-                } elseif(in_array($args[0], ["del", "remove", "delete"])) {
-                    $text = $this->isNearText($sender);
-                    if(isset($this->particles[$text])) {
-                        if($this->particles[$text] instanceof FloatingTextParticle) {
-                            $this->particles[$text]->setInvisible();
-                            $this->getServer()->getLevelByName($this->cfg->get("texts")["world"])->addParticle($this->particles[$text], [$sender]);
-                            $this->texts->remove($text);
-                            $this->texts->save();
-                            if(isset($this->particles[$text])) {
-                                unset($this->particles[$text]);
-                            }
-
-                            $sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
-                            return true;
-                        } else {
-                            $sender->sendMessage(C::RED . "ERROR: Leaderboard not found. \nBe sure to be close to the Leaderboard to delete it!");
-                            return true;
-                        }
-                    } else {
-                        $sender->sendMessage(C::RED . "ERROR: Leaderboard not found. \nBe sure to be close to the Leaderboard to delete it!");
-                        return true;
-                    }
-                } else {
-                    $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
-                    return true;
-                }
-            } else {
-                $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
-                return true;
-            }
-        } else {
-            $sender->sendMessage(C::RED . "ERROR: Please run this command ingame");
-            return true;
-        }
-    }
-    return true;
-}
 }
