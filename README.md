@@ -24,7 +24,7 @@ This plugin's current feature is only the beginning, ton more other features for
 
 • [X] Top kill streaks leaderboard and announcements for kill streaks.
 
-• [] Leaderboard setup being in a UI Form. (Maybe)
+• [X] Leaderboard for /stats
 
 • [] Player levels & rewards based on kill amounts.
 
