@@ -39,14 +39,17 @@ class StatsCommand extends PluginCommand {
             }
             if(isset($data[1])) {
                 $player = $this->getPlugin()->getServer()->getPlayerExact($data[1]);
+                $name = $player->getName();
                 if ($player !== null) {
                     $data = $this->getPlugin()->getData($player->getName());
-                    $name = $player->getName();
                 } else {
+
                     $sender->sendMessage("§cThis player is either not online or does not exist.");
                     return true;
                 }
             }
+            $player = $this->getPlugin()->getServer()->getPlayerExact($data[1]);
+            $name = $player->getName();
             $sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "* Killstreak: " . $data->getStreak() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() .  "\n" .  C::RED . "=============");
             return true;
         });
