@@ -6,10 +6,6 @@ api: [3.0.0]
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
 
 commands:
-  stats:
-    description: Shows Player Statistics
-    usage: /stats <Player>
-    permission: vecnaleaderboards.stats
   leaderboard:
     description: Create floating leaderboard text
     usage: /leaderboard
@@ -20,6 +16,3 @@ permissions:
   vecnaleaderboards.lb:
       default: op
       description: "Permission to create Leaderboard"
-  vecnaleaderboards.stats:
-    default: true
-    description: "Shows Player Statistics"

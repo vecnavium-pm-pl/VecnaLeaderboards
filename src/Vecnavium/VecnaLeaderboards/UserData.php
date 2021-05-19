@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Vecnavium\VecnaLeaderboards;
 
-use Vecnavium\VecnaLeaderboards\Main;
-
 class UserData {
 
     private $plugin;
-    private $player = null;
+    private $player;
     private $kills = 0;
     private $killStreak = 0;
     private $deaths = 0;
@@ -25,8 +23,6 @@ class UserData {
             $this->kills = $data["kills"];
             $this->deaths = $data["deaths"];
             $this->killStreak = $data["killstreak"] ?? 0;
-        } else {
-            return;
         }
     }
 
