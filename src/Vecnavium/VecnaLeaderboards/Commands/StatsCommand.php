@@ -40,13 +40,10 @@ class StatsCommand extends PluginCommand {
             if(isset($data[1])) {
                 $player = $this->getPlugin()->getServer()->getPlayerExact($data[1]);
                 $name = $player->getName();
-                if ($player !== null) {
-                    $data = $this->getPlugin()->getData($player->getName());
-                } else {
-
-                    $sender->sendMessage("§cThis player is either not online or does not exist.");
-                    return true;
-                }
+                $data = $this->getPlugin()->getData($player->getName());
+            } else {
+                $sender->sendMessage("§cThis player is either not online or does not exist.");
+                return true;
             }
             $player = $this->getPlugin()->getServer()->getPlayerExact($data[1]);
             $name = $player->getName();
