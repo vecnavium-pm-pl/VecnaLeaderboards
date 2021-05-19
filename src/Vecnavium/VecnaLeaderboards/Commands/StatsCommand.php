@@ -10,18 +10,12 @@ use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
-use Vecnavium\VecnaLeaderboards\Main;
 
 class StatsCommand extends PluginCommand {
     public function __construct(Plugin $plugin) {
         parent::__construct("stats", $plugin);
         $this->setPermission("vecnaviumleaderboards.stats");
         $this->setDescription("Stats command!");
-    }
-
-    public function getPlugin(): Plugin {
-        /** @var Main $plugin */
-        return parent::getPlugin();
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
