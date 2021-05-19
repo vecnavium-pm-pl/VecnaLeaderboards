@@ -17,7 +17,12 @@ class StatsCommand extends PluginCommand {
         $this->setPermission("vecnaviumleaderboards.stats");
         $this->setDescription("Stats command!");
     }
-
+    /** @return Main */
+    public function getPlugin(): Plugin {
+        /** @var Main $plugin */
+        $plugin = parent::getPlugin();
+        return $plugin;
+    }
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
         if (!$sender->hasPermission($this->getPermission())) {
             $sender->sendMessage("§cYou do not have permissions to run this command.");
