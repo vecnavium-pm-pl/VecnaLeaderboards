@@ -22,7 +22,7 @@ This plugin's current feature is only the beginning, ton more other features for
 
 • [] Top money leaderboard (EconomyAPI)
 
-• [X] Top kill streaks announcements
+• [X] Kill streaks announcements
 
 • [] Top kill streaks leaderboard
 
