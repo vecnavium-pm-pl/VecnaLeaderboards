@@ -90,7 +90,7 @@ class Main extends PluginBase {
         if(strtolower($command->getName()) == "leaderboard") {
             if($sender instanceof Player) {
                 if(isset($args[0])) {
-                    if(in_array($args[0], [ "kills", "streaks"])) {
+                    if(in_array($args[0], [ "kills"])) {
                         $v3 = implode("_", [round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)]);
                         $this->texts->set($v3, $args[0]);
                         $this->texts->save();
@@ -120,11 +120,11 @@ class Main extends PluginBase {
                             return true;
                         }
                     } else {
-                        $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
+                        $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
                         return true;
                     }
                 } else {
-                    $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
+                    $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
                     return true;
                 }
             } else {
@@ -153,9 +153,6 @@ class Main extends PluginBase {
         switch($type) {
             case "kills":
                 $string = "kills";
-                break;
-            case "streaks":
-                $string = "killstreak";
                 break;
             default:
                 break;
