@@ -10,12 +10,18 @@ use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
+use Vecnavium\VecnaLeaderboards\Main;
 
 class StatsCommand extends PluginCommand {
     public function __construct(Plugin $plugin) {
         parent::__construct("stats", $plugin);
         $this->setPermission("vecnaviumleaderboards.stats");
         $this->setDescription("Stats command!");
+    }
+
+    public function getPlugin(): Plugin {
+        /** @var Main $plugin */
+        return parent::getPlugin();
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
@@ -39,15 +45,15 @@ class StatsCommand extends PluginCommand {
             }
             if(isset($data[1])) {
                 $player = $this->getPlugin()->getServer()->getPlayerExact($data[1]);
-                $name = $player->getName();
-                $data = $this->getPlugin()->getData($player->getName());
-            } else {
-                $sender->sendMessage("§cThis player is either not online or does not exist.");
-                return true;
+                if ($player !== null) {
+                    $data = $this->getPlugin()->getData($player->getName());
+                    $name = $player->getName();
+                    $sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "* Killstreak: " . $data->getStreak() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() .  "\n" .  C::RED . "=============");
+                } else {
+                    $sender->sendMessage("§cThis player is either not online or does not exist.");
+                    return true;
+                }
             }
-            $player = $this->getPlugin()->getServer()->getPlayerExact($data[1]);
-            $name = $player->getName();
-            $sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "* Killstreak: " . $data->getStreak() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() .  "\n" .  C::RED . "=============");
             return true;
         });
         $form->setTitle('§cVecna§eLeaderboards stats');
