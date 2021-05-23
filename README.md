@@ -1,4 +1,5 @@
 [![Discord](https://img.shields.io/discord/837701868649709568.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jWFB56RqUN) 
+[![](https://poggit.pmmp.io/shield.dl/VecnaLeaderboards)](https://poggit.pmmp.io/p/VecnaLeaderboards) [![](https://poggit.pmmp.io/shield.dl.total/VecnaLeaderboards)](https://poggit.pmmp.io/p/VecnaLeaderboards)
 
 ## VecnaLeaderboards
 This plugin will be an advanced Leaderboards plugin, with tons of supported feature, simple fast and easy!
