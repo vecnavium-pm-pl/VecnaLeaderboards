@@ -30,7 +30,7 @@ class Main extends PluginBase {
         $this->texts = new Config($this->getDataFolder() . "leaderboards.yml", Config::YAML);
         $listener = new EventListener($this);
         $this->getServer()->getPluginManager()->registerEvents($listener, $this);
-        $this->getServer()->getCommandMap()->register("stats", new StatsCommand($this));
+        $this->getServer()->getCommandMap()->register("Vecnaleaderboards", new StatsCommand($this));
         $interval = $this->cfg->get("texts")["leaderboard-timer"] ?? 60;
         $this->getScheduler()->scheduleDelayedRepeatingTask(new UpdateTask($this), $interval * 20, $interval * 20);
     }
