@@ -200,10 +200,3 @@ class Main extends PluginBase
 		}
 		return "";
 	}
-
-	public function colorize(string $text)
-	{
-		$newText = str_replace("&", "§", $text);
-		return $newText;
-	}
-}
