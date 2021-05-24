@@ -8,7 +8,7 @@ use pocketmine\level\Position;
 use pocketmine\network\mcpe\protocol\AddPlayerPacket;
 use pocketmine\network\mcpe\protocol\RemoveActorPacket;
 use pocketmine\network\mcpe\protocol\SetActorDataPacket;
-use pocketmine\Server;
+use pocketmine\Player;
 use pocketmine\utils\UUID;
 
 class CustomFloatingText
@@ -33,7 +33,7 @@ class CustomFloatingText
 	}
 
 
-	public function spawn(): void
+	public function spawn(Player $player): void
 	{
 		$pk = new AddPlayerPacket();
 		$pk->entityRuntimeId = $this->eid;
@@ -52,13 +52,11 @@ class CustomFloatingText
 		];
 		$level = $this->position->getLevel();
 		if ($level !== null) {
-			foreach ($level->getPlayers() as $player) {
-				$player->sendDataPacket($pk);
-			}
+			$player->sendDataPacket($pk);
 		}
 	}
 
-	public function update(string $text)
+	public function update(string $text, Player $player)
 	{
 		$pk = new SetActorDataPacket();
 		$pk->entityRuntimeId = $this->eid;
@@ -69,20 +67,16 @@ class CustomFloatingText
 		];
 		$level = $this->position->getLevel();
 		if ($level !== null) {
-			foreach ($level->getPlayers() as $player) {
-				$player->sendDataPacket($pk);
-			}
+			$player->sendDataPacket($pk);
 		}
 
 	}
 
-	public function remove()
+	public function remove(Player $player)
 	{
 		$pk = new RemoveActorPacket();
 		$pk->entityUniqueId = $this->eid;
-		foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-			$player->sendDataPacket($pk);
-		}
+		$player->sendDataPacket($pk);
 	}
 
 }
