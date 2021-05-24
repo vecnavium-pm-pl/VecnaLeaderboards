@@ -68,6 +68,7 @@ Feel free to contact me in the [Support Discord Server](https://discord.gg/jWFB5
 
 # Credits 
 Credits to our contributors
+
 [Spice](https://github.com/SpiceX) for implementing CustomFloatingText and also rewriting and cleaning the plugin's code
 
 [Aläcksch](https://github.com/AlecksWasHere) For implementing the UI Support for /stats and also taking part of cleaning the code
