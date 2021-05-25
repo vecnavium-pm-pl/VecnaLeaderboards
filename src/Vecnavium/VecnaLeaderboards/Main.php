@@ -6,6 +6,7 @@ namespace Vecnavium\VecnaLeaderboards;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\ConsoleCommandSender;
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
@@ -18,69 +19,84 @@ use Vecnavium\VecnaLeaderboards\Util\CustomFloatingText;
 class Main extends PluginBase
 {
 
-	public $cfg;
-	private $texts;
-	private $UserData = [];
-	/** @var CustomFloatingText[] */
-	public $particles = [];
+    public $cfg;
+    private $texts;
+    private $UserData = [];
+    /** @var CustomFloatingText[] */
+    public $particles = [];
 
-	public function onEnable()
-	{
-		$this->saveDefaultConfig();
-		$this->reloadConfig();
-		@mkdir($this->getDataFolder());
-		@mkdir($this->getDataFolder() . "data/");
-		$this->cfg = $this->getConfig();
-		$this->texts = new Config($this->getDataFolder() . "leaderboards.yml", Config::YAML);
-		$listener = new EventListener($this);
-		if (!$this->getServer()->isLevelLoaded($this->cfg->get("texts")["world"])){
-			$this->getServer()->loadLevel($this->cfg->get("texts")["world"]);
-		}
-		$this->getServer()->getPluginManager()->registerEvents($listener, $this);
-		$this->getServer()->getCommandMap()->register("stats", new StatsCommand($this));
-		$interval = $this->cfg->get("texts")["leaderboard-timer"] ?? 60;
-		$this->getScheduler()->scheduleDelayedRepeatingTask(new UpdateTask($this), $interval * 20, $interval * 20);
-	}
+    public function onEnable()
+    {
+        $this->saveDefaultConfig();
+        $this->reloadConfig();
+        @mkdir($this->getDataFolder());
+        @mkdir($this->getDataFolder() . "data/");
+        $this->cfg = $this->getConfig();
+        $this->texts = new Config($this->getDataFolder() . "leaderboards.yml", Config::YAML);
+        $listener = new EventListener($this);
+        if (!$this->getServer()->isLevelLoaded($this->cfg->get("texts")["world"])) {
+            $this->getServer()->loadLevel($this->cfg->get("texts")["world"]);
+        }
+        $this->getServer()->getPluginManager()->registerEvents($listener, $this);
+        $this->getServer()->getCommandMap()->register("stats", new StatsCommand($this));
+        $interval = $this->cfg->get("texts")["leaderboard-timer"] ?? 60;
+        $this->getScheduler()->scheduleDelayedRepeatingTask(new UpdateTask($this), $interval * 20, $interval * 20);
+    }
 
-	public function joinText(string $name)
-	{
-		foreach ($this->texts->getAll() as $loc => $type) {
-			$pos = explode("_", $loc);
-			$level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
-			if (isset($pos[1])) {
-				$v3 = new Vector3(round($pos[0], 2), round($pos[1], 2), round($pos[2], 2));
-				$this->createText(Position::fromObject($v3, $level), $type);
-			}
-		}
-	}
+    public function joinText(string $name)
+    {
+        foreach ($this->texts->getAll() as $loc => $type) {
+            $pos = explode("_", $loc);
+            $level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
+            if (isset($pos[1])) {
+                $v3 = new Vector3(round($pos[0], 2), round($pos[1], 2), round($pos[2], 2));
+                $this->createText(Position::fromObject($v3, $level), $type);
+            }
+        }
+    }
 
-	public function createText(Position $location, string $type = "levels")
-	{
-		$typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
-		$id = implode("_", [$location->getX(), $location->getY(), $location->getZ()]);
-		$level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
-		$particle = new CustomFloatingText(C::WHITE . "================\n" . $typetitle . "\n" . $this->getRankings($type), Position::fromObject($location, $level));
-		foreach ($location->level->getPlayers() as $player) {
-			$particle->spawn($player);
-		}
-		$this->particles[$id] = $particle;
-	}
+    public function createText(Position $location, string $type = "levels")
+    {
+        $typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
+        $id = implode("_", [$location->getX(), $location->getY(), $location->getZ()]);
+        $level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
+        $particle = new CustomFloatingText(C::WHITE . "================\n" . $typetitle . "\n" . $this->getRankings($type), Position::fromObject($location, $level));
+        foreach ($location->level->getPlayers() as $player) {
+            $particle->spawn($player);
+        }
+        $this->particles[$id] = $particle;
+    }
 
-	public function updateTexts(Player $player)
-	{
-		foreach ($this->particles as $id => $text) {
-			$type = $this->texts->get($id);
-			var_dump($this->getConfig()->get("texts"));
-			$typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
-			$text->update(C::GOLD . $typetitle . "\n" . $this->getRankings($type), $player);
-		}
-	}
+    public function updateTexts(Player $player)
+    {
+        foreach ($this->particles as $id => $text) {
+            $type = $this->texts->get($id);
+            var_dump($this->getConfig()->get("texts"));
+            $typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
+            $text->update(C::GOLD . $typetitle . "\n" . $this->getRankings($type), $player);
+        }
+    }
 
-	public function addKill(Player $player)
-	{
-		$data = $this->getData($player->getName());
-		$data->addKill();
-	}
+    public function addKill(Player $player)
+    {
+        $data = $this->getData($player->getName());
+        $data->addKill();
+        $maxLevel = max(array_keys($this->cfg->getAll()));
+        if ($data->getLevel() >= $maxLevel) {
+            return;
+        } elseif ($data->getLevel() < $maxLevel) {
+            $level = $this->cfg->getAll()[$data->getLevel() + 1];
+            if ($data->getKills() == $level["kills"]) {
+                $player->sendPopup(C::DARK_GREEN . "You have successfully Leveled up!");
+                $data->levelUp();
+                foreach ($level["cmds"] as $command) {
+                    $cmd = str_replace(["{p}", "{k}", "{s}", "{d}", "{l}"], ["\"" . $player->getName() . "\"", $data->getKills(), $data->getStreak(), $data->getDeaths(), $data->getLevel()], $command);
+                    $this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
+                }
+            }
+        }
+    }
+
 
 	public function handleStreak(Player $player, Player $v)
 	{
@@ -182,6 +198,9 @@ class Main extends PluginBase
 			case "kills":
 				$string = "kills";
 				break;
+            case "levels":
+                $string = "level";
+                break;
 			default:
 				break;
 		}

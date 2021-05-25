@@ -9,6 +9,7 @@ class UserData {
     private $plugin;
     private $player;
     private $kills = 0;
+    private $level = 0;
     private $killStreak = 0;
     private $deaths = 0;
     private $data = null;
@@ -23,6 +24,9 @@ class UserData {
             $this->kills = $data["kills"];
             $this->deaths = $data["deaths"];
             $this->killStreak = $data["killstreak"] ?? 0;
+            $this->level = $data["level"];
+        } else {
+            return;
         }
     }
 
@@ -46,6 +50,15 @@ class UserData {
         return $this->deaths;
     }
 
+    public function getLevel() {
+        return $this->level;
+    }
+
+    public function levelUp() {
+        $this->level++;
+        $this->save();
+    }
+
     public function addKill() {
         $this->kills++;
         $this->killStreak++;
@@ -64,7 +77,7 @@ class UserData {
     }
 
     public function save() {
-        yaml_emit_file($this->getPath(), ["name" => $this->player, "kills" => $this->kills, "killstreak" => $this->killStreak, $this->kills, "deaths" => $this->deaths]);
+        yaml_emit_file($this->getPath(), ["name" => $this->player, "kills" => $this->kills, "killstreak" => $this->killStreak, $this->kills, "deaths" => $this->deaths, "level" => $this->level]);
     }
 
 }
