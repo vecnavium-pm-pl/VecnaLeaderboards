@@ -10,7 +10,11 @@ use pocketmine\network\mcpe\protocol\AddPlayerPacket;
 use pocketmine\network\mcpe\protocol\RemoveActorPacket;
 use pocketmine\network\mcpe\protocol\SetActorDataPacket;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
+
 use pocketmine\Player;
+
+use pocketmine\Server;
+
 use pocketmine\utils\UUID;
 
 class CustomFloatingText
