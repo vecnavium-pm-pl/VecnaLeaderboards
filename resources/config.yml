@@ -6,7 +6,7 @@
 
 
 #Leaderboard texts config
-#Set up on what world you wish to create & spawn in the leaderboard.
+#Set up on what world you wish to create & spawn in the leaderboard(s).
 texts:
   world: "world"
 
@@ -18,8 +18,47 @@ texts:
 #Use "&" for colors
 
   kills: "&l&l| Kills Leaderboard |"
+
+  streaks: "&l&l| Kill Streaks Leaderboard |"
   
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
   leaderboard-top-length: 10
+
+#========================================================================#
+# Levels System based on Kills from each player and rewards configuration
+#========================================================================#
+
+# Be sure you follow the configuration pattern or else you will likely face errors.
+# You do not HAVE to add rewards per level but it is required to not skip levels (numbers) or else you might run through errors.
+
+#Format for each levels
+# Level Number(DO NOT SKIP NUMBERS):
+#   kills: Amount of kills required to reach to the level
+#   commands(OPTIONAL): The command that will and should be executed once the player has leveled up
+
+#Variables supported you can use for rewards..
+# {k} - Number of kills
+# {s} - Kill streaks
+# {d} - Number of deaths
+# {p} - Player's username
+# {l} - The player's level
+
+#More variables will be supported soon!
+
+0:
+  kills: 0
+  #DO NOT TOUCH THIS AT ALL AND LEAVE IT BLANK AND AS IS
+
+1:
+  kills: 2
+  cmds:
+    - "tell {p} You have successfully reached level 1!"
+    - "say {p} has successfully reached level 1!"
+
+2:
+  kills: 4
+  cmds:
+    - "tell {p} You have successfully reached level 2!"
+    - "say {p} has successfully reached level 2!"
 
 #====================================================================================#
