@@ -215,7 +215,7 @@ class Main extends PluginBase
 		return str_replace("&", "§", $text);
 	}
 }
-=======
+
 	public function colorize(string $text) {
             $newText = str_replace("&", "§", $text);
             return $newText;
