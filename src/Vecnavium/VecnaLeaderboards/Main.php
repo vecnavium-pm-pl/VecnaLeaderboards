@@ -198,7 +198,7 @@ class Main extends PluginBase
 		$finalRankings = "";
 		$i = 1;
 		foreach ($stats as $name => $number) {
-			$finalRankings .= C::RED . $i . ".) " . $name . ": " . $number . "\n";
+			$finalRankings .= C::RED . $i . ") " . $name . ": " . $number . "\n";
 			if ($i > $this->getConfig()->get("texts")["leaderboard-top-length"]) {
 				return $finalRankings;
 			}
@@ -211,13 +211,9 @@ class Main extends PluginBase
 	}
 
 	public function colorize(string $text)
-	{
-		return str_replace("&", "§", $text);
-	}
-}
+    {
+        return str_replace("&", "§", $text);
 
-	public function colorize(string $text) {
-            $newText = str_replace("&", "§", $text);
-            return $newText;
     }
 }
+
