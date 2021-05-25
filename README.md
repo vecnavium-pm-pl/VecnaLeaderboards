@@ -25,19 +25,20 @@ More coming soon!
 
 • [X] Kill streaks announcements
 
-• [] Top kill streaks leaderboard
+• [] Top kill streaks leaderboard & Player Statistics
 
 • [X] UI for /stats
 
 • [] Player levels & rewards based on kill amounts.
 
-• [] KDR Player Statistics & Leaderboard.
+• [] Top KDR Leaderboard & Player Statistics
 
-• [] Player Levels leaderboard & Player Statistics.
+• [] Top Player levels based on kills (configurable)
 
 • [] Being able to configure Player Statistics format.
 
 • [] Top OnlineTime leaderboard 
+
 
 Have other suggestions? Let me know in the [Support Discord](https://discord.gg/jWFB56RqUN) or Create an [Issue](https://github.com/Vecnavium/VecnaLeaderboards/issues/new) about your suggestion!
 
