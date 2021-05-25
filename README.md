@@ -29,7 +29,7 @@ More coming soon!
 
 • [X] UI for /stats
 
-• [] Player levels & rewards based on kill amounts.
+• [X] Player levels & rewards based on kill amounts.
 
 • [] Top KDR Leaderboard & Player Statistics
 
