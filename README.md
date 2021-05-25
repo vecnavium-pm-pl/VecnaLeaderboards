@@ -10,13 +10,13 @@ This plugin's current feature is only the beginning, ton more other features for
 # Features 
 
 
-• Ability to create top killers leaderboard
+• Ability to create all sorts leaderboard types such as kills and more to come
 
 • Being able to see others and your own player stats by using /stats
 
-• Freedom of configurability for the plugin
+• Kill streaks announcements at 5 and above every 5+
 
-• Configurable ranking amount
+More coming soon!
 
 
 # Planned features
