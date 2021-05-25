@@ -33,6 +33,9 @@ class Main extends PluginBase
 		$this->cfg = $this->getConfig();
 		$this->texts = new Config($this->getDataFolder() . "leaderboards.yml", Config::YAML);
 		$listener = new EventListener($this);
+		if (!$this->getServer()->isLevelLoaded($this->cfg->get("texts")["world"])){
+			$this->getServer()->loadLevel($this->cfg->get("texts")["world"]);
+		}
 		$this->getServer()->getPluginManager()->registerEvents($listener, $this);
 		$this->getServer()->getCommandMap()->register("stats", new StatsCommand($this));
 		$interval = $this->cfg->get("texts")["leaderboard-timer"] ?? 60;
@@ -67,6 +70,7 @@ class Main extends PluginBase
 	{
 		foreach ($this->particles as $id => $text) {
 			$type = $this->texts->get($id);
+			var_dump($this->getConfig()->get("texts"));
 			$typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
 			$text->update(C::GOLD . $typetitle . "\n" . $this->getRankings($type), $player);
 		}
