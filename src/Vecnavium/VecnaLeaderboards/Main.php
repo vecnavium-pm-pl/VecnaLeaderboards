@@ -18,11 +18,11 @@ use Vecnavium\VecnaLeaderboards\Util\CustomFloatingText;
 class Main extends PluginBase
 {
 
-	private $cfg;
+	public $cfg;
 	private $texts;
 	private $UserData = [];
 	/** @var CustomFloatingText[] */
-	private $particles = [];
+	public $particles = [];
 
 	public function onEnable()
 	{
@@ -33,6 +33,9 @@ class Main extends PluginBase
 		$this->cfg = $this->getConfig();
 		$this->texts = new Config($this->getDataFolder() . "leaderboards.yml", Config::YAML);
 		$listener = new EventListener($this);
+		if (!$this->getServer()->isLevelLoaded($this->cfg->get("texts")["world"])){
+			$this->getServer()->loadLevel($this->cfg->get("texts")["world"]);
+		}
 		$this->getServer()->getPluginManager()->registerEvents($listener, $this);
 		$this->getServer()->getCommandMap()->register("stats", new StatsCommand($this));
 		$interval = $this->cfg->get("texts")["leaderboard-timer"] ?? 60;
@@ -43,29 +46,33 @@ class Main extends PluginBase
 	{
 		foreach ($this->texts->getAll() as $loc => $type) {
 			$pos = explode("_", $loc);
+			$level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
 			if (isset($pos[1])) {
 				$v3 = new Vector3(round($pos[0], 2), round($pos[1], 2), round($pos[2], 2));
-				$this->createText($v3, $type);
+				$this->createText(Position::fromObject($v3, $level), $type);
 			}
 		}
 	}
 
-	public function createText(Vector3 $location, string $type = "levels")
+	public function createText(Position $location, string $type = "levels")
 	{
 		$typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
 		$id = implode("_", [$location->getX(), $location->getY(), $location->getZ()]);
 		$level = $this->getServer()->getLevelByName($this->cfg->get("texts")["world"]);
 		$particle = new CustomFloatingText(C::WHITE . "================\n" . $typetitle . "\n" . $this->getRankings($type), Position::fromObject($location, $level));
-		$particle->spawn();
+		foreach ($location->level->getPlayers() as $player) {
+			$particle->spawn($player);
+		}
 		$this->particles[$id] = $particle;
 	}
 
-	public function updateTexts()
+	public function updateTexts(Player $player)
 	{
 		foreach ($this->particles as $id => $text) {
 			$type = $this->texts->get($id);
+			var_dump($this->getConfig()->get("texts"));
 			$typetitle = $this->colorize($this->getConfig()->get("texts")[$type]);
-			$text->update(C::GOLD . $typetitle . "\n" . $this->getRankings($type));
+			$text->update(C::GOLD . $typetitle . "\n" . $this->getRankings($type), $player);
 		}
 	}
 
@@ -110,14 +117,16 @@ class Main extends PluginBase
 						$v3 = implode("_", [round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)]);
 						$this->texts->set($v3, $args[0]);
 						$this->texts->save();
-						$this->createText(new Vector3(round($sender->getX(), 2), round($sender->getY(), 2) + 1.7, round($sender->getZ(), 2)), $args[0]);
+						$this->createText($sender->asPosition(), $args[0]);
 						$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . "Leaderboard has been created!");
 						return true;
 					} elseif (in_array($args[0], ["del", "remove", "delete"])) {
 						$text = $this->isNearText($sender);
 						if (isset($this->particles[$text])) {
 							if ($this->particles[$text] instanceof CustomFloatingText) {
-								$this->particles[$text]->remove();
+								foreach ($this->getServer()->getOnlinePlayers() as $onlinePlayer) {
+									$this->particles[$text]->remove($onlinePlayer);
+								}
 								$this->texts->remove($text);
 								$this->texts->save();
 								if (isset($this->particles[$text])) {
@@ -200,6 +209,13 @@ class Main extends PluginBase
 		}
 		return "";
 	}
+
+	public function colorize(string $text)
+	{
+		return str_replace("&", "§", $text);
+	}
+}
+=======
 	public function colorize(string $text) {
             $newText = str_replace("&", "§", $text);
             return $newText;

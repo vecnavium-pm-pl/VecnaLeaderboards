@@ -15,7 +15,10 @@ private $plugin;
     }
 
     public function onRun($currentTick) : void {
-        $this->plugin->updateTexts();
+		$level = $this->plugin->getServer()->getLevelByName($this->plugin->cfg->get("texts")["world"]);
+		foreach ($level->getPlayers() as $player) {
+			$this->plugin->updateTexts($player);
+		}
     }
 }
 
