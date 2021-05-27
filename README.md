@@ -33,12 +33,11 @@ More coming soon!
 
 • [] Top KDR Leaderboard & Player Statistics
 
-• [] Top Player levels based on kills (configurable)
-
 • [] Being able to configure Player Statistics format.
 
 • [] Top OnlineTime leaderboard 
 
+And possibly few more that isn't listed
 
 Have other suggestions? Let me know in the [Support Discord](https://discord.gg/jWFB56RqUN) or Create an [Issue](https://github.com/Vecnavium/VecnaLeaderboards/issues/new) about your suggestion!
 
