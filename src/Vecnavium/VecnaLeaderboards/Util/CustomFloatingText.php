@@ -20,11 +20,11 @@ use pocketmine\utils\UUID;
 class CustomFloatingText
 {
 	/** @var int */
-	private $eid;
+	private int $eid;
 	/** @var string */
-	private $text;
+	private string $text;
 	/** @var Position */
-	private $position;
+	private Position $position;
 
 	/**
 	 * CustomFloatingText constructor.

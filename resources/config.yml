@@ -1,28 +1,23 @@
 #==========================================#
 #Config File for VecnaLeaderboards
 #==========================================#
----
+CONFIG_VERSION: 2
 #====================================================================================#
 
 
-#Leaderboard texts config
-#Set up on what world you wish to create & spawn in the leaderboard(s).
-texts:
-  world: "world"
-
 #How often do you want all leaderboards to update to latest stats?
-  leaderboard-timer: 30
+leaderboard-timer: 30
 
 
 #Config the title to the text you want for it to display at the top for each statistic leaderboard.
 #Use "&" for colors
 
-  kills: "&l&l| Kills Leaderboard |"
+kills: "&l&l| Kills Leaderboard |"
 
-  streaks: "&l&l| Kill Streaks Leaderboard |"
+streaks: "&l&l| Kill Streaks Leaderboard |"
   
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
-  leaderboard-top-length: 10
+leaderboard-top-length: 10
 
 #========================================================================#
 # Levels System based on Kills from each player and rewards configuration
@@ -32,33 +27,31 @@ texts:
 # You do not HAVE to add rewards per level but it is required to not skip levels (numbers) or else you might run through errors.
 
 #Format for each levels
-# Level Number(DO NOT SKIP NUMBERS):
+# Level Number:
 #   kills: Amount of kills required to reach to the level
 #   commands(OPTIONAL): The command that will and should be executed once the player has leveled up
 
 #Variables supported you can use for rewards..
-# {k} - Number of kills
-# {s} - Kill streaks
-# {d} - Number of deaths
-# {p} - Player's username
-# {l} - The player's level
+# {kills} - Number of kills
+# {streak} - Kill streaks
+# {deaths} - Number of deaths
+# {player} - Player's username
+# {level} - The player's level
 
 #More variables will be supported soon!
-
-0:
-  kills: 0
-  #DO NOT TOUCH THIS AT ALL AND LEAVE IT BLANK AND AS IS
-
-1:
-  kills: 2
-  cmds:
-    - "tell {p} You have successfully reached level 1!"
-    - "say {p} has successfully reached level 1!"
-
-2:
-  kills: 4
-  cmds:
-    - "tell {p} You have successfully reached level 2!"
-    - "say {p} has successfully reached level 2!"
+levels:
+  0:
+    kills: 0
+    #DO NOT TOUCH THIS AT ALL AND LEAVE IT BLANK AND AS IS
+  1:
+    kills: 2
+    cmds:
+      - "tell {player} You have successfully reached level 1!"
+      - "say {player} has successfully reached level 1!"
+  2:
+    kills: 4
+    cmds:
+      - "tell {player} You have successfully reached level 2!"
+      - "say {player} has successfully reached level 2!"
 
 #====================================================================================#
