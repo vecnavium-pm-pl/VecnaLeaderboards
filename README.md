@@ -21,21 +21,21 @@ More coming soon!
 
 # Planned features
 
-• [] Top money leaderboard (EconomyAPI)
+• [ ] Top money leaderboard (EconomyAPI)
 
 • [X] Kill streaks announcements
 
-• [] Top kill streaks leaderboard & Player Statistics
+• [ ] Top kill streaks leaderboard & Player Statistics
 
 • [X] UI for /stats
 
 • [X] Player levels & rewards based on kill amounts.
 
-• [] Top KDR Leaderboard & Player Statistics
+• [ ] Top KDR Leaderboard & Player Statistics
 
-• [] Being able to configure Player Statistics format.
+• [ ] Being able to configure Player Statistics format.
 
-• [] Top OnlineTime leaderboard 
+• [ ] Top OnlineTime leaderboard 
 
 And possibly few more that isn't listed
 
