@@ -58,15 +58,16 @@ class LeaderboardManager
 
 	/**
 	 * @param Player $player
-	 * @param Level $level
+	 * @param Level $target
+	 * @param Level|null $origin
 	 */
-	public function handleLeaderboardSpawning(Player $player, Level $level)
+	public function handleLeaderboardSpawning(Player $player, Level $target, ?Level $origin = null)
 	{
 		foreach ($this->leaderboards as $leaderboard) {
-			$leaderboard->despawn($player);
-		}
-		foreach ($this->leaderboards as $leaderboard) {
-			if ($leaderboard->getPosition()->getLevel() === $level) {
+			if ($leaderboard->getPosition()->getLevel() === $origin) {
+				$leaderboard->despawn($player);
+			}
+			if ($leaderboard->getPosition()->getLevel() === $target) {
 				$leaderboard->spawn($player);
 			}
 		}

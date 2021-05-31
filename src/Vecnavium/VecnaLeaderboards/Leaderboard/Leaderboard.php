@@ -35,14 +35,16 @@ class Leaderboard
 	 */
 	public function tick(int $currentTick): void
 	{
-		if ($this->text !== null) {
-			$title = PluginUtils::colorize($this->getPlugin()->getConfig()->get($this->type));
-			foreach ($this->position->getLevel()->getPlayers() as $player) {
-				$this->text->update(
-					TextFormat::GOLD . $title . "\n" .
-					$this->getPlugin()->getYamlProvider()->getRankings($this->type), $player
-				);
-			}
+		switch ($this->type) {
+			case Main::LEADERBOARD_TYPE_KILLS:
+				$title = PluginUtils::colorize($this->getPlugin()->getConfig()->get($this->type));
+				foreach ($this->position->getLevel()->getPlayers() as $player) {
+					$this->text->update(
+						TextFormat::GOLD . $title . "\n" .
+						$this->getPlugin()->getYamlProvider()->getRankings($this->type), $player
+					);
+				}
+				break;
 		}
 	}
 
@@ -55,10 +57,10 @@ class Leaderboard
 		$text = TextFormat::WHITE . "================\n" .
 			$title . "\n" .
 			$this->getPlugin()->getYamlProvider()->getRankings($this->type);
-		$this->text = new CustomFloatingText($text, $this->position);
-		if ($player === null){
+		$this->text = new CustomFloatingText($text, $this->position, $this->id);
+		if ($player === null) {
 			foreach ($this->position->getLevel()->getPlayers() as $player) {
-				if (!$player->isOnline()){
+				if (!$player->isOnline()) {
 					continue;
 				}
 				$this->text->spawn($player);
@@ -73,10 +75,10 @@ class Leaderboard
 		if ($this->text === null) {
 			return;
 		}
-		if ($this->position->getLevel() === null){
+		if ($this->position->getLevel() === null) {
 			return;
 		}
-		if ($player === null){
+		if ($player === null) {
 			foreach ($this->position->getLevel()->getPlayers() as $player) {
 				$this->text->remove($player);
 			}

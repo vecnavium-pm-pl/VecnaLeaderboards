@@ -2,6 +2,7 @@
 
 namespace Vecnavium\VecnaLeaderboards\Provider;
 
+use pocketmine\command\ConsoleCommandSender;
 use pocketmine\Player;
 use pocketmine\utils\Config;
 use Vecnavium\VecnaLeaderboards\Main;
@@ -30,8 +31,8 @@ class UserDataSessionProvider
 
 	public function addKill(): void
 	{
-		$kills = $this->getKills();
-		$this->config->set('kills', $kills + 1);
+		$kills = $this->getKills() + 1;
+		$this->config->set('kills', $kills);
 		$this->config->save();
 		$this->currentStreak++;
 		if ($this->currentStreak > 5 && $this->currentStreak > $this->getStreak()) {
@@ -40,6 +41,17 @@ class UserDataSessionProvider
 				C::GRAY . "> " . C::WHITE . $this->player->getName() . " is on a " . $this->currentStreak .
 				" killstreak. Go kill them to end their streak! ");
 			$this->setStreak($this->currentStreak);
+		}
+		$playerLevel = $this->getLevel();
+		foreach ($this->getPlugin()->getYamlProvider()->getLevels() as $level => $data) {
+			if ($kills == $data['kills'] && $playerLevel < $level){
+				$this->player->sendPopup(C::DARK_GREEN . "You have successfully Leveled up!");
+				$this->levelUp();
+				foreach ($level["cmds"] as $command) {
+					$cmd = str_replace(["{p}", "{k}", "{s}", "{d}", "{l}"], ["\"" . $this->player->getName() . "\"", $this->getKills(), $this->getStreak(), $this->getDeaths(), $this->getLevel()], $command);
+					$this->getPlugin()->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
+				}
+			}
 		}
 	}
 
@@ -75,6 +87,17 @@ class UserDataSessionProvider
 		$this->config->save();
 	}
 
+	public function getLevel(): int
+	{
+		return (int)$this->config->get('level', 0);
+	}
+
+	public function setLevel(int $level): void
+	{
+		$this->config->set('level', $level);
+		$this->config->save();
+	}
+
 	/**
 	 * @return Player
 	 */
@@ -91,5 +114,19 @@ class UserDataSessionProvider
 		return $this->currentStreak;
 	}
 
+	/**
+	 * @return Main
+	 */
+	public function getPlugin(): Main
+	{
+		return Main::getInstance();
+	}
+
+	private function levelUp()
+	{
+		$level = $this->getLevel() + 1;
+		$this->config->set('level', $level);
+		$this->config->save();
+	}
 
 }

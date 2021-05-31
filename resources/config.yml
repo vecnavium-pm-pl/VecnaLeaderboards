@@ -40,9 +40,6 @@ leaderboard-top-length: 10
 
 #More variables will be supported soon!
 levels:
-  0:
-    kills: 0
-    #DO NOT TOUCH THIS AT ALL AND LEAVE IT BLANK AND AS IS
   1:
     kills: 2
     cmds:

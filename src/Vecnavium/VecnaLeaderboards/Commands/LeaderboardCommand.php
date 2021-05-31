@@ -22,6 +22,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 	{
 		parent::__construct("leaderboard", "leaderboard command help", "/ldb help", ["leaderboard", "ldb"]);
 		$this->plugin = $plugin;
+		$this->setPermission("vecnaviumleaderboards.leaderboard");
 	}
 
 
@@ -43,9 +44,6 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 		}
 		switch ($args[0]) {
 			case Main::LEADERBOARD_TYPE_KILLS:
-			case Main::LEADERBOARD_TYPE_DEATHS:
-			case Main::LEADERBOARD_TYPE_STREAKS:
-			case Main::LEADERBOARD_TYPE_LEVELS:
 				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::$entityCount++, $args[0], $sender->asPosition());
 				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . "Leaderboard has been created!");
 				break;

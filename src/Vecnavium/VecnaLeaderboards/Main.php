@@ -48,6 +48,10 @@ class Main extends PluginBase implements Listener
 		$this->leaderboardManager->saveLeaderboards();
 	}
 
+	/**
+	 * @param string $option
+	 * @return bool
+	 */
 	public static function isValidLeaderboard(string $option): bool
 	{
 		$options = [
@@ -75,11 +79,12 @@ class Main extends PluginBase implements Listener
 	public function onEntityLevelChangeEvent(EntityLevelChangeEvent $event): void
 	{
 		$target = $event->getTarget();
+		$origin = $event->getOrigin();
 		$player = $event->getEntity();
 		if (!$player instanceof Player) {
 			return;
 		}
-		$this->leaderboardManager->handleLeaderboardSpawning($player, $target);
+		$this->leaderboardManager->handleLeaderboardSpawning($player, $target, $origin);
 	}
 
 	public function onEntityDamage(EntityDamageEvent $event): void
