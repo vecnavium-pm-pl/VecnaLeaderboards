@@ -10,32 +10,29 @@ use pocketmine\network\mcpe\protocol\AddPlayerPacket;
 use pocketmine\network\mcpe\protocol\RemoveActorPacket;
 use pocketmine\network\mcpe\protocol\SetActorDataPacket;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
-
 use pocketmine\Player;
-
-use pocketmine\Server;
-
 use pocketmine\utils\UUID;
 
 class CustomFloatingText
 {
 	/** @var int */
-	private $eid;
+	private int $eid;
 	/** @var string */
-	private $text;
+	private string $text;
 	/** @var Position */
-	private $position;
+	private Position $position;
 
 	/**
 	 * CustomFloatingText constructor.
 	 * @param string $text
 	 * @param Position $position
+	 * @param int $eid
 	 */
-	public function __construct(string $text, Position $position)
+	public function __construct(string $text, Position $position, int $eid)
 	{
 		$this->text = $text;
 		$this->position = $position;
-		$this->eid = Entity::$entityCount++;
+		$this->eid = $eid;
 	}
 
 
@@ -71,11 +68,7 @@ class CustomFloatingText
 				Entity::DATA_TYPE_STRING, $text
 			]
 		];
-		$level = $this->position->getLevel();
-		if ($level !== null) {
-			$player->sendDataPacket($pk);
-		}
-
+		$player->sendDataPacket($pk);
 	}
 
 	public function remove(Player $player)
