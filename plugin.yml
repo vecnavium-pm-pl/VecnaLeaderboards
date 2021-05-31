@@ -16,4 +16,4 @@ commands:
 permissions:
   vecnaleaderboards.lb:
       default: op
-      description: "Permission to create Leaderboard."
+      description: "Permission to create Leaderboard"
