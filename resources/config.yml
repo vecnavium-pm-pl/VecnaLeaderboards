@@ -35,7 +35,7 @@ leaderboard-top-length: 10
 # {kills} - Number of kills
 # {streak} - Kill streaks
 # {deaths} - Number of deaths
-# {player} - Player's username
+# {p} - Player's username
 # {level} - The player's level
 
 #More variables will be supported soon
@@ -44,12 +44,12 @@ levels:
   1:
     kills: 2
     cmds:
-      - "tell {player} You have successfully reached level 1!"
-      - "say {player} has successfully reached level 1!"
+      - "tell {p} You have successfully reached level 1!"
+      - "say {p} has successfully reached level 1!"
   2:
     kills: 4
     cmds:
-      - "tell {player} You have successfully reached level 2!"
-      - "say {player} has successfully reached level 2!"
+      - "tell {p} You have successfully reached level 2!"
+      - "say {p} has successfully reached level 2!"
 
 #====================================================================================#
