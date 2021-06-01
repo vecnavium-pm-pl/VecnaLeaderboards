@@ -21,7 +21,7 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 	{
 		parent::__construct("stats", "stats command", "/stats", ['stats']);
 		$this->setPermission("vecnaleaderboards.stats");
-		$this->setDescription("Stats command!");
+		$this->setDescription("Get stats on a player or yourself.");
 		$this->plugin = $plugin;
 	}
 
@@ -60,13 +60,13 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 					$name = $player->getName();
 					$sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Level: " . $data->getLevel() . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "+ Killstreak: " . $data->getStreak() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() . "\n" . C::RED . "=============");
 				} else {
-					$sender->sendMessage("§cThis player is either not online or does not exist.");
+					$sender->sendMessage("§cThis player either does not have any data or does not exist.");
 					return true;
 				}
 			}
 			return true;
 		});
-		$form->setTitle('§cVecna§eLeaderboards stats');
+		$form->setTitle('§cVecna§eLeaderboards Stats');
 		$form->addLabel('Enter the in-game name of the player you wish to see stats for and then press submit.');
 		$form->addInput('Username', 'Enter the username here');
 		$player->sendForm($form);
