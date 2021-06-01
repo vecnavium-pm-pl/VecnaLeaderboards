@@ -21,7 +21,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 	public function __construct(Main $plugin)
 	{
 		parent::__construct("leaderboard", "leaderboard command help", "/ldb help", ["leaderboard", "ldb", "lb"]);
-		$this->setPermission("vecnaviumleaderboards.leaderboard");
+		$this->setPermission("vecnaleaderboards.lb");
 		$this->plugin = $plugin;
 	}
 
