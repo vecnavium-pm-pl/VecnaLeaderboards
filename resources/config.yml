@@ -5,7 +5,7 @@ CONFIG_VERSION: 2
 #====================================================================================#
 
 
-#How often do you want all leaderboards to update to latest stats?
+#How often do you want all leaderboards to update to latest stats? (in seconds)
 leaderboard-timer: 30
 
 
@@ -38,7 +38,8 @@ leaderboard-top-length: 10
 # {player} - Player's username
 # {level} - The player's level
 
-#More variables will be supported soon!
+#More variables will be supported soon
+
 levels:
   1:
     kills: 2
