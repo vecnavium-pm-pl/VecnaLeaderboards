@@ -17,6 +17,7 @@ use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
+use JackMD\UpdateNotifier\UpdateNotifier;
 
 class Main extends PluginBase implements Listener
 {
