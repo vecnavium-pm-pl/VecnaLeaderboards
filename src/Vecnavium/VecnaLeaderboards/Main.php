@@ -17,7 +17,6 @@ use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
-use JackMD\UpdateNotifier\UpdateNotifier;
 
 class Main extends PluginBase implements Listener
 {
@@ -39,15 +38,11 @@ class Main extends PluginBase implements Listener
 		$this->yamlProvider = new YamlDataProvider($this);
 		$this->leaderboardManager = new LeaderboardManager($this);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
-		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
+        $this->getServer()->getCommandMap()->register("Vecnaleaderboards", new StatsCommand($this));
+        $this->getServer()->getCommandMap()->register("Vecnaleaderboards", new LeaderboardCommand($this));
 	}
-	public function onLoad()
-    {
-        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
-    }
 
-    public function onDisable()
+	public function onDisable()
 	{
 		$this->leaderboardManager->saveLeaderboards();
 	}
@@ -59,7 +54,7 @@ class Main extends PluginBase implements Listener
 	public static function isValidLeaderboard(string $option): bool
 	{
 		$options = [
-			self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS, self::LEADERBOARD_TYPE_LEVELS,
+		    self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS, self::LEADERBOARD_TYPE_LEVELS,
 		];
 		return in_array($option, $options);
 	}
