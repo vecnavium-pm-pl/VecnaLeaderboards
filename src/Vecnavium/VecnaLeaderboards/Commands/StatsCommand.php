@@ -20,7 +20,7 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 	public function __construct(Main $plugin)
 	{
 		parent::__construct("stats", "stats command", "/stats", ['stats']);
-		$this->setPermission("vecnaviumleaderboards.stats");
+		$this->setPermission("vecnaleaderboards.stats");
 		$this->setDescription("Stats command!");
 		$this->plugin = $plugin;
 	}
