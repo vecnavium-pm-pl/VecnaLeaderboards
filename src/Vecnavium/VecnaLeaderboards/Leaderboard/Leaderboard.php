@@ -14,7 +14,7 @@ class Leaderboard
 	private int $id;
 	private string $type;
 	private Position $position;
-	private ?CustomFloatingText $text;
+	private ?CustomFloatingText $text = null;
 
 
 	/**
