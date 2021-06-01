@@ -47,7 +47,7 @@ class UserDataSessionProvider
 			if ($kills == $data['kills'] && $playerLevel < $level){
 				$this->player->sendPopup(C::DARK_GREEN . "You have successfully Leveled up!");
 				$this->levelUp();
-				foreach ($level["cmds"] as $command) {
+				foreach ($data["cmds"] as $command) {
 					$cmd = str_replace(["{p}", "{k}", "{s}", "{d}", "{l}"], ["\"" . $this->player->getName() . "\"", $this->getKills(), $this->getStreak(), $this->getDeaths(), $this->getLevel()], $command);
 					$this->getPlugin()->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
 				}
