@@ -20,9 +20,9 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 	 */
 	public function __construct(Main $plugin)
 	{
-		parent::__construct("leaderboard", "leaderboard command help", "/lb help", ["leaderboard", "lb"]);
+		parent::__construct("leaderboard", "leaderboard command help", "/ldb help", ["leaderboard", "ldb", "lb"]);
+		$this->setPermission("vecnaviumleaderboards.leaderboard");
 		$this->plugin = $plugin;
-		$this->setPermission("vecnaleaderboards.leaderboard");
 	}
 
 
@@ -38,8 +38,9 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 			$sender->sendMessage(C::RED . "ERROR: Please run this command ingame");
 			return false;
 		}
-		if (!isset($args[0]) || !Main::isValidLeaderboard($args[0])) {
-			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb levels\n/lb streaks\n/lb delete");
+
+		if (!isset($args[0])) {
+			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
 			return false;
 		}
 		switch ($args[0]) {
@@ -59,6 +60,10 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 				}
 				$this->plugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
 				$sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
+				break;
+			default:
+				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+				return false;
 		}
 		return true;
 	}
