@@ -39,7 +39,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 			return false;
 		}
 		if (!isset($args[0]) || !Main::isValidLeaderboard($args[0])) {
-			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb levels\n/lb streaks\n/lb delete");
 			return false;
 		}
 		switch ($args[0]) {
