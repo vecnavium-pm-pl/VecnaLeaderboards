@@ -20,7 +20,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 	 */
 	public function __construct(Main $plugin)
 	{
-		parent::__construct("leaderboard", "leaderboard command help", "/ldb help", ["leaderboard", "ldb", "lb"]);
+		parent::__construct("leaderboard", "Leaderboards Command", "/lb help", ["leaderboard", "lb"]);
 		$this->setPermission("vecnaleaderboards.lb");
 		$this->plugin = $plugin;
 	}
@@ -40,7 +40,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 		}
 
 		if (!isset($args[0])) {
-			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\b/lb streaks\n/lb levels\n/lb delete");
 			return false;
 		}
 		switch ($args[0]) {
@@ -62,7 +62,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 				$sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
 				break;
 			default:
-				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\b/lb streaks\n/lb levels\n/lb delete");
 				return false;
 		}
 		return true;
