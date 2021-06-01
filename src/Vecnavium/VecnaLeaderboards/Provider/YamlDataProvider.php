@@ -28,7 +28,7 @@ class YamlDataProvider
 		@mkdir($this->plugin->getDataFolder() . "data/");
 		$config = $this->plugin->getConfig();
 		if (!$config->exists("CONFIG_VERSION") || $config->get("CONFIG_VERSION") != 2){
-			$this->plugin->getLogger()->warning("Your config version is outdated, please delete it.");
+			$this->plugin->getLogger()->warning("Your config version is outdated. Please delete the config.yml file and restart the server.");
 		}
 		$this->plugin->saveDefaultConfig();
 		$this->leaderboardRange = $this->plugin->getConfig()->get("leaderboard-top-length", 10);
