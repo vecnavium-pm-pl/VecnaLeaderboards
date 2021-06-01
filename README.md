@@ -4,7 +4,7 @@
 ## VecnaLeaderboards
 This plugin will be an advanced Leaderboards plugin, with tons of supported feature, simple fast and easy!
 
-This plugin's current feature is only the beginning, ton more other features for this plugin is planned and will be improved from time to time! 
+This plugin's current feature is only the beginning, ton more other features for this plugin is planned and will be improved from time to time
 
 
 # Features 
