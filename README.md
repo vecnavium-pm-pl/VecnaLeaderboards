@@ -14,7 +14,9 @@ This plugin's current feature is only the beginning, ton more other features for
 
 - Being able to see others and your own player stats by using /stats
 
-- Kill streaks announcements at 5 and above every 5+
+- Kill streaks announcements supported
+
+- 
 
 More coming soon!
 
@@ -25,13 +27,21 @@ More coming soon!
 
 - [X] Kill streaks announcements
 
-- [ ] Top kill streaks leaderboard & Player Statistics
+- [X] Top kill streaks leaderboard 
 
 - [X] UI for /stats
 
 - [X] Player levels & rewards based on kill amounts.
 
-- [ ] Top KDR Leaderboard & Player Statistics
+- [ ] Top KDR Leaderboard 
+
+- [ ] KDR Player Statistics
+
+- [ ] Top death leaderboard 
+
+- [ ] Top levels leaderboard
+
+- [ ] Levels Player Statistics
 
 - [ ] Being able to configure Player Statistics format.
 
