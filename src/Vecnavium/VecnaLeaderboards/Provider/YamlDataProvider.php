@@ -55,7 +55,6 @@ class YamlDataProvider
                 $string = "kills";
                 break;
 			case Main::LEADERBOARD_TYPE_STREAKS:
-			default:
 				$string = "streaks";
 				break;
 		}
