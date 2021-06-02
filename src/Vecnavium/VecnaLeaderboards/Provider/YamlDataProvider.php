@@ -48,9 +48,6 @@ class YamlDataProvider
 		$stats = [];
 
 		switch ($type) {
-			case Main::LEADERBOARD_TYPE_LEVELS:
-				$string = "levels";
-				break;
             case Main::LEADERBOARD_TYPE_KILLS:
                 $string = "kills";
                 break;
