@@ -49,7 +49,7 @@ class YamlDataProvider
 
 		switch ($type) {
 			case Main::LEADERBOARD_TYPE_LEVELS:
-				$string = "level";
+				$string = "levels";
 				break;
             case Main::LEADERBOARD_TYPE_KILLS:
                 $string = "kills";
