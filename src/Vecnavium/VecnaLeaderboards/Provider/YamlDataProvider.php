@@ -51,9 +51,12 @@ class YamlDataProvider
 			case Main::LEADERBOARD_TYPE_LEVELS:
 				$string = "level";
 				break;
+            case Main::LEADERBOARD_TYPE_KILLS:
+                $string = "kills";
+                break;
 			case Main::LEADERBOARD_TYPE_STREAKS:
 			default:
-				$string = "kills";
+				$string = "streaks";
 				break;
 		}
 		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {
