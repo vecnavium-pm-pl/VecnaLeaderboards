@@ -24,7 +24,6 @@ class Main extends PluginBase implements Listener
 
 	public const LEADERBOARD_TYPE_KILLS = "kills";
 	public const LEADERBOARD_TYPE_STREAKS = "streaks";
-    public const LEADERBOARD_TYPE_LEVELS = "levels";
 
 	private static Main $instance;
 	private YamlDataProvider $yamlProvider;
