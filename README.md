@@ -41,7 +41,7 @@ More coming soon!
 
 - [ ] Top levels leaderboard
 
-- [ ] Levels Player Statistics
+- [X] Levels Player Statistics
 
 - [ ] Being able to configure Player Statistics format.
 
