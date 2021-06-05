@@ -3,8 +3,6 @@ author: Vecnavium
 main: Vecnavium\VecnaLeaderboards\Main
 version: "2.0.0"
 api: [3.0.0]
-extensions:
-  Core: '>=7.3'
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
 mcpe-protocol: [340, 354, 361, 388, 389, 390, 407, 408, 419, 422, 428, 431]
 
