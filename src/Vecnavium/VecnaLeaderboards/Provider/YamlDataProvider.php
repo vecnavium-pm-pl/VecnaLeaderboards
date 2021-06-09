@@ -52,11 +52,12 @@ class YamlDataProvider
 		$stats = [];
 
 		switch ($type) {
-            case Main::LEADERBOARD_TYPE_KILLS:
-                $string = "kills";
-                break;
 			case Main::LEADERBOARD_TYPE_STREAKS:
 				$string = "streaks";
+				break;
+			case Main::LEADERBOARD_TYPE_KILLS:
+			default:
+				$string = "kills";
 				break;
 		}
 		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {
