@@ -4,38 +4,38 @@
 ## VecnaLeaderboards
 This plugin will be an advanced Leaderboards plugin, with tons of supported feature, simple fast and easy!
 
-This plugin's current feature is only the beginning, ton more other features for this plugin is planned and will be improved from time to time! 
+This plugin's current feature is only the beginning, ton more other features for this plugin is planned and will be improved from time to time
 
 
 # Features 
 
 
-• Ability to create all sorts leaderboard types such as kills and more to come
+- Ability to create all sorts leaderboard types such as kills and more to come
 
-• Being able to see others and your own player stats by using /stats
+- Being able to see others and your own player stats by using /stats
 
-• Kill streaks announcements at 5 and above every 5+
+- Kill streaks announcements at 5 and above every 5+
 
 More coming soon!
 
 
 # Planned features
 
-• [] Top money leaderboard (EconomyAPI)
+- [ ] Top money leaderboard (EconomyAPI)
 
-• [X] Kill streaks announcements
+- [X] Kill streaks announcements
 
-• [] Top kill streaks leaderboard & Player Statistics
+- [ ] Top kill streaks leaderboard & Player Statistics
 
-• [X] UI for /stats
+- [X] UI for /stats
 
-• [X] Player levels & rewards based on kill amounts.
+- [X] Player levels & rewards based on kill amounts.
 
-• [] Top KDR Leaderboard & Player Statistics
+- [ ] Top KDR Leaderboard & Player Statistics
 
-• [] Being able to configure Player Statistics format.
+- [ ] Being able to configure Player Statistics format.
 
-• [] Top OnlineTime leaderboard 
+- [ ] Top OnlineTime leaderboard 
 
 And possibly few more that isn't listed
 
@@ -52,13 +52,13 @@ Have other suggestions? Let me know in the [Support Discord](https://discord.gg/
 
 You found a bug or a plugin issue?
 
-• Contact support in the [Discord Server](https://discord.gg/jWFB56RqUN)
+- Contact support in the [Discord Server](https://discord.gg/jWFB56RqUN)
 
-• Create an [Issue](https://github.com/Vecnavium/VecnaLeaderboards/issues/new)
+- Create an [Issue](https://github.com/Vecnavium/VecnaLeaderboards/issues/new)
 
-• Write your bug & the issue you are having with all informations including the error so I can track the issue
+- Write your bug & the issue you are having with all informations including the error so I can track the issue
 
-• Submit the issue and be patient for a response for a solution to your problem
+- Submit the issue and be patient for a response for a solution to your problem
 
 # Suggestions
 
