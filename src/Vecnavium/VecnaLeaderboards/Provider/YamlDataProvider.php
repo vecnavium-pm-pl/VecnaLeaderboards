@@ -29,7 +29,7 @@ class YamlDataProvider
 		@mkdir($this->plugin->getDataFolder() . "data/");
 		$config = $this->plugin->getConfig();
 		if (!$config->exists("CONFIG_VERSION") || $config->get("CONFIG_VERSION") != 2){
-			$this->plugin->getLogger()->warning("Your config version is outdated, please delete it.");
+			$this->plugin->getLogger()->warning("Your config version is outdated. Please delete the config.yml file and restart the server.");
 		}
 		$this->plugin->saveDefaultConfig();
 		$this->leaderboardRange = $this->plugin->getConfig()->get("leaderboard-top-length", 10);
@@ -52,12 +52,11 @@ class YamlDataProvider
 		$stats = [];
 
 		switch ($type) {
-			case Main::LEADERBOARD_TYPE_LEVELS:
-				$string = "level";
-				break;
+            case Main::LEADERBOARD_TYPE_KILLS:
+                $string = "kills";
+                break;
 			case Main::LEADERBOARD_TYPE_STREAKS:
-			default:
-				$string = "kills";
+				$string = "streaks";
 				break;
 		}
 		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {

@@ -1,4 +1,5 @@
 <?php /** @noinspection PhpUnused */
+
 declare(strict_types=1);
 
 namespace Vecnavium\VecnaLeaderboards;
@@ -16,6 +17,7 @@ use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
+use JackMD\UpdateNotifier\UpdateNotifier;
 
 /**
  * Class Main
@@ -48,6 +50,10 @@ class Main extends PluginBase implements Listener
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
 	}
+	public function onLoad()
+    {
+        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
+    }
 
 	public function onDisable(): void
 	{
@@ -61,7 +67,7 @@ class Main extends PluginBase implements Listener
 	public static function isValidLeaderboard(string $option): bool
 	{
 		$options = [
-			self::LEADERBOARD_TYPE_DEATHS, self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS,
+			self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS,
 		];
 		return in_array($option, $options);
 	}

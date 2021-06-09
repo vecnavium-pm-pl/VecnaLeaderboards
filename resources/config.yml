@@ -5,7 +5,7 @@ CONFIG_VERSION: 2
 #====================================================================================#
 
 
-#How often do you want all leaderboards to update to latest stats?
+#How often do you want all leaderboards to update to latest stats? (in seconds)
 leaderboard-timer: 30
 
 
@@ -15,6 +15,7 @@ leaderboard-timer: 30
 kills: "&l&l| Kills Leaderboard |"
 
 streaks: "&l&l| Kill Streaks Leaderboard |"
+
   
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
 leaderboard-top-length: 10
@@ -32,23 +33,24 @@ leaderboard-top-length: 10
 #   commands(OPTIONAL): The command that will and should be executed once the player has leveled up
 
 #Variables supported you can use for rewards..
-# {kills} - Number of kills
+# {kills}- Number of kills
 # {streak} - Kill streaks
 # {deaths} - Number of deaths
-# {player} - Player's username
+# {p} - Player's username
 # {level} - The player's level
 
-#More variables will be supported soon!
+#More variables will be supported soon
+
 levels:
   1:
     kills: 2
     cmds:
-      - "tell {player} You have successfully reached level 1!"
-      - "say {player} has successfully reached level 1!"
+      - "tell {p} You have successfully reached level 1!"
+      - "say {p} has successfully reached level 1!"
   2:
     kills: 4
     cmds:
-      - "tell {player} You have successfully reached level 2!"
-      - "say {player} has successfully reached level 2!"
+      - "tell {p} You have successfully reached level 2!"
+      - "say {p} has successfully reached level 2!"
 
 #====================================================================================#

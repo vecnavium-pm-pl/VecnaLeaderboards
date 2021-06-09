@@ -25,8 +25,8 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 	 */
 	public function __construct(Main $plugin)
 	{
-		parent::__construct("leaderboard", "leaderboard command help", "/ldb help", ["leaderboard", "ldb", "lb"]);
-		$this->setPermission("vecnaviumleaderboards.leaderboard");
+		parent::__construct("leaderboard", "Leaderboards Command", "/lb help", ["leaderboard", "lb"]);
+		$this->setPermission("vecnaleaderboards.lb");
 		$this->plugin = $plugin;
 	}
 
@@ -44,13 +44,12 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 		}
 
 		if (!isset($args[0])) {
-			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\b/lb streaks\n/lb delete");
 			return false;
 		}
 		switch ($args[0]) {
 			case Main::LEADERBOARD_TYPE_KILLS:
             case Main::LEADERBOARD_TYPE_STREAKS:
-            case Main::LEADERBOARD_TYPE_LEVELS:
 				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::$entityCount++, $args[0], $sender->asPosition());
 				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
 				break;
@@ -66,7 +65,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 				$sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
 				break;
 			default:
-				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb delete");
+				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
 				return false;
 		}
 		return true;
