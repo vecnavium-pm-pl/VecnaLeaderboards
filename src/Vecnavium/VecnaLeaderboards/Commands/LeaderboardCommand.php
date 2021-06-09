@@ -2,11 +2,10 @@
 declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Commands;
 
-use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\command\PluginIdentifiableCommand;
+use pocketmine\command\defaults\VanillaCommand;
 use pocketmine\entity\Entity;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
@@ -15,7 +14,7 @@ use Vecnavium\VecnaLeaderboards\Main;
  * Class LeaderboardCommand
  * @package Vecnavium\VecnaLeaderboards\Commands
  */
-class LeaderboardCommand extends Command implements PluginIdentifiableCommand
+class LeaderboardCommand extends VanillaCommand
 {
 	/** @var Main */
 	private $plugin;
@@ -50,7 +49,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 		switch ($args[0]) {
 			case Main::LEADERBOARD_TYPE_KILLS:
             case Main::LEADERBOARD_TYPE_STREAKS:
-				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::$entityCount++, $args[0], $sender->asPosition());
+				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
 				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
 				break;
 			case "del":

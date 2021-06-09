@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Provider;
 
 use pocketmine\command\ConsoleCommandSender;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
 use Vecnavium\VecnaLeaderboards\Main;
 use pocketmine\utils\TextFormat as C;
@@ -55,7 +55,9 @@ class UserDataSessionProvider
 				$this->levelUp();
 				foreach ($data["cmds"] as $command) {
 					$cmd = str_replace(["{p}", "{k}", "{s}", "{d}", "{l}"], ["\"" . $this->player->getName() . "\"", $this->getKills(), $this->getStreak(), $this->getDeaths(), $this->getLevel()], $command);
-					$this->getPlugin()->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
+					$this->getPlugin()->getServer()->dispatchCommand(
+						new ConsoleCommandSender($this->player->getServer(), $this->player->getServer()->getLanguage()), $cmd
+					);
 				}
 			}
 		}

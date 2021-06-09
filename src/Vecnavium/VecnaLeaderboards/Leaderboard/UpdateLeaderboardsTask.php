@@ -23,13 +23,10 @@ class UpdateLeaderboardsTask extends Task
 		$this->manager = $manager;
 	}
 
-	/**
-	 * @param int $currentTick
-	 */
-	public function onRun(int $currentTick): void
+	public function onRun(): void
 	{
 		foreach ($this->manager->getLeaderboards() as $leaderboard) {
-			$leaderboard->tick($currentTick);
+			$leaderboard->tick();
 		}
 	}
 }

@@ -2,16 +2,21 @@
 declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Util;
 
-use pocketmine\entity\Entity;
-use pocketmine\item\Item;
 use pocketmine\item\ItemFactory;
-use pocketmine\level\Position;
+use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\protocol\AddPlayerPacket;
 use pocketmine\network\mcpe\protocol\RemoveActorPacket;
 use pocketmine\network\mcpe\protocol\SetActorDataPacket;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\network\mcpe\protocol\types\entity\FloatMetadataProperty;
+use pocketmine\network\mcpe\protocol\types\entity\LongMetadataProperty;
+use pocketmine\network\mcpe\protocol\types\entity\StringMetadataProperty;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
-use pocketmine\Player;
-use pocketmine\utils\UUID;
+use pocketmine\player\Player;
+use pocketmine\world\Position;
+use Ramsey\Uuid\Uuid;
+
 
 /**
  * Class CustomFloatingText
@@ -47,22 +52,23 @@ class CustomFloatingText
 	{
 		$pk = new AddPlayerPacket();
 		$pk->entityRuntimeId = $this->eid;
-		$pk->uuid = UUID::fromRandom();
+		$pk->uuid = Uuid::uuid4();
 		$pk->username = $this->text;
 		$pk->entityUniqueId = $this->eid;
 		$pk->position = $this->position->asVector3();
-		$pk->item = ItemStackWrapper::legacy(ItemFactory::get(Item::AIR, 0, 0));
+		$pk->item = ItemStackWrapper::legacy(TypeConverter::getInstance()->coreItemStackToNet(ItemFactory::air()));
 		$flags =
-			1 << Entity::DATA_FLAG_CAN_SHOW_NAMETAG |
-			1 << Entity::DATA_FLAG_ALWAYS_SHOW_NAMETAG |
-			1 << Entity::DATA_FLAG_IMMOBILE;
+			1 << EntityMetadataFlags::CAN_SHOW_NAMETAG |
+			1 << EntityMetadataFlags::ALWAYS_SHOW_NAMETAG |
+			1 << EntityMetadataFlags::IMMOBILE;
 		$pk->metadata = [
-			Entity::DATA_FLAGS => [Entity::DATA_TYPE_LONG, $flags],
-			Entity::DATA_SCALE => [Entity::DATA_TYPE_FLOAT, 0],
+			EntityMetadataProperties::FLAGS => new LongMetadataProperty($flags),
+			EntityMetadataProperties::SCALE => new FloatMetadataProperty(0.01) //zero causes problems on debug builds
 		];
-		$level = $this->position->getLevel();
+
+		$level = $this->position->getWorld();
 		if ($level !== null) {
-			$player->sendDataPacket($pk);
+			$player->getNetworkSession()->sendDataPacket($pk);
 		}
 	}
 
@@ -74,12 +80,8 @@ class CustomFloatingText
 	{
 		$pk = new SetActorDataPacket();
 		$pk->entityRuntimeId = $this->eid;
-		$pk->metadata = [
-			Entity::DATA_NAMETAG => [
-				Entity::DATA_TYPE_STRING, $text
-			]
-		];
-		$player->sendDataPacket($pk);
+		$pk->metadata = [EntityMetadataProperties::NAMETAG => new StringMetadataProperty($text)];
+		$player->getNetworkSession()->sendDataPacket($pk);
 	}
 
 	/**
@@ -89,7 +91,7 @@ class CustomFloatingText
 	{
 		$pk = new RemoveActorPacket();
 		$pk->entityUniqueId = $this->eid;
-		$player->sendDataPacket($pk);
+		$player->getNetworkSession()->sendDataPacket($pk);
 	}
 
 }
