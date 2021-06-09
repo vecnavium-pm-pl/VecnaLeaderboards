@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Commands;
 
 use jojoe77777\FormAPI\CustomForm;
-use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\command\PluginIdentifiableCommand;
-use pocketmine\Player;
+use pocketmine\command\defaults\VanillaCommand;
+use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
@@ -17,7 +16,7 @@ use Vecnavium\VecnaLeaderboards\Main;
  * Class StatsCommand
  * @package Vecnavium\VecnaLeaderboards\Commands
  */
-class StatsCommand extends Command implements PluginIdentifiableCommand
+class StatsCommand extends VanillaCommand
 {
 	/** @var Main */
 	private $plugin;

@@ -3,10 +3,10 @@ declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Leaderboard;
 
 use pocketmine\entity\Entity;
-use pocketmine\level\Level;
-use pocketmine\level\Position;
-use pocketmine\Player;
+use pocketmine\world\Position;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
+use pocketmine\world\World;
 use Vecnavium\VecnaLeaderboards\Main;
 use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
 
@@ -37,7 +37,7 @@ class LeaderboardManager
 		$config = new Config($this->plugin->getDataFolder() . 'leaderboards.yml', Config::YAML);
 		$leaderboards = $config->getAll();
 		foreach ($leaderboards as $position => $leaderboardType) {
-			$this->registerLeaderboard(Entity::$entityCount++, $leaderboardType, PluginUtils::positionFromString($position));
+			$this->registerLeaderboard(Entity::nextRuntimeId(), $leaderboardType, PluginUtils::positionFromString($position));
 		}
 	}
 
@@ -66,16 +66,16 @@ class LeaderboardManager
 
 	/**
 	 * @param Player $player
-	 * @param Level $target
-	 * @param Level|null $origin
+	 * @param World $target
+	 * @param World|null $origin
 	 */
-	public function handleLeaderboardSpawning(Player $player, Level $target, ?Level $origin = null)
+	public function handleLeaderboardSpawning(Player $player, World $target, ?World $origin = null)
 	{
 		foreach ($this->leaderboards as $leaderboard) {
-			if ($leaderboard->getPosition()->getLevel() === $origin) {
+			if ($leaderboard->getPosition()->getWorld() === $origin) {
 				$leaderboard->despawn($player);
 			}
-			if ($leaderboard->getPosition()->getLevel() === $target) {
+			if ($leaderboard->getPosition()->getWorld() === $target) {
 				$leaderboard->spawn($player);
 			}
 		}
@@ -88,7 +88,7 @@ class LeaderboardManager
 	public function getNearLeaderboard(Player $player): ?Leaderboard
 	{
 		foreach ($this->leaderboards as $leaderboard) {
-			if ($leaderboard->getPosition()->distance($player->asVector3()) < 3) {
+			if ($leaderboard->getPosition()->distance($player->getLocation()->asVector3()) < 3) {
 				return $leaderboard;
 			}
 		}

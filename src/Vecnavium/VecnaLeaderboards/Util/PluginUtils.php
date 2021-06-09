@@ -2,9 +2,9 @@
 declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Util;
 
-use pocketmine\level\Position;
 use pocketmine\math\Vector3;
 use pocketmine\Server;
+use pocketmine\world\Position;
 
 /**
  * Class PluginUtils
@@ -30,7 +30,7 @@ class PluginUtils
 	{
 		$vector = $position->asVector3();
 		return round($vector->getX(), 2) . "_" . round($vector->getY(), 2) . "_" .
-			round($vector->getZ(), 2) . "_" . $position->level->getFolderName();
+			round($vector->getZ(), 2) . "_" . $position->getWorld()->getFolderName();
 	}
 
 	/**
@@ -41,7 +41,7 @@ class PluginUtils
 	{
 		$coords = explode("_", $string);
 		$vector3 = new Vector3($coords[0], $coords[1], $coords[2]);
-		$level = Server::getInstance()->getLevelByName($coords[3]);
+		$level = Server::getInstance()->getWorldManager()->getWorldByName($coords[3]);
 		return Position::fromObject($vector3, $level);
 	}
 }

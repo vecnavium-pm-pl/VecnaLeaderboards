@@ -2,8 +2,8 @@
 declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Leaderboard;
 
-use pocketmine\level\Position;
-use pocketmine\Player;
+use pocketmine\world\Position;
+use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
 use Vecnavium\VecnaLeaderboards\Main;
 use Vecnavium\VecnaLeaderboards\Util\CustomFloatingText;
@@ -38,15 +38,12 @@ class Leaderboard
 		$this->position = $position;
 	}
 
-	/**
-	 * @param int $currentTick
-	 */
-	public function tick(int $currentTick): void
+	public function tick(): void
 	{
 		switch ($this->type) {
 			case Main::LEADERBOARD_TYPE_KILLS:
 				$title = PluginUtils::colorize($this->getPlugin()->getConfig()->get($this->type));
-				foreach ($this->position->getLevel()->getPlayers() as $player) {
+				foreach ($this->position->getWorld()->getPlayers() as $player) {
 					$this->text->update(
 						TextFormat::GOLD . $title . "\n" .
 						$this->getPlugin()->getYamlProvider()->getRankings($this->type), $player
@@ -67,7 +64,7 @@ class Leaderboard
 			$this->getPlugin()->getYamlProvider()->getRankings($this->type);
 		$this->text = new CustomFloatingText($text, $this->position, $this->id);
 		if ($player === null) {
-			foreach ($this->position->getLevel()->getPlayers() as $player) {
+			foreach ($this->position->getWorld()->getPlayers() as $player) {
 				if (!$player->isOnline()) {
 					continue;
 				}
@@ -83,11 +80,11 @@ class Leaderboard
 		if ($this->text === null) {
 			return;
 		}
-		if ($this->position->getLevel() === null) {
+		if ($this->position->getWorld() === null) {
 			return;
 		}
 		if ($player === null) {
-			foreach ($this->position->getLevel()->getPlayers() as $player) {
+			foreach ($this->position->getWorld()->getPlayers() as $player) {
 				$this->text->remove($player);
 			}
 		} else {

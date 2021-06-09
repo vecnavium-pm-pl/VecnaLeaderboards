@@ -6,11 +6,11 @@ namespace Vecnavium\VecnaLeaderboards;
 
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\EntityLevelChangeEvent;
+use pocketmine\event\entity\EntityTeleportEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
 use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
@@ -50,7 +50,8 @@ class Main extends PluginBase implements Listener
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
 	}
-	public function onLoad()
+
+	public function onLoad(): void
     {
         UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
     }
@@ -89,17 +90,17 @@ class Main extends PluginBase implements Listener
 	{
 		$player = $event->getPlayer();
 		$this->sessions[$player->getName()] = new UserDataSessionProvider($player);
-		$this->leaderboardManager->handleLeaderboardSpawning($player, $player->getLevel());
+		$this->leaderboardManager->handleLeaderboardSpawning($player, $player->getWorld());
 	}
 
 	/**
-	 * @param EntityLevelChangeEvent $event
+	 * @param EntityTeleportEvent $event
 	 * @priority NORMAL
 	 */
-	public function onEntityLevelChangeEvent(EntityLevelChangeEvent $event): void
+	public function onEntityLevelChangeEvent(EntityTeleportEvent $event): void
 	{
-		$target = $event->getTarget();
-		$origin = $event->getOrigin();
+		$target = $event->getTo()->getWorld();
+		$origin = $event->getFrom()->getWorld();
 		$player = $event->getEntity();
 		if (!$player instanceof Player) {
 			return;
