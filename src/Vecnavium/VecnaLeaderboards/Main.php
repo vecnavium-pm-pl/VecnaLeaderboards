@@ -1,5 +1,4 @@
 <?php /** @noinspection PhpUnused */
-
 declare(strict_types=1);
 
 namespace Vecnavium\VecnaLeaderboards;
@@ -18,6 +17,10 @@ use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
 
+/**
+ * Class Main
+ * @package Vecnavium\VecnaLeaderboards
+ */
 class Main extends PluginBase implements Listener
 {
 
@@ -26,14 +29,17 @@ class Main extends PluginBase implements Listener
 	public const LEADERBOARD_TYPE_DEATHS = "deaths";
 	public const LEADERBOARD_TYPE_LEVELS = "levels";
 
-	private static Main $instance;
-	private YamlDataProvider $yamlProvider;
-	private LeaderboardManager $leaderboardManager;
+	/** @var Main */
+	private static $instance;
+	/** @var YamlDataProvider */
+	private $yamlProvider;
+	/** @var LeaderboardManager */
+	private $leaderboardManager;
 	/** @var UserDataSessionProvider[] */
-	private array $sessions = [];
+	private $sessions = [];
 
 
-	public function onEnable()
+	public function onEnable(): void
 	{
 		self::$instance = $this;
 		$this->yamlProvider = new YamlDataProvider($this);
@@ -43,7 +49,7 @@ class Main extends PluginBase implements Listener
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
 	}
 
-	public function onDisable()
+	public function onDisable(): void
 	{
 		$this->leaderboardManager->saveLeaderboards();
 	}
@@ -69,6 +75,10 @@ class Main extends PluginBase implements Listener
 		return $this->sessions[$player->getName()] ?? null;
 	}
 
+	/**
+	 * @param PlayerJoinEvent $event
+	 * @priority NORMAL
+	 */
 	public function onPlayerJoin(PlayerJoinEvent $event): void
 	{
 		$player = $event->getPlayer();
@@ -76,6 +86,10 @@ class Main extends PluginBase implements Listener
 		$this->leaderboardManager->handleLeaderboardSpawning($player, $player->getLevel());
 	}
 
+	/**
+	 * @param EntityLevelChangeEvent $event
+	 * @priority NORMAL
+	 */
 	public function onEntityLevelChangeEvent(EntityLevelChangeEvent $event): void
 	{
 		$target = $event->getTarget();
@@ -87,6 +101,10 @@ class Main extends PluginBase implements Listener
 		$this->leaderboardManager->handleLeaderboardSpawning($player, $target, $origin);
 	}
 
+	/**
+	 * @param EntityDamageEvent $event
+	 * @priority NORMAL
+	 */
 	public function onEntityDamage(EntityDamageEvent $event): void
 	{
 		$victim = $event->getEntity();
@@ -112,6 +130,10 @@ class Main extends PluginBase implements Listener
 		}
 	}
 
+	/**
+	 * @param PlayerQuitEvent $event
+	 * @priority NORMAL
+	 */
 	public function onPlayerQuit(PlayerQuitEvent $event): void
 	{
 		$player = $event->getPlayer();

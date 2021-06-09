@@ -8,9 +8,10 @@ use Vecnavium\VecnaLeaderboards\Main;
 
 class YamlDataProvider
 {
-	private Main $plugin;
+	/** @var Main */
+	private $plugin;
 	/** @var int */
-	private int $leaderboardRange;
+	private $leaderboardRange;
 	/** @var array */
 	private $levels;
 
@@ -35,6 +36,9 @@ class YamlDataProvider
 		$this->levels = $this->plugin->getConfig()->get('levels', []);
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getUpdateInterval(): int {
 		return (int)$this->plugin->getConfig()->get('leaderboard-timer', 60);
 	}

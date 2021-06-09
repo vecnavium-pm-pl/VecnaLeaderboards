@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Leaderboard;
 
 use pocketmine\entity\Entity;
@@ -10,11 +10,16 @@ use pocketmine\utils\Config;
 use Vecnavium\VecnaLeaderboards\Main;
 use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
 
+/**
+ * Class LeaderboardManager
+ * @package Vecnavium\VecnaLeaderboards\Leaderboard
+ */
 class LeaderboardManager
 {
-	private Main $plugin;
+	/** @var Main */
+	private $plugin;
 	/** @var Leaderboard[] */
-	private array $leaderboards = [];
+	private $leaderboards = [];
 
 	/**
 	 * ScoreboardManager constructor.
@@ -27,7 +32,7 @@ class LeaderboardManager
 		$plugin->getScheduler()->scheduleDelayedRepeatingTask(new UpdateLeaderboardsTask($this), $interval * 20, $interval * 20);
 	}
 
-	public function loadLeaderboards()
+	public function loadLeaderboards(): void
 	{
 		$config = new Config($this->plugin->getDataFolder() . 'leaderboards.yml', Config::YAML);
 		$leaderboards = $config->getAll();
@@ -36,12 +41,15 @@ class LeaderboardManager
 		}
 	}
 
-	public function registerLeaderboard(int $id, string $type, Position $position)
+	public function registerLeaderboard(int $id, string $type, Position $position): void
 	{
 		$this->leaderboards[$id] = $leaderboard = new Leaderboard($id, $type, $position);
 		$leaderboard->spawn();
 	}
 
+	/**
+	 * @param int $id
+	 */
 	public function unregisterLeaderboard(int $id): void
 	{
 		if (isset($this->leaderboards[$id])) unset($this->leaderboards[$id]);

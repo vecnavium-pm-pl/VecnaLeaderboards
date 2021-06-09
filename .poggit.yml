@@ -1,4 +1,4 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Vecnavium/VecnaLeaderboard
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Vecnavium/VecnaLeaderboards
 build-by-default: true
 branches:
 - main

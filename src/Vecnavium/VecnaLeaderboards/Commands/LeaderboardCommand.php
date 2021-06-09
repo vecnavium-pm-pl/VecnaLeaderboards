@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Commands;
 
 use pocketmine\command\Command;
@@ -11,9 +11,14 @@ use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
 
+/**
+ * Class LeaderboardCommand
+ * @package Vecnavium\VecnaLeaderboards\Commands
+ */
 class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 {
-	private Main $plugin;
+	/** @var Main */
+	private $plugin;
 
 	/**
 	 * LeaderboardCommand constructor.
@@ -24,7 +29,6 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 		$this->setPermission("vecnaviumleaderboards.leaderboard");
 		$this->plugin = $plugin;
 	}
-
 
 	/**
 	 * @param CommandSender $sender
@@ -66,6 +70,9 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 	}
 
 
+	/**
+	 * @return Plugin
+	 */
 	public function getPlugin(): Plugin
 	{
 		return $this->plugin;

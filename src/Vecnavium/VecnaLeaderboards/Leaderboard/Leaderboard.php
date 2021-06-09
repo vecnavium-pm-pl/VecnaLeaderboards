@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Leaderboard;
 
 use pocketmine\level\Position;
@@ -9,12 +9,20 @@ use Vecnavium\VecnaLeaderboards\Main;
 use Vecnavium\VecnaLeaderboards\Util\CustomFloatingText;
 use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
 
+/**
+ * Class Leaderboard
+ * @package Vecnavium\VecnaLeaderboards\Leaderboard
+ */
 class Leaderboard
 {
-	private int $id;
-	private string $type;
-	private Position $position;
-	private ?CustomFloatingText $text;
+	/** @var int */
+	private $id;
+	/** @var string */
+	private $type;
+	/** @var Position */
+	private $position;
+	/** @var CustomFloatingText|null */
+	private $text = null;
 
 
 	/**
@@ -70,7 +78,7 @@ class Leaderboard
 		}
 	}
 
-	public function despawn(?Player $player = null)
+	public function despawn(?Player $player = null): void
 	{
 		if ($this->text === null) {
 			return;
