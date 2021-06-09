@@ -16,7 +16,9 @@ This plugin's current feature is only the beginning, ton more other features for
 
 - Kill streaks announcements supported
 
-- 
+- Top kill streaks 
+
+- Player levels based on kills and rewards
 
 More coming soon!
 
