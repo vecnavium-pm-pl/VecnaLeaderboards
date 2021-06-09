@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Util;
 
 use pocketmine\entity\Entity;
@@ -13,14 +13,18 @@ use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
 use pocketmine\Player;
 use pocketmine\utils\UUID;
 
+/**
+ * Class CustomFloatingText
+ * @package Vecnavium\VecnaLeaderboards\Util
+ */
 class CustomFloatingText
 {
 	/** @var int */
-	private int $eid;
+	private $eid;
 	/** @var string */
-	private string $text;
+	private $text;
 	/** @var Position */
-	private Position $position;
+	private $position;
 
 	/**
 	 * CustomFloatingText constructor.
@@ -36,6 +40,9 @@ class CustomFloatingText
 	}
 
 
+	/**
+	 * @param Player $player
+	 */
 	public function spawn(Player $player): void
 	{
 		$pk = new AddPlayerPacket();
@@ -59,7 +66,11 @@ class CustomFloatingText
 		}
 	}
 
-	public function update(string $text, Player $player)
+	/**
+	 * @param string $text
+	 * @param Player $player
+	 */
+	public function update(string $text, Player $player): void
 	{
 		$pk = new SetActorDataPacket();
 		$pk->entityRuntimeId = $this->eid;
@@ -71,7 +82,10 @@ class CustomFloatingText
 		$player->sendDataPacket($pk);
 	}
 
-	public function remove(Player $player)
+	/**
+	 * @param Player $player
+	 */
+	public function remove(Player $player): void
 	{
 		$pk = new RemoveActorPacket();
 		$pk->entityUniqueId = $this->eid;

@@ -13,10 +13,19 @@ use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
 
+/**
+ * Class StatsCommand
+ * @package Vecnavium\VecnaLeaderboards\Commands
+ */
 class StatsCommand extends Command implements PluginIdentifiableCommand
 {
-	private Main $plugin;
+	/** @var Main */
+	private $plugin;
 
+	/**
+	 * StatsCommand constructor.
+	 * @param Main $plugin
+	 */
 	public function __construct(Main $plugin)
 	{
 		parent::__construct("stats", "stats command", "/stats", ['stats']);
@@ -25,6 +34,12 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 		$this->plugin = $plugin;
 	}
 
+	/**
+	 * @param CommandSender $sender
+	 * @param string $commandLabel
+	 * @param array $args
+	 * @return bool
+	 */
 	public function execute(CommandSender $sender, string $commandLabel, array $args): bool
 	{
 		if (!$sender->hasPermission($this->getPermission())) {
@@ -47,6 +62,9 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 		return $this->plugin;
 	}
 
+	/**
+	 * @param Player $player
+	 */
 	public function MainForm(Player $player)
 	{
 		$form = new CustomForm(function (Player $sender, $data) {

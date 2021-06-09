@@ -1,11 +1,15 @@
 <?php
-
+declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Util;
 
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
 use pocketmine\Server;
 
+/**
+ * Class PluginUtils
+ * @package Vecnavium\VecnaLeaderboards\Util
+ */
 class PluginUtils
 {
 
@@ -13,7 +17,7 @@ class PluginUtils
 	 * @param string $string
 	 * @return array|string|string[]
 	 */
-	public static function colorize(string $string)
+	public static function colorize(string $string): string
 	{
 		return str_replace("&", "§", $string);
 	}

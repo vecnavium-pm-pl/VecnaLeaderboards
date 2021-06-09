@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Provider;
 
 use pocketmine\command\ConsoleCommandSender;
@@ -10,9 +10,12 @@ use pocketmine\utils\TextFormat as C;
 
 class UserDataSessionProvider
 {
-	private Player $player;
-	private Config $config;
-	private int $currentStreak = 0;
+	/** @var Player */
+	private $player;
+	/** @var Config */
+	private $config;
+	/** @var int */
+	private $currentStreak = 0;
 
 	/**
 	 * UserDataSessionProvider constructor.
@@ -24,6 +27,9 @@ class UserDataSessionProvider
 		$this->config = new Config(Main::getInstance()->getDataFolder() . "data/{$player->getName()}.yml");
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getKills(): int
 	{
 		return (int)$this->config->get('kills', 0);
@@ -55,11 +61,17 @@ class UserDataSessionProvider
 		}
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getDeaths(): int
 	{
 		return (int)$this->config->get('deaths', 0);
 	}
 
+	/**
+	 * @param Player|null $assasin
+	 */
 	public function addDeath(?Player $assasin = null): void
 	{
 		$deaths = $this->getDeaths();
@@ -76,22 +88,34 @@ class UserDataSessionProvider
 		$this->currentStreak = 0;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getStreak(): int
 	{
 		return (int)$this->config->get('killstreak', 0);
 	}
 
+	/**
+	 * @param int $streak
+	 */
 	public function setStreak(int $streak): void
 	{
 		$this->config->set('killstreak', $streak);
 		$this->config->save();
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getLevel(): int
 	{
 		return (int)$this->config->get('level', 0);
 	}
 
+	/**
+	 * @param int $level
+	 */
 	public function setLevel(int $level): void
 	{
 		$this->config->set('level', $level);
@@ -122,7 +146,7 @@ class UserDataSessionProvider
 		return Main::getInstance();
 	}
 
-	private function levelUp()
+	private function levelUp(): void
 	{
 		$level = $this->getLevel() + 1;
 		$this->config->set('level', $level);
