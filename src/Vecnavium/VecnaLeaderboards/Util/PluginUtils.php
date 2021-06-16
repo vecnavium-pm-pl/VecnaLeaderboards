@@ -29,8 +29,8 @@ class PluginUtils
 	public static function positionToString(Position $position): string
 	{
 		$vector = $position->asVector3();
-		return round($vector->getX(), 2) . "_" . round($vector->getY(), 2) . "_" .
-			round($vector->getZ(), 2) . "_" . $position->level->getFolderName();
+		return round($vector->getX(), 2) . "&" . round($vector->getY(), 2) . "&" .
+			round($vector->getZ(), 2) . "&" . $position->level->getFolderName();
 	}
 
 	/**
@@ -39,7 +39,7 @@ class PluginUtils
 	 */
 	public static function positionFromString(string $string): Position
 	{
-		$coords = explode("_", $string);
+		$coords = explode("&", $string);
 		$vector3 = new Vector3($coords[0], $coords[1], $coords[2]);
 		$level = Server::getInstance()->getLevelByName($coords[3]);
 		return Position::fromObject($vector3, $level);

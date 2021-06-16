@@ -16,6 +16,9 @@ kills: "&l&l| Kills Leaderboard |"
 
 streaks: "&l&l| Kill Streaks Leaderboard |"
 
+deaths: "&l&l| Deaths Leaderboard |"
+
+levels: "&l&l| Levels Leaderboard |"
   
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
 leaderboard-top-length: 10
@@ -41,7 +44,7 @@ leaderboard-top-length: 10
 
 #More variables will be supported soon
 
-levels:
+levels-settings:
   1:
     kills: 2
     cmds:
