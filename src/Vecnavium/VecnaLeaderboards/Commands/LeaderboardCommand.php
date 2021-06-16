@@ -42,6 +42,11 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 			$sender->sendMessage(C::RED . "ERROR: Please run this command ingame");
 			return false;
 		}
+		
+		if (!$sender->hasPermission($this->getPermission())) {
+			$sender->sendMessage(C::RED . "You are not permission to use this command!");
+			return false;
+		}
 
 		if (!isset($args[0])) {
 			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\b/lb streaks\n/lb delete");
@@ -50,6 +55,8 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 		switch ($args[0]) {
 			case Main::LEADERBOARD_TYPE_KILLS:
             case Main::LEADERBOARD_TYPE_STREAKS:
+			case Main::LEADERBOARD_TYPE_DEATHS:
+			case Main::LEADERBOARD_TYPE_LEVELS:
 				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::$entityCount++, $args[0], $sender->asPosition());
 				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
 				break;

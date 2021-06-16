@@ -52,7 +52,7 @@ class Main extends PluginBase implements Listener
 	}
 	public function onLoad()
     {
-        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
+        //UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
     }
 
 	public function onDisable(): void
@@ -68,6 +68,7 @@ class Main extends PluginBase implements Listener
 	{
 		$options = [
 			self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS,
+			self::LEADERBOARD_TYPE_DEATHS, self::LEADERBOARD_TYPE_LEVELS
 		];
 		return in_array($option, $options);
 	}

@@ -33,7 +33,7 @@ class YamlDataProvider
 		}
 		$this->plugin->saveDefaultConfig();
 		$this->leaderboardRange = $this->plugin->getConfig()->get("leaderboard-top-length", 10);
-		$this->levels = $this->plugin->getConfig()->get('levels', []);
+		$this->levels = $this->plugin->getConfig()->get('levels-settings', []);
 	}
 
 	/**
@@ -59,6 +59,12 @@ class YamlDataProvider
 			default:
 				$string = "kills";
 				break;
+			case Main::LEADERBOARD_TYPE_DEATHS:
+				$string = "deaths";
+				break;
+			case Main::LEADERBOARD_TYPE_LEVELS:
+				$string = "levels";
+				break;
 		}
 		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {
 			$config = new Config($playerFile, Config::YAML);
@@ -69,7 +75,7 @@ class YamlDataProvider
 		$i = 1;
 		foreach ($stats as $name => $number) {
 			$finalRankings .= C::RED . $i . ") " . $name . ": " . $number . "\n";
-			if ($i > $this->leaderboardRange) {
+			if ($i >= $this->leaderboardRange) {
 				return $finalRankings;
 			}
 			if (count($stats) <= $i) {
