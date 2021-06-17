@@ -52,7 +52,7 @@ class Main extends PluginBase implements Listener
 	}
 	public function onLoad()
     {
-        //UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
+        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
     }
 
 	public function onDisable(): void
