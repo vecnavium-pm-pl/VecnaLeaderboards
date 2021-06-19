@@ -9,16 +9,17 @@ This plugin's current feature is only the beginning, ton more other features for
 
 # Features 
 
-
 - Ability to create all sorts leaderboard types such as kills and more to come
 
 - Being able to see others and your own player stats by using /stats
 
 - Kill streaks announcements supported
 
-- Top kill streaks 
+- Top kill streaks leaderboard 
 
-- Player levels based on kills and rewards
+- Player levels & rewards based on kill amounts.
+
+- Levels Player Statistics
 
 More coming soon!
 
