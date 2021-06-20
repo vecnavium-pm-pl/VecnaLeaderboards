@@ -9,6 +9,7 @@ This plugin's current feature is only the beginning, ton more other features for
 
 # Features 
 
+
 - Ability to create all sorts leaderboard types such as kills and more to come
 
 - Being able to see others and your own player stats by using /stats
@@ -21,7 +22,9 @@ This plugin's current feature is only the beginning, ton more other features for
 
 - Levels Player Statistics
 
-More coming soon!
+- Top deaths leaderboard
+
+- Top levels leaderboard
 
 
 # Planned features
@@ -40,14 +43,15 @@ More coming soon!
 
 - [ ] KDR Player Statistics
 
-- [X] Top death leaderboard 
+- [ ] Top death leaderboard 
 
-- [X] Top levels leaderboard
+- [ ] Top levels leaderboard
 
 - [X] Levels Player Statistics
 
 - [ ] Being able to configure Player Statistics format.
 
+- [ ] Top OnlineTime leaderboard 
 
 And possibly few more that isn't listed
 
