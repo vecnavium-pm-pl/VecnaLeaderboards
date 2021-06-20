@@ -29,7 +29,6 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 	public function __construct(Main $plugin)
 	{
 		parent::__construct("stats", "stats command", "/stats", ['stats']);
-		$this->setPermission("vecnaleaderboards.stats");
 		$this->setDescription("Get stats on a player or yourself.");
 		$this->plugin = $plugin;
 	}
@@ -42,9 +41,6 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 	 */
 	public function execute(CommandSender $sender, string $commandLabel, array $args): bool
 	{
-		if (!$sender->hasPermission($this->getPermission())) {
-			$sender->sendMessage("§cYou do not have permissions to run this command.");
-		}
 		if (!$sender instanceof Player) {
 			$sender->sendMessage("§cPlease run the command in-game.");
 			return true;
