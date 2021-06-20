@@ -44,7 +44,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 		}
 		
 		if (!$sender->hasPermission($this->getPermission())) {
-			$sender->sendMessage(C::RED . "You are not permission to use this command!");
+			$sender->sendMessage(C::RED . "You do not have permission to use this command!");
 			return false;
 		}
 
