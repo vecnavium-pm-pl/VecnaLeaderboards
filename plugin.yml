@@ -1,7 +1,7 @@
 name: VecnaLeaderboards
 author: Vecnavium
 main: Vecnavium\VecnaLeaderboards\Main
-version: "1.2.0"
+version: "1.1.0"
 api: [3.0.0]
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
 mcpe-protocol: [340, 354, 361, 388, 389, 390, 407, 408, 419, 422, 428, 431, 440]
