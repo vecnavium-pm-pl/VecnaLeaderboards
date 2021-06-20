@@ -48,7 +48,6 @@ More coming soon!
 
 - [ ] Being able to configure Player Statistics format.
 
-- [ ] Top OnlineTime leaderboard 
 
 And possibly few more that isn't listed
 
