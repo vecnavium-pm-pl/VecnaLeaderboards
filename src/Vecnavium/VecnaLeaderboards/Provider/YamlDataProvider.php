@@ -65,6 +65,9 @@ class YamlDataProvider
 			case Main::LEADERBOARD_TYPE_LEVELS:
 				$string = "levels";
 				break;
+            case Main::LEADERBOARD_TYPE_KDR:
+                $string = "kdr";
+                break;
 		}
 		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {
 			$config = new Config($playerFile, Config::YAML);
