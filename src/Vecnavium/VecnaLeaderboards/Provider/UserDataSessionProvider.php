@@ -69,6 +69,14 @@ class UserDataSessionProvider
 		return (int)$this->config->get('deaths', 0);
 	}
 
+    public function getKdr() {
+        if ($this->deaths > 0){
+            return $this->kills / $this->deaths;
+        } else {
+            return 1;
+        }
+    }
+
 	/**
 	 * @param Player|null $assasin
 	 */
