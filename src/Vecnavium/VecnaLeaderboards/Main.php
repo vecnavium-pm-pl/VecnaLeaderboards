@@ -30,6 +30,7 @@ class Main extends PluginBase implements Listener
 	public const LEADERBOARD_TYPE_STREAKS = "streaks";
 	public const LEADERBOARD_TYPE_DEATHS = "deaths";
 	public const LEADERBOARD_TYPE_LEVELS = "levels";
+    public const LEADERBOARD_TYPE_KDR = "kdr";
 
 	/** @var Main */
 	private static $instance;
@@ -68,7 +69,7 @@ class Main extends PluginBase implements Listener
 	{
 		$options = [
 			self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS,
-			self::LEADERBOARD_TYPE_DEATHS, self::LEADERBOARD_TYPE_LEVELS
+			self::LEADERBOARD_TYPE_DEATHS, self::LEADERBOARD_TYPE_LEVELS, self::LEADERBOARD_TYPE_KDR
 		];
 		return in_array($option, $options);
 	}
