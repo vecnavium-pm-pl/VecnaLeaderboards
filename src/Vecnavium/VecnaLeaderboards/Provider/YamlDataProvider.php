@@ -98,6 +98,6 @@ class YamlDataProvider
 	}
     public function getKDR(): array
     {
-        return $this->kdr;
+        return $this->Kdr;
     }
 }
