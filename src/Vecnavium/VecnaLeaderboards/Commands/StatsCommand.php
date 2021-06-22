@@ -72,7 +72,7 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 				if ($player !== null) {
 					$data = $this->plugin->getSessionFor($player);
 					$name = $player->getName();
-					$sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Level: " . $data->getLevel() . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "+ Killstreak: " . $data->getStreak() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() . "\n" . C::RED . "=============");
+					$sender->sendMessage(C::RED . "[" . C::YELLOW . "Player" . C::YELLOW . "Statistics" . C::RED . "] \n" . C::RED . "=============\n" . C::WHITE . "+ Player: " . $name . "\n" . C::WHITE . "+ Level: " . $data->getLevel() . "\n" . C::WHITE . "+ Kills: " . $data->getKills() . "\n" . C::WHITE . "+ Killstreak: " . $data->getStreak() . "\n" . C::WHITE . "+ KDR: " . $data->getKdr() . "\n" . C::WHITE . "+ Deaths: " . $data->getDeaths() . "\n" . C::RED . "=============");
 				} else {
 					$sender->sendMessage("§cThis player either does not have any data or does not exist.");
 					return true;
