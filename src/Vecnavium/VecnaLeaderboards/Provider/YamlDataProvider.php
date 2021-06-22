@@ -96,4 +96,8 @@ class YamlDataProvider
 	{
 		return $this->levels;
 	}
+    public function getKDR(): array
+    {
+        return $this->kdr;
+    }
 }
