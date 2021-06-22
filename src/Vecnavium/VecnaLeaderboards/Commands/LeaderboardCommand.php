@@ -57,6 +57,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
             case Main::LEADERBOARD_TYPE_STREAKS:
 			case Main::LEADERBOARD_TYPE_DEATHS:
 			case Main::LEADERBOARD_TYPE_LEVELS:
+            case Main::LEADERBOARD_TYPE_KDR:
 				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::$entityCount++, $args[0], $sender->asPosition());
 				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
 				break;
