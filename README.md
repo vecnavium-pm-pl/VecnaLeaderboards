@@ -24,7 +24,9 @@ This plugin's current feature is only the beginning, ton more other features for
 
 - Top deaths leaderboard
 
-- Top levels leaderboard
+- Top levels Leaderboard
+
+- Top KDR Leaderboard
 
 
 # Planned features
