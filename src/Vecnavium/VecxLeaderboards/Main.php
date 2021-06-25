@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vecnavium\VecnaLeaderboards;
+namespace Vecnavium\VecxLeaderboards;
 
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
@@ -12,16 +12,16 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
-use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
-use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
-use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
-use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
+use Vecnavium\VecxLeaderboards\Commands\LeaderboardCommand;
+use Vecnavium\VecxLeaderboards\Commands\StatsCommand;
+use Vecnavium\VecxLeaderboards\Leaderboard\LeaderboardManager;
+use Vecnavium\VecxLeaderboards\Provider\UserDataSessionProvider;
+use Vecnavium\VecxLeaderboards\Provider\YamlDataProvider;
 use JackMD\UpdateNotifier\UpdateNotifier;
 
 /**
  * Class Main
- * @package Vecnavium\VecnaLeaderboards
+ * @package Vecnavium\VecxLeaderboards
  */
 class Main extends PluginBase implements Listener
 {
@@ -48,8 +48,8 @@ class Main extends PluginBase implements Listener
 		$this->yamlProvider = new YamlDataProvider($this);
 		$this->leaderboardManager = new LeaderboardManager($this);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
-		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
+		$this->getServer()->getCommandMap()->register("VecxLeaderboards", new StatsCommand($this));
+		$this->getServer()->getCommandMap()->register("VecxLeaderboards", new LeaderboardCommand($this));
 	}
 	public function onLoad()
     {
