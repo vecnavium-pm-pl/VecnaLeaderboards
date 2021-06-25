@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vecnavium\VecnaLeaderboards\Commands;
+namespace Vecnavium\VecxLeaderboards\Commands;
 
 use jojoe77777\FormAPI\CustomForm;
 use pocketmine\command\Command;
@@ -11,11 +11,11 @@ use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
-use Vecnavium\VecnaLeaderboards\Main;
+use Vecnavium\VecxLeaderboards\Main;
 
 /**
  * Class StatsCommand
- * @package Vecnavium\VecnaLeaderboards\Commands
+ * @package Vecnavium\VecxLeaderboards\Commands
  */
 class StatsCommand extends Command implements PluginIdentifiableCommand
 {
@@ -28,7 +28,7 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 	 */
 	public function __construct(Main $plugin)
 	{
-		parent::__construct("stats", "stats command", "/stats", ['stats']);
+		parent::__construct("stats", "Stats command", "/stats", ['stats']);
 		$this->setDescription("Get stats on a player or yourself.");
 		$this->plugin = $plugin;
 	}
