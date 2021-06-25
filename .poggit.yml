@@ -1,9 +1,9 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Vecnavium/VecxLeaderboards
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Vecnavium/VecnaLeaderboards
 build-by-default: true
 branches:
 - main
 projects:
-  VecxLeaderboards:
+  VecnaLeaderboards:
     path: ""
     libs:
       - src: jojoe77777/FormAPI/libFormAPI
