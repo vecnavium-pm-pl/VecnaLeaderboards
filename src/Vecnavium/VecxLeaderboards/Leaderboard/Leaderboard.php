@@ -5,7 +5,7 @@ namespace Vecnavium\VecxLeaderboards\Leaderboard;
 use pocketmine\level\Position;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use Vecnavium\VecnaLeaderboards\Main;
+use Vecnavium\VecxLeaderboards\Main;
 use Vecnavium\VecxLeaderboards\Util\CustomFloatingText;
 use Vecnavium\VecxLeaderboards\Util\PluginUtils;
 
