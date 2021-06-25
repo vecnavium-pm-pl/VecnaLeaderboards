@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
-namespace Vecnavium\VecnaLeaderboards\Provider;
+namespace Vecnavium\VecxLeaderboards\Provider;
 
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\Player;
 use pocketmine\utils\Config;
-use Vecnavium\VecnaLeaderboards\Main;
+use Vecnavium\VecxLeaderboards\Main;
 use pocketmine\utils\TextFormat as C;
 
 class UserDataSessionProvider
