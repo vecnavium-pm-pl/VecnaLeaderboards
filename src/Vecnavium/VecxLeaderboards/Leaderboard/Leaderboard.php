@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
-namespace Vecnavium\VecnaLeaderboards\Leaderboard;
+namespace Vecnavium\VecxLeaderboards\Leaderboard;
 
 use pocketmine\level\Position;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 use Vecnavium\VecnaLeaderboards\Main;
-use Vecnavium\VecnaLeaderboards\Util\CustomFloatingText;
-use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
+use Vecnavium\VecxLeaderboards\Util\CustomFloatingText;
+use Vecnavium\VecxLeaderboards\Util\PluginUtils;
 
 /**
  * Class Leaderboard
- * @package Vecnavium\VecnaLeaderboards\Leaderboard
+ * @package Vecnavium\VecxLeaderboards\Leaderboard
  */
 class Leaderboard
 {
