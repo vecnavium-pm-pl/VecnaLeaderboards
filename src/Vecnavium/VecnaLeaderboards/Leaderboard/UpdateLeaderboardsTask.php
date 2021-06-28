@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Vecnavium\VecxLeaderboards\Leaderboard;
+namespace Vecnavium\VecnaLeaderboards\Leaderboard;
 
 use pocketmine\scheduler\Task;
 
 /**
  * Class UpdateLeaderboardsTask
- * @package Vecnavium\VecxLeaderboards\Leaderboard
+ * @package Vecnavium\VecnaLeaderboards\Leaderboard
  */
 class UpdateLeaderboardsTask extends Task
 {

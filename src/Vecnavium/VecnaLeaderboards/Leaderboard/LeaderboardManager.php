@@ -1,18 +1,18 @@
 <?php
 declare(strict_types=1);
-namespace Vecnavium\VecxLeaderboards\Leaderboard;
+namespace Vecnavium\VecnaLeaderboards\Leaderboard;
 
 use pocketmine\entity\Entity;
 use pocketmine\level\Level;
 use pocketmine\level\Position;
 use pocketmine\Player;
 use pocketmine\utils\Config;
-use Vecnavium\VecxLeaderboards\Main;
-use Vecnavium\VecxLeaderboards\Util\PluginUtils;
+use Vecnavium\VecnaLeaderboards\Main;
+use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
 
 /**
  * Class LeaderboardManager
- * @package Vecnavium\VecxLeaderboards\Leaderboard
+ * @package Vecnavium\VecnaLeaderboards\Leaderboard
  */
 class LeaderboardManager
 {
