@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Vecnavium\VecxLeaderboards\Commands;
+namespace Vecnavium\VecnaLeaderboards\Commands;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -9,11 +9,11 @@ use pocketmine\entity\Entity;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
-use Vecnavium\VecxLeaderboards\Main;
+use Vecnavium\VecnaLeaderboards\Main;
 
 /**
  * Class LeaderboardCommand
- * @package Vecnavium\VecxLeaderboards\Commands
+ * @package Vecnavium\VecnaLeaderboards\Commands
  */
 class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 {

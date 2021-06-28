@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vecnavium\VecxLeaderboards\Commands;
+namespace Vecnavium\VecnaLeaderboards\Commands;
 
 use jojoe77777\FormAPI\CustomForm;
 use pocketmine\command\Command;
@@ -11,7 +11,7 @@ use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat as C;
-use Vecnavium\VecxLeaderboards\Main;
+use Vecnavium\VecnaLeaderboards\Main;
 
 /**
  * Class StatsCommand
