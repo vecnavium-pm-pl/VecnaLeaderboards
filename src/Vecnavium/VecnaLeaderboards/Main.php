@@ -48,8 +48,8 @@ class Main extends PluginBase implements Listener
 		$this->yamlProvider = new YamlDataProvider($this);
 		$this->leaderboardManager = new LeaderboardManager($this);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getServer()->getCommandMap()->register("VecxLeaderboards", new StatsCommand($this));
-		$this->getServer()->getCommandMap()->register("VecxLeaderboards", new LeaderboardCommand($this));
+		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
+		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
 	}
 	public function onLoad()
     {
