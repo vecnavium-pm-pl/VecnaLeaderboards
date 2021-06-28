@@ -1,10 +1,10 @@
 <?php
 
-namespace Vecnavium\VecxLeaderboards\Provider;
+namespace Vecnavium\VecnaLeaderboards\Provider;
 
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as C;
-use Vecnavium\VecxLeaderboards\Main;
+use Vecnavium\VecnaLeaderboards\Main;
 
 class YamlDataProvider
 {
