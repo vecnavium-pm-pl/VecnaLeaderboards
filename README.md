@@ -81,3 +81,4 @@ You found a bug or a plugin issue?
 Have a suggestion?
 
 Feel free to contact me in the [Support Discord Server](https://discord.gg/jWFB56RqUN) and suggest the suggestion you have in mind for this plugin!
+No Pocketmine-MP Spoons support! If you are using a modified Pocketmine-MP build/version you will not get assisted.
