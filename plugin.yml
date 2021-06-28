@@ -1,10 +1,10 @@
-name: VecxLeaderboards
+name: VecnaLeaderboards
 author: Vecnavium
-main: Vecnavium\VecxLeaderboards\Main
-version: "1.2.0"
+main: Vecnavium\VecnaLeaderboards\Main
+version: "1.1.0"
 api: [3.0.0]
-description: A Pocketmine-MP Plugin that keeps track of Player Statistics
-mcpe-protocol: [431, 440]
+description: A Pocketmine-MP Plugin that allows you to create leaderboards and view other Players Statistics
+mcpe-protocol: [340, 354, 361, 388, 389, 390, 407, 408, 419, 422, 428, 431, 440]
 
 permissions:
   vecxLeaderboards.lb:
