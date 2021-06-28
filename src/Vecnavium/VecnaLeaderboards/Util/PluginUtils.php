@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Vecnavium\VecxLeaderboards\Util;
+namespace Vecnavium\VecnaLeaderboards\Util;
 
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
@@ -8,7 +8,7 @@ use pocketmine\Server;
 
 /**
  * Class PluginUtils
- * @package Vecnavium\VecxLeaderboards\Util
+ * @package Vecnavium\VecnaLeaderboards\Util
  */
 class PluginUtils
 {

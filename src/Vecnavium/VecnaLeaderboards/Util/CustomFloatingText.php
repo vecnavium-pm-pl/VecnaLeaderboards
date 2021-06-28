@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Vecnavium\VecxLeaderboards\Util;
+namespace Vecnavium\VecnaLeaderboards\Util;
 
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;
@@ -15,7 +15,7 @@ use pocketmine\utils\UUID;
 
 /**
  * Class CustomFloatingText
- * @package Vecnavium\VecxLeaderboards\Util
+ * @package Vecnavium\VecnaLeaderboards\Util
  */
 class CustomFloatingText
 {
