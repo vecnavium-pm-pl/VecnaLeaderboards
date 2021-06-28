@@ -21,7 +21,7 @@ use JackMD\UpdateNotifier\UpdateNotifier;
 
 /**
  * Class Main
- * @package Vecnavium\VecxLeaderboards
+ * @package Vecnavium\VecnaLeaderboards
  */
 class Main extends PluginBase implements Listener
 {
