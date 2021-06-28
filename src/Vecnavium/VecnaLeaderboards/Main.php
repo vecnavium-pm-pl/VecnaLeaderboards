@@ -12,11 +12,11 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-use Vecnavium\VecxLeaderboards\Commands\LeaderboardCommand;
-use Vecnavium\VecxLeaderboards\Commands\StatsCommand;
-use Vecnavium\VecxLeaderboards\Leaderboard\LeaderboardManager;
-use Vecnavium\VecxLeaderboards\Provider\UserDataSessionProvider;
-use Vecnavium\VecxLeaderboards\Provider\YamlDataProvider;
+use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
+use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
+use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
+use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
+use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
 use JackMD\UpdateNotifier\UpdateNotifier;
 
 /**
