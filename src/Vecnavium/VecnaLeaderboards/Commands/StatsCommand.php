@@ -80,7 +80,7 @@ class StatsCommand extends Command implements PluginIdentifiableCommand
 			}
 			return true;
 		});
-		$form->setTitle('§cVecx§eLeaderboards Stats');
+		$form->setTitle('§cVecna§eLeaderboards Stats');
 		$form->addLabel('Enter the in-game name of the player you wish to see stats for and then press submit.');
 		$form->addInput('Username', 'Enter the username here');
 		$player->sendForm($form);
