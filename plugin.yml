@@ -7,6 +7,6 @@ description: A Pocketmine-MP Plugin that allows you to create leaderboards and v
 mcpe-protocol: [431, 440]
 
 permissions:
-  vecxLeaderboards.lb:
+  vecnaleaderboards.lb:
     default: op
     description: "Permission to create Leaderboard"
