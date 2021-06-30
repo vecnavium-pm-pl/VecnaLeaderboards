@@ -78,6 +78,8 @@ You found a bug or a plugin issue?
 
 - Submit the issue and be patient for a response for a solution to your problem
 
+If you are using a modified Pocketmine-MP build/version you will not get assisted.
+
 # Suggestions
 
 Have a suggestion?
