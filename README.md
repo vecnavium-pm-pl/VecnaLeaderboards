@@ -41,9 +41,9 @@ This plugin's current feature is only the beginning, ton more other features for
 
 - [X] Player levels & rewards based on kill amounts.
 
-- [] Top KDR Leaderboard 
+- [ ] Top KDR Leaderboard 
 
-- [] KDR Player Statistics
+- [ ] KDR Player Statistics
 
 - [X] Top death leaderboard 
 
