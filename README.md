@@ -43,7 +43,7 @@ This plugin's current feature is only the beginning, ton more other features for
 
 - [] Top KDR Leaderboard 
 
-- [ ] KDR Player Statistics
+- [] KDR Player Statistics
 
 - [X] Top death leaderboard 
 
@@ -52,6 +52,8 @@ This plugin's current feature is only the beginning, ton more other features for
 - [X] Levels Player Statistics
 
 - [ ] Being able to configure Player Statistics format.
+
+- [ ] Broken blocks with level system
 
 And possibly few more that isn't listed
 
