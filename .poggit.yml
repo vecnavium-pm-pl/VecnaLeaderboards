@@ -6,8 +6,6 @@ projects:
   VecnaLeaderboards:
     path: ""
     libs:
-      - src: jojoe77777/FormAPI/libFormAPI
-        version: ^1.3
-      - src: JackMD/UpdateNotifier/UpdateNotifier
-        version: ^2.0.0
+      - src: GiantQuartz/EasyUI/libEasyUI
+        version: ^3.0
 ...
