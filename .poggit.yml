@@ -6,6 +6,6 @@ projects:
   VecnaLeaderboards:
     path: ""
     libs:
-      - src: GiantQuartz/EasyUI/libEasyUI
-        version: ^3.0
+      - src: brokiem-pm-pl/EasyUI/libEasyUI
+        version: 2.0.0
 ...
