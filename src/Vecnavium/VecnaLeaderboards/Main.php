@@ -50,11 +50,7 @@ class Main extends PluginBase implements Listener
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
 	}
-
-	public function onLoad(): void
-    {
-        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
-    }
+	
 
 	public function onDisable(): void
 	{
