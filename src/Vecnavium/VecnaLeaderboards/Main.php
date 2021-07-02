@@ -29,6 +29,7 @@ class Main extends PluginBase implements Listener
 	public const LEADERBOARD_TYPE_STREAKS = "streaks";
 	public const LEADERBOARD_TYPE_DEATHS = "deaths";
 	public const LEADERBOARD_TYPE_LEVELS = "levels";
+    private bool $isDev = true;
 
 	/** @var Main */
 	private static $instance;
@@ -48,7 +49,13 @@ class Main extends PluginBase implements Listener
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
+
+        if ($this->isDev) {
+            $this->getLogger()->warning("You are using the Development version of VecnaLeaderboards. The plugin will most likely will run into crashes, bugs or errors. Only use this version if you are testing or know what you are doing. Do not, use this in production. You have been warned.");
+        }
 	}
+
+
 
 
 	public function onDisable(): void
