@@ -77,3 +77,15 @@ You found a bug or a plugin issue?
 Have a suggestion?
 
 Feel free to contact me in the [Support Discord Server](https://discord.gg/jWFB56RqUN) and suggest the suggestion you have in mind for this plugin!
+
+# FAQ
+
+As VecnaLeaderboards PM4 has been changed and worked on hard to making it the best plugin possible, we have done major changes and the FAQ should answer all common questions for everyone to understand why this happened and if they need help they can refer to here and then support if needed.
+
+Q: Why did /stats get removed from VecnaLeaderboards?
+
+A: As VecnaLeaderboards is technically a leaderboards plugin, /stats should have been removed as some people would most probable want to not have /stats at all, and as for PM4 for VecnaLeaderboards we wanted to do major changes and updates, so we have made a separate plugin called VecnaStats dedicated to /stats. 
+
+Q: What about our players stats that are important?
+
+A: It is really easy to import their stats to VecnaStats as both plugins store and save data the same method. Simply copy & paste the data folder from VecnaLeaderboards to VecnaStats and you should be just fine.
