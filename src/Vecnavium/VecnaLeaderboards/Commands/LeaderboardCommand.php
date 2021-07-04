@@ -66,20 +66,26 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 			case "delete":
 				$nearLeaderboard = $this->plugin->getLeaderboardManager()->getNearLeaderboard($sender);
 				if ($nearLeaderboard === null) {
-					$sender->sendMessage(C::RED . "ERROR: Leaderboard not found. \nBe sure to be close to the Leaderboard to delete it!");
-					break;
+                    $sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. For example");
+                    $sender->sendMessage(C::WHITE . "Top Kills LeaderBoard: /lb kills");
+                    $sender->sendMessage(C::WHITE . "Top Kill Streaks Leaderboard: /lb streaks");
+                    $sender->sendMessage(C::WHITE . "Top Deaths Leaderboard: /lb deaths");
+                    $sender->sendMessage(C::WHITE . "Top Levels Leaderboard: /lb levels");
+                    $sender->sendMessage(C::WHITE . "Top KDR Leaderboard: /lb kdr");
+                    $sender->sendMessage(C::WHITE . "Deleting a Leaderboard: /lb delete");
+                    break;
 				}
 				$this->plugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
 				$sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
 				break;
 			default:
-				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. FOr example..");
-                $sender->sendMessage(C::RED . "Top Kills LeaderBoard: /lb kills");
-                $sender->sendMessage(C::RED . "Top Kill Streaks Leaderboard: /lb streaks");
-                $sender->sendMessage(C::RED . "Top Deaths Leaderboard: /lb deaths");
-                $sender->sendMessage(C::RED . "Top Levels Leaderboard: /lb levels");
-                $sender->sendMessage(C::RED . "Top KDR Leaderboard: /lb kdr");
-                $sender->sendMessage(C::RED . "Deleting a Leaderboard: /lb delete");
+				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. For example.");
+                $sender->sendMessage(C::WHITE . "Top Kills LeaderBoard: /lb kills");
+                $sender->sendMessage(C::WHITE . "Top Kill Streaks Leaderboard: /lb streaks");
+                $sender->sendMessage(C::WHITE . "Top Deaths Leaderboard: /lb deaths");
+                $sender->sendMessage(C::WHITE . "Top Levels Leaderboard: /lb levels");
+                $sender->sendMessage(C::WHITE . "Top KDR Leaderboard: /lb kdr");
+                $sender->sendMessage(C::WHITE . "Deleting a Leaderboard: /lb delete");
 
 				return false;
 		}
