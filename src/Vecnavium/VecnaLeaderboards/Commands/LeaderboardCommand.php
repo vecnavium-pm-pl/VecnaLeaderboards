@@ -73,7 +73,14 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 				$sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
 				break;
 			default:
-				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb deaths\n/lb levels\n/lb kdr\n/lb delete");
+				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. FOr example..");
+                $sender->sendMessage(C::RED . "Top Kills LeaderBoard: /lb kills");
+                $sender->sendMessage(C::RED . "Top Kill Streaks Leaderboard: /lb streaks");
+                $sender->sendMessage(C::RED . "Top Deaths Leaderboard: /lb deaths");
+                $sender->sendMessage(C::RED . "Top Levels Leaderboard: /lb levels");
+                $sender->sendMessage(C::RED . "Top KDR Leaderboard: /lb kdr");
+                $sender->sendMessage(C::RED . "Deleting a Leaderboard: /lb delete");
+
 				return false;
 		}
 		return true;
