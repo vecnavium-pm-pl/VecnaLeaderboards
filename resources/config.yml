@@ -1,7 +1,7 @@
 #==========================================#
 #Config File for VecnaLeaderboards
 #==========================================#
-CONFIG_VERSION: 3
+CONFIG_VERSION: 4
 #====================================================================================#
 
 
@@ -24,6 +24,8 @@ kdr: "&l&l| KDR Leaderboard |"
   
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
 leaderboard-top-length: 10
+
+topmoney-leaderboard: true
 
 #========================================================================#
 # Levels System based on Kills from each player and rewards configuration
