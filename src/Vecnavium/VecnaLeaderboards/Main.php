@@ -59,7 +59,7 @@ class Main extends PluginBase implements Listener
 	}
 
     public function checkEconomyPlugin(){
-        if($this->getConfig()->get('topmoney-leaderboard-support') == 'true'){
+        if($this->getConfig()->get('topmoney-leaderboard') == 'true'){
             if($this->getServer()->getPluginManager()->getPlugin('EconomyAPI') === null){
                 $this->getLogger()->warning('§cEconomyAPI Plugin not found. Please install EconomyAPI.');
                 $this->getLogger()->warning('§cOtherwise please disable this feature by setting topmoney-leaderboard to false for the plugin to function.');
