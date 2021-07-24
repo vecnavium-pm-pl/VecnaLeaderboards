@@ -17,7 +17,7 @@ use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
-use JackMD\UpdateNotifier\UpdateNotifier;
+use onebone\economyapi\EconomyAPI;
 
 /**
  * Class Main
@@ -50,16 +50,23 @@ class Main extends PluginBase implements Listener
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
+        $this->checkEconomyPlugin();
 	}
-	public function onLoad()
-    {
-        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
-    }
 
 	public function onDisable(): void
 	{
 		$this->leaderboardManager->saveLeaderboards();
 	}
+
+    public function checkEconomyPlugin(){
+        if($this->getConfig()->get('topmoney-leaderboard-support') == 'true'){
+            if($this->getServer()->getPluginManager()->getPlugin('EconomyAPI') === null){
+                $this->getLogger()->warning('§cEconomyAPI Plugin not found. Please install EconomyAPI.');
+                $this->getLogger()->warning('§cOtherwise please disable this feature by setting topmoney-leaderboard to false for the plugin to function.');
+                $this->getServer()->getPluginManager()->disablePlugin($this);
+            }
+        }
+    }
 
 	/**
 	 * @param string $option
