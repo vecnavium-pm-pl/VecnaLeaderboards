@@ -25,6 +25,9 @@ kdr: "&l&l| KDR Leaderboard |"
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
 leaderboard-top-length: 10
 
+#If you want to have EconomyAPI Support enabled leave it to true (You still have to create the leaderboard yourself)
+#If you do not want to have EconomyAPI Support enabled set it to false
+
 topmoney-leaderboard: true
 
 #========================================================================#
