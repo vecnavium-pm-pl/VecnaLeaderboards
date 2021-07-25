@@ -77,12 +77,10 @@ class Leaderboard
 
 	public function despawn(?Player $player = null): void
 	{
-		if ($this->text === null) {
+		if ($this->text === null || $this->position === null) {
 			return;
 		}
-		if ($this->position->getWorld() === null) {
-			return;
-		}
+		
 		if ($player === null) {
 			foreach ($this->position->getWorld()->getPlayers() as $player) {
 				$this->text->remove($player);
