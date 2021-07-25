@@ -6,7 +6,7 @@ CONFIG_VERSION: 2
 
 
 #How often do you want all leaderboards to update to latest stats? (in seconds)
-leaderboard-timer: 30
+leaderboard-timer: 10
 
 
 #Config the title to the text you want for it to display at the top for each statistic leaderboard.
@@ -15,6 +15,8 @@ leaderboard-timer: 30
 kills: "&l&l| Kills Leaderboard |"
 
 streaks: "&l&l| Kill Streaks Leaderboard |"
+
+deaths: "&l&l| Top deaths leaderboard |"
 
   
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.

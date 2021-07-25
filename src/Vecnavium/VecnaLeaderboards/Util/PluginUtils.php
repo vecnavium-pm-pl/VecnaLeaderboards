@@ -37,11 +37,11 @@ class PluginUtils
 	 * @param string $string
 	 * @return Position
 	 */
-	public static function positionFromString(string $string): Position
-	{
-		$coords = explode("_", $string);
-		$vector3 = new Vector3($coords[0], $coords[1], $coords[2]);
-		$level = Server::getInstance()->getWorldManager()->getWorldByName($coords[3]);
-		return Position::fromObject($vector3, $level);
-	}
+    public static function positionFromString(string $string): Position
+    {
+        $coords = explode("_", $string);
+        $vector3 = new Vector3(floatval($coords[0]), floatval($coords[1]), floatval($coords[2]));
+        $level = Server::getInstance()->getWorldManager()->getWorldByName($coords[3]);
+        return Position::fromObject($vector3, $level);
+    }
 }
