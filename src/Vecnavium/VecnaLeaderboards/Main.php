@@ -45,12 +45,12 @@ class Main extends PluginBase implements Listener
 	public function onEnable(): void
 	{
 		self::$instance = $this;
-        @mkdir($this->getDataFolder());
-        @mkdir($this->getDataFolder() . "data/");
 		$this->yamlProvider = new YamlDataProvider($this);
 		$this->leaderboardManager = new LeaderboardManager($this);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
+        @mkdir($this->getDataFolder());
+        @mkdir($this->getDataFolder() . "data/");
 
         if ($this->isDev) {
             $this->getLogger()->warning("You are using the Development version of VecnaLeaderboards. The plugin will most likely will run into crashes, bugs or errors. Only use this version if you are testing or know what you are doing. Do not, use this in production. You have been warned.");
