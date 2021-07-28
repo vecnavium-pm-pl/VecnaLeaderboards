@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Provider;
 
-use pocketmine\command\ConsoleCommandSender;
+use pocketmine\console\ConsoleCommandSender;
 use pocketmine\player\Player;
 use pocketmine\utils\Config;
 use Vecnavium\VecnaLeaderboards\Main;
