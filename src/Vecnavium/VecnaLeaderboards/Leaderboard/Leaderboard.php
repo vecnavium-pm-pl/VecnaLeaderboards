@@ -43,6 +43,7 @@ class Leaderboard
 		switch ($this->type) {
 			case Main::LEADERBOARD_TYPE_KILLS:
             case Main::LEADERBOARD_TYPE_DEATHS:
+            case Main:: LEADERBOARD_TYPE_STREAKS:
 				$title = PluginUtils::colorize($this->getPlugin()->getConfig()->get($this->type));
 				foreach ($this->position->getWorld()->getPlayers() as $player) {
 					$this->text->update(
