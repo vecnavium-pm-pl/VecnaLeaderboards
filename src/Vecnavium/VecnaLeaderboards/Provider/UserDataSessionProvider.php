@@ -75,14 +75,6 @@ class UserDataSessionProvider
 		$deaths = $this->getDeaths();
 		$this->config->set('deaths', $deaths + 1);
 		$this->config->save();
-		if ($this->currentStreak > $this->getStreak()) {
-			if ($assasin !== null) {
-				$this->player->sendMessage(C::GRAY . "" . C::DARK_GREEN . "KillStreak alert:" . C::GRAY . "> " . C::WHITE . "Your " . $this->currentStreak . " killstreak was ended by " . $assasin->getName() . "!");
-				$assasin->sendMessage(C::GRAY . "" . C::DARK_RED . "KillStreak alert:" . C::GRAY . "> " . C::WHITE . "You have ended " . $this->player->getName() . "'s " . $this->currentStreak . " killstreak!");
-			} else {
-				$this->player->sendMessage(C::GRAY . "" . C::DARK_GREEN . "KillStreak alert:" . C::GRAY . "> " . C::WHITE . "Your " . $this->currentStreak . " killstreak was ended!");
-			}
-		}
 		$this->currentStreak = 0;
 	}
 
