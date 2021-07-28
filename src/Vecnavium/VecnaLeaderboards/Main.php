@@ -72,7 +72,7 @@ class Main extends PluginBase implements Listener
 	public static function isValidLeaderboard(string $option): bool
 	{
 		$options = [
-			self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS, self::LEADERBOARD_TYPE_DEATHS,
+			self::LEADERBOARD_TYPE_KILLS, self::LEADERBOARD_TYPE_STREAKS, self::LEADERBOARD_TYPE_DEATHS, self::LEADERBOARD_TYPE_LEVELS,
 		];
 		return in_array($option, $options);
 	}

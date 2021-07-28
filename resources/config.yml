@@ -18,6 +18,8 @@ streaks: "&l&l| Kill Streaks Leaderboard |"
 
 deaths: "&l&l| Top deaths leaderboard |"
 
+levels: "&l&l| Levels leaderboard |"
+
   
 #Top rankings, put 10 and only top 10 players on the leaderboard will be shown. 20 will result to top 20 and so on.
 leaderboard-top-length: 10

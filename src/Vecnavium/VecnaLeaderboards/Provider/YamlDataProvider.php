@@ -55,6 +55,9 @@ class YamlDataProvider
 			case Main::LEADERBOARD_TYPE_STREAKS:
 				$string = "streaks";
 				break;
+            case Main::LEADERBOARD_TYPE_LEVELS:
+                $string = "levels";
+                break;
             case Main::LEADERBOARD_TYPE_DEATHS:
                 $string = "deaths";
                 break;

@@ -50,6 +50,7 @@ class LeaderboardCommand extends VanillaCommand
 			case Main::LEADERBOARD_TYPE_KILLS:
             case Main::LEADERBOARD_TYPE_DEATHS:
             case Main::LEADERBOARD_TYPE_STREAKS:
+            case Main::LEADERBOARD_TYPE_LEVELS:
 				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
 				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
 				break;
