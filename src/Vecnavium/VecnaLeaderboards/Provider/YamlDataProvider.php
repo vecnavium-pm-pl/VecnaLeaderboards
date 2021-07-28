@@ -27,7 +27,6 @@ class YamlDataProvider
 	}
 
 	private function init(){
-		@mkdir($this->plugin->getDataFolder() . "data/");
 		$config = $this->plugin->getConfig();
 		if (!$config->exists("CONFIG_VERSION") || $config->get("CONFIG_VERSION") != 2){
 			$this->plugin->getLogger()->log(LogLevel::WARNING,"Your config version is outdated. Please delete the config.yml file and restart the server.");

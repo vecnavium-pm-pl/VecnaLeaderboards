@@ -12,6 +12,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\Config;
 use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
 use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
@@ -44,6 +45,8 @@ class Main extends PluginBase implements Listener
 	public function onEnable(): void
 	{
 		self::$instance = $this;
+        @mkdir($this->getDataFolder());
+        @mkdir($this->getDataFolder() . "data/");
 		$this->yamlProvider = new YamlDataProvider($this);
 		$this->leaderboardManager = new LeaderboardManager($this);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
