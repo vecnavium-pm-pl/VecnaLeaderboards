@@ -42,6 +42,11 @@ class Main extends PluginBase implements Listener
 	/** @var UserDataSessionProvider[] */
 	private $sessions = [];
 
+    public function onLoad()
+    {
+        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
+    }
+
 
 	public function onEnable(): void
 	{
