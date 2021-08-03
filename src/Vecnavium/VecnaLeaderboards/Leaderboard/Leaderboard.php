@@ -49,6 +49,7 @@ class Leaderboard
 			case Main::LEADERBOARD_TYPE_DEATHS:
 			case Main::LEADERBOARD_TYPE_LEVELS:
             case Main::LEADERBOARD_TYPE_KDR:
+            case Main::LEADERBOARD_TYPE_MONEY:
 				$title = PluginUtils::colorize($this->getPlugin()->getConfig()->get($this->type));
 				foreach ($this->position->getLevel()->getPlayers() as $player) {
 					$this->text->update(

@@ -68,6 +68,9 @@ class YamlDataProvider
             case Main::LEADERBOARD_TYPE_KDR:
                 $string = "kdr";
                 break;
+            case Main::LEADERBOARD_TYPE_MONEY:
+                $string = "money";
+                break;
 		}
 		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {
 			$config = new Config($playerFile, Config::YAML);

@@ -31,6 +31,7 @@ class Main extends PluginBase implements Listener
 	public const LEADERBOARD_TYPE_DEATHS = "deaths";
 	public const LEADERBOARD_TYPE_LEVELS = "levels";
     public const LEADERBOARD_TYPE_KDR = "kdr";
+    public const LEADERBOARD_TYPE_MONEY = "money";
 
 	/** @var Main */
 	private static $instance;

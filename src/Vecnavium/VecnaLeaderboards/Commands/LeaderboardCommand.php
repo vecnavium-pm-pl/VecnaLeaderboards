@@ -55,6 +55,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
             $sender->sendMessage(C::WHITE . "Top Deaths Leaderboard: /lb deaths");
             $sender->sendMessage(C::WHITE . "Top Levels Leaderboard: /lb levels");
             $sender->sendMessage(C::WHITE . "Top KDR Leaderboard: /lb kdr");
+            $sender->sendMessage(C::WHITE . "Top Money Leaderboard: /lb money");
             $sender->sendMessage(C::WHITE . "Deleting a Leaderboard: /lb delete");
             return false;
 		}
@@ -64,6 +65,7 @@ class LeaderboardCommand extends Command implements PluginIdentifiableCommand
 			case Main::LEADERBOARD_TYPE_DEATHS:
 			case Main::LEADERBOARD_TYPE_LEVELS:
             case Main::LEADERBOARD_TYPE_KDR:
+            case Main::LEADERBOARD_TYPE_MONEY:
 				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::$entityCount++, $args[0], $sender->asPosition());
 				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
 				break;
