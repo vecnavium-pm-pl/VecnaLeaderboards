@@ -39,12 +39,7 @@ class Main extends PluginBase implements Listener
 	/** @var LeaderboardManager */
 	private $leaderboardManager;
 	/** @var UserDataSessionProvider[] */
-	private $sessions = [];
-
-    public function onLoad()
-    {
-        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
-    }
+	private $sessions = []
 
 
 	public function onEnable(): void
