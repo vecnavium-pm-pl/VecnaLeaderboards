@@ -13,7 +13,6 @@ use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
-use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
@@ -54,7 +53,6 @@ class Main extends PluginBase implements Listener
 		$this->yamlProvider = new YamlDataProvider($this);
 		$this->leaderboardManager = new LeaderboardManager($this);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new StatsCommand($this));
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
         $this->checkEconomyPlugin();
 	}
