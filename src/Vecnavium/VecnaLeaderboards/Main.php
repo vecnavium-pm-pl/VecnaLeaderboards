@@ -16,10 +16,10 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
-use Vecnavium\VecnaLeaderboards\Leaderboard\UpdateMoney;
+use Vecnavium\VecnaLeaderboards\Leaderboard\UpdateMoneyTask;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
-
+use Vecnavium\VecnaLeaderboards\Util\UpdateNotifyTask;
 /**
  * Class Main
  * @package Vecnavium\VecnaLeaderboards
@@ -43,11 +43,6 @@ class Main extends PluginBase implements Listener
     /** @var UserDataSessionProvider[] */
     private $sessions = [];
 
-    public function onLoad() {
-//            UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
-        /* ^^^ DOES NOT WORK ^^^ */
-    }
-
 
     public function onEnable(): void {
         self::$instance = $this;
@@ -57,7 +52,7 @@ class Main extends PluginBase implements Listener
         $this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
         if($this->getConfig()->get('topmoney-leaderboard') == 'true'){
             if($this->getServer()->getPluginManager()->getPlugin('EconomyAPI') !== null){
-                $this->getServer()->getPluginManager()->registerEvents(new UpdateMoney(), $this);
+                $this->getServer()->getPluginManager()->registerEvents(new UpdateMoneyTask(), $this);
             }
         }
         $this->checkEconomyPlugin();
@@ -76,6 +71,11 @@ class Main extends PluginBase implements Listener
                 $this->getServer()->getPluginManager()->disablePlugin($this);
             }
         }
+    }
+
+    public function checkUpdate(bool $isRetry = false): void
+    {
+        $this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this, $isRetry));
     }
 
     /**
