@@ -12,6 +12,7 @@ use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
 
 /**
  * Class LeaderboardManager
+ * @property Player player
  * @package Vecnavium\VecnaLeaderboards\Leaderboard
  */
 class LeaderboardManager
@@ -21,7 +22,7 @@ class LeaderboardManager
 	/** @var Leaderboard[] */
 	private $leaderboards = [];
 
-	/**
+    /**
 	 * ScoreboardManager constructor.
 	 */
 	public function __construct(Main $plugin)
@@ -29,8 +30,7 @@ class LeaderboardManager
 		$this->plugin = $plugin;
 		$interval = $plugin->getYamlProvider()->getUpdateInterval();
 		$this->loadLeaderboards();
-		$plugin->getScheduler()->scheduleDelayedRepeatingTask(new UpdateLeaderboardsTask($this), $interval * 20, $interval * 20);
-	}
+		$plugin->getScheduler()->scheduleDelayedRepeatingTask(new UpdateLeaderboardsTask($this, $plugin), $interval * 20, $interval * 20);		}
 
 	public function loadLeaderboards(): void
 	{
