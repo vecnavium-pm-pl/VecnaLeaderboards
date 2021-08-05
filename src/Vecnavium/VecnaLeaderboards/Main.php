@@ -19,7 +19,6 @@ use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Leaderboard\UpdateMoneyTask;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
-use Vecnavium\VecnaLeaderboards\Util\UpdateNotifyTask;
 /**
  * Class Main
  * @package Vecnavium\VecnaLeaderboards
@@ -43,11 +42,16 @@ class Main extends PluginBase implements Listener
     /** @var UserDataSessionProvider[] */
     private $sessions = [];
 
+    public function onLoad() {
+  UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
+    }
+
 
     public function onEnable(): void {
         self::$instance = $this;
         $this->yamlProvider = new YamlDataProvider($this);
         $this->leaderboardManager = new LeaderboardManager($this);
+        $this->checkUpdate = new UpdateNotifyTask($this);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
         if($this->getConfig()->get('topmoney-leaderboard') == 'true'){
@@ -73,15 +77,6 @@ class Main extends PluginBase implements Listener
         }
     }
 
-    public function checkUpdate(bool $isRetry = false): void
-    {
-        $this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this, $isRetry));
-    }
-
-    /**
-     * @param string $option
-     * @return bool
-     */
     public static function isValidLeaderboard(string $option): bool
     {
         $options = [
