@@ -51,7 +51,6 @@ class Main extends PluginBase implements Listener
         self::$instance = $this;
         $this->yamlProvider = new YamlDataProvider($this);
         $this->leaderboardManager = new LeaderboardManager($this);
-        $this->checkUpdate = new UpdateNotifyTask($this);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
         if($this->getConfig()->get('topmoney-leaderboard') == 'true'){
