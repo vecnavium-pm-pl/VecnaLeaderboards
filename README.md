@@ -31,7 +31,7 @@ This plugin's current feature is only the beginning, ton more other features for
 
 # Planned features
 
-- [ ] Top money leaderboard (EconomyAPI)
+- [X] Top money leaderboard (EconomyAPI)
 
 - [X] Kill streaks announcements
 
@@ -53,7 +53,6 @@ This plugin's current feature is only the beginning, ton more other features for
 
 - [ ] Being able to configure Player Statistics format.
 
-- [ ] Broken blocks with level system
 
 And possibly few more that isn't listed
 
