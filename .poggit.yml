@@ -6,6 +6,6 @@ projects:
   VecnaLeaderboards:
     path: ""
     libs:
-      - src: JackMD/UpdateNotifier/UpdateNotifier
+      - src: Ifera-mc/UpdateNotifier/UpdateNotifier
         version: 2.1.0
 ...
