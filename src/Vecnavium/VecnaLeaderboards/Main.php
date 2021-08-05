@@ -82,8 +82,7 @@ class Main extends PluginBase implements Listener
     public function checkifStatsXInstalled() {
             if($this->getServer()->getPluginManager()->getPlugin('StatsX') === null){
                 $this->getLogger()->warning('§cStats command has been removed from this plugin as we use a separate plugin for this.');
-                $this->getLogger()->warning('§cYou may get the plugin from https://poggit.pmmp.io/p/StatsX but it is not a requirement for VecnaLeaderboards to work as expected. Your choice.);
-                $this->getServer()->getPluginManager()->disablePlugin($this);
+                $this->getLogger()->warning('§cYou may get the plugin from https://poggit.pmmp.io/p/StatsX but it is not a requirement for VecnaLeaderboards to work as expected. Your choice.');
             }
         }
 
