@@ -5,6 +5,7 @@ version: "1.2.3"
 api: [3.0.0]
 description: A Pocketmine-MP Plugin that allows you to create leaderboards and view other Players Statistics
 mcpe-protocol: [448]
+softdepend: StatsX
 
 permissions:
   vecnaleaderboards.lb:
