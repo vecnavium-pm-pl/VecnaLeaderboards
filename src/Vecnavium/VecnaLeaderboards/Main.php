@@ -19,6 +19,8 @@ use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Leaderboard\UpdateMoneyTask;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
+use JackMD\UpdateNotifier\UpdateNotifier;
+
 /**
  * Class Main
  * @package Vecnavium\VecnaLeaderboards
