@@ -7,5 +7,5 @@ projects:
     path: ""
     libs:
       - src: Ifera-mc/UpdateNotifier/UpdateNotifier
-        version: 2.1.0
+        version: ^2.0.0
 ...
