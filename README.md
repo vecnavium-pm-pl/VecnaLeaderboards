@@ -85,3 +85,9 @@ Have a suggestion?
 
 Feel free to contact me in the [Support Discord Server](https://discord.gg/jWFB56RqUN) and suggest the suggestion you have in mind for this plugin!
 No Pocketmine-MP Spoons support! If you are using a modified Pocketmine-MP build/version you will not get assisted.
+
+# FAQ
+
+Q: Why did /stats get removed from VecnaLeaderboards?
+
+A: As VecnaLeaderboards is technically a leaderboards plugin, /stats should have been removed as some people would most probable want to not have /stats at all, and as we constantly strive to improve  VecnaLeaderboards we wanted to do major changes and updates, so we have made a separate plugin called StatsX dedicated to /stats. 
