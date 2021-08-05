@@ -42,11 +42,6 @@ class Main extends PluginBase implements Listener
     /** @var UserDataSessionProvider[] */
     private $sessions = [];
 
-    public function onLoad() {
-  UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
-    }
-
-
     public function onEnable(): void {
         self::$instance = $this;
         $this->yamlProvider = new YamlDataProvider($this);
@@ -59,6 +54,11 @@ class Main extends PluginBase implements Listener
             }
         }
         $this->checkEconomyPlugin();
+    }
+    
+    	public function onLoad()
+    {
+        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
     }
 
     public function onDisable(): void
