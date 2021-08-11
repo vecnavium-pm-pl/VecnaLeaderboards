@@ -57,7 +57,7 @@ class CheckUpdateTask extends AsyncTask{
         [$plugin] = $this->fetchLocal();
 
         if ($this->getResult() === null) {
-            $plugin->getLogger()->debug("Async update check failed!");
+            $plugin->getLogger()->debug("Update Check has failed!");
 
             if (!$this->retry) {
                 $plugin->getScheduler()->scheduleDelayedTask(new ClosureTask(function() use ($plugin): void {
