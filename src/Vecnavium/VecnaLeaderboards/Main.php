@@ -19,7 +19,7 @@ use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Leaderboard\UpdateMoneyTask;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
-use JackMD\UpdateNotifier\UpdateNotifier;
+use Vecnavium\VecnaLeaderboards\CheckUpdateTask;
 
 /**
  * Class Main
@@ -55,12 +55,13 @@ class Main extends PluginBase implements Listener
                 $this->getServer()->getPluginManager()->registerEvents(new UpdateMoneyTask(), $this);
             }
         }
+        $this->checkUpdate();
         $this->checkEconomyPlugin();
     }
-    
-    	public function onLoad()
-    {
-        UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
+
+    public function checkUpdate(bool $isRetry = false): void {
+
+        $this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this, $isRetry));
     }
 
     public function onDisable(): void
