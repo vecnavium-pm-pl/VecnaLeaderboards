@@ -1,5 +1,13 @@
 <?php /** @noinspection PhpUnused */
 
+
+
+/**
+ * Copyright (c) 2021 Vecnavium
+ * VecnaLeaderboards is licensed under the GNU Lesser General Public License v3.0
+ * GitHub: https://github.com/Vecnavium\VecnaLeaderboards
+ */
+
 declare(strict_types=1);
 
 namespace Vecnavium\VecnaLeaderboards;
@@ -56,8 +64,6 @@ class Main extends PluginBase implements Listener
             $this->getLogger()->warning("You are using the Development version of VecnaLeaderboards. The plugin will most likely will run into crashes, bugs or errors. Only use this version if you are testing or know what you are doing. Do not, use this in production. You have been warned.");
         }
 	}
-
-
 
 
 	public function onDisable(): void
