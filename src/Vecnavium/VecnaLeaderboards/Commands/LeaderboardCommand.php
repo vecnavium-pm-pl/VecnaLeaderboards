@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Copyright (c) 2021 Vecnavium
+ * VecnaLeaderboards is licensed under the GNU Lesser General Public License v3.0
+ * GitHub: https://github.com/Vecnavium\VecnaLeaderboards
+ */
+
 declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Commands;
 

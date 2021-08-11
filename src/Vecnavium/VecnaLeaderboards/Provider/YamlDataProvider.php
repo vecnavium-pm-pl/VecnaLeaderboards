@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Copyright (c) 2021 Vecnavium
+ * VecnaLeaderboards is licensed under the GNU Lesser General Public License v3.0
+ * GitHub: https://github.com/Vecnavium\VecnaLeaderboards
+ */
+
 namespace Vecnavium\VecnaLeaderboards\Provider;
 
 use pocketmine\utils\Config;
