@@ -19,7 +19,7 @@ use Vecnavium\VecnaLeaderboards\Main;
 class UpdateMoneyTask implements Listener {
     public function onMoneyUpdate(MoneyChangedEvent $event) {
         $name = $event->getUsername();
-        $config = new Config(Main::getInstance()->getDataFolder() . "data/$name.yml");
+        $config = new Config(Main::getInstance()->getDataFolder() . "data/$name.json");
         if($config->get("money") !== EconomyAPI::getInstance()->myMoney($name)) {
             $config->set("money", EconomyAPI::getInstance()->myMoney($name));
             $config->save();

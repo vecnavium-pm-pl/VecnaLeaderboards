@@ -24,7 +24,7 @@ use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Leaderboard\UpdateMoneyTask;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
-use Vecnavium\VecnaLeaderboards\Provider\YamlDataProvider;
+use Vecnavium\VecnaLeaderboards\Provider\JsonDataProvider;
 use Vecnavium\VecnaLeaderboards\CheckUpdateTask;
 
 /**
@@ -43,8 +43,8 @@ class Main extends PluginBase implements Listener
 
     /** @var Main */
     private static $instance;
-    /** @var YamlDataProvider */
-    private $yamlProvider;
+    /** @var JsonDataProvider */
+    private $jsonProvider;
     /** @var LeaderboardManager */
     private $leaderboardManager;
     /** @var UserDataSessionProvider[] */
@@ -52,7 +52,7 @@ class Main extends PluginBase implements Listener
 
     public function onEnable(): void {
         self::$instance = $this;
-        $this->yamlProvider = new YamlDataProvider($this);
+        $this->jsonProvider = new JsonDataProvider($this);
         $this->leaderboardManager = new LeaderboardManager($this);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
@@ -114,7 +114,7 @@ class Main extends PluginBase implements Listener
         $this->sessions[$player->getName()] = new UserDataSessionProvider($player);
         $this->leaderboardManager->handleLeaderboardSpawning($player, $player->getLevel());
         $name = $event->getPlayer()->getName();
-        $config = new Config(Main::getInstance()->getDataFolder() . "data/$name.yml");
+        $config = new Config(Main::getInstance()->getDataFolder() . "data/$name.json");
         if($config->get("money") !== EconomyAPI::getInstance()->myMoney($name)) {
             $config->set("money", EconomyAPI::getInstance()->myMoney($name));
             $config->save();
@@ -189,11 +189,11 @@ class Main extends PluginBase implements Listener
     }
 
     /**
-     * @return YamlDataProvider
+     * @return JsonDataProvider
      */
-    public function getYamlProvider(): YamlDataProvider
+    public function getYamlProvider(): JsonDataProvider
     {
-        return $this->yamlProvider;
+        return $this->jsonProvider;
     }
 
     /**

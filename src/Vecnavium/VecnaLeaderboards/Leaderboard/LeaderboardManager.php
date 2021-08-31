@@ -41,7 +41,7 @@ class LeaderboardManager
 
 	public function loadLeaderboards(): void
 	{
-		$config = new Config($this->plugin->getDataFolder() . 'leaderboards.yml', Config::YAML);
+		$config = new Config($this->plugin->getDataFolder() . 'leaderboards.json', Config::JSON);
 		$leaderboards = $config->getAll();
 		foreach ($leaderboards as $position => $leaderboardType) {
 			$this->registerLeaderboard(Entity::$entityCount++, $leaderboardType, PluginUtils::positionFromString($position));
@@ -64,7 +64,7 @@ class LeaderboardManager
 
 	public function saveLeaderboards(): void
 	{
-		$config = new Config($this->plugin->getDataFolder() . 'leaderboards.yml', Config::YAML);
+		$config = new Config($this->plugin->getDataFolder() . 'leaderboards.json', Config::JSON);
 		foreach ($this->leaderboards as $leaderboard) {
 			$config->set(PluginUtils::positionToString($leaderboard->getPosition()), $leaderboard->getType());
 		}

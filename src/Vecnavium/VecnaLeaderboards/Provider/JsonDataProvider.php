@@ -12,7 +12,7 @@ use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
 
-class YamlDataProvider
+class JsonDataProvider
 {
 	/** @var Main */
 	private $plugin;
@@ -22,7 +22,7 @@ class YamlDataProvider
 	private $levels;
 
 	/**
-	 * YamlDataProvider constructor.
+	 * JsonDataProvider constructor.
 	 * @param Main $plugin
 	 */
 	public function __construct(Main $plugin)
@@ -78,9 +78,9 @@ class YamlDataProvider
                 $string = "money";
                 break;
 		}
-		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {
-			$config = new Config($playerFile, Config::YAML);
-			$stats[basename($playerFile, ".yml")] = $config->get($string, 0);
+		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.json") as $playerFile) {
+			$config = new Config($playerFile, Config::JSON);
+			$stats[basename($playerFile, ".json")] = $config->get($string, 0);
 		}
 		arsort($stats, SORT_NUMERIC);
 		$finalRankings = "";
