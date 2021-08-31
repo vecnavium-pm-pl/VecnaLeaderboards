@@ -35,7 +35,7 @@ class LeaderboardManager
 	public function __construct(Main $plugin)
 	{
 		$this->plugin = $plugin;
-		$interval = $plugin->getYamlProvider()->getUpdateInterval();
+		$interval = $plugin->getJsonProvider()->getUpdateInterval();
 		$this->loadLeaderboards();
 		$plugin->getScheduler()->scheduleDelayedRepeatingTask(new UpdateLeaderboardsTask($this, $plugin), $interval * 20, $interval * 20);		}
 

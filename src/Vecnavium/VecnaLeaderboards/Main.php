@@ -25,7 +25,6 @@ use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Leaderboard\UpdateMoneyTask;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\JsonDataProvider;
-use Vecnavium\VecnaLeaderboards\CheckUpdateTask;
 
 /**
  * Class Main
