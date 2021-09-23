@@ -5,7 +5,7 @@ version: "1.2.3"
 api: [3.0.0]
 load: POSTWORLD
 description: A Pocketmine-MP Plugin that allows you to create leaderboards and view other Players Statistics.
-mcpe-protocol: [448]
+mcpe-protocol: [465]
 softdepend: [EconomyAPI]
 
 permissions:
