@@ -61,7 +61,7 @@ class Leaderboard
 				foreach ($this->position->getLevel()->getPlayers() as $player) {
 					$this->text->update(
 						TextFormat::GOLD . $title . "\n" .
-						$this->getPlugin()->getYamlProvider()->getRankings($this->type), $player
+						$this->getPlugin()->getJsonProvider()->getRankings($this->type), $player
 					);
 				}
 				break;
@@ -76,7 +76,7 @@ class Leaderboard
 		$title = PluginUtils::colorize($this->getPlugin()->getConfig()->get($this->type));
 		$text = TextFormat::WHITE . "================\n" .
 			$title . "\n" .
-			$this->getPlugin()->getYamlProvider()->getRankings($this->type);
+			$this->getPlugin()->getJsonProvider()->getRankings($this->type);
 		$this->text = new CustomFloatingText($text, $this->position, $this->id);
 		if ($player === null) {
 			foreach ($this->position->getLevel()->getPlayers() as $player) {
