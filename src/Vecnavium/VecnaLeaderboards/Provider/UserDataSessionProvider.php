@@ -56,7 +56,7 @@ class UserDataSessionProvider
 			$this->setStreak($this->currentStreak);
 		}
 		$playerLevel = $this->getLevel();
-		foreach ($this->getPlugin()->getYamlProvider()->getLevels() as $level => $data) {
+		foreach ($this->getPlugin()->getJsonProvider()->getLevels() as $level => $data) {
 			if ($kills == $data['kills'] && $playerLevel < $level){
 				$this->player->sendPopup(C::DARK_GREEN . "You have successfully Leveled up!");
 				$this->levelUp();
