@@ -73,9 +73,9 @@ class JsonDataProvider
 				$string = "kills";
 				break;
 		}
-		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.yml") as $playerFile) {
+		foreach (glob($this->plugin->getDataFolder() . "data" . DIRECTORY_SEPARATOR . "*.json") as $playerFile) {
 			$config = new Config($playerFile, Config::YAML);
-			$stats[basename($playerFile, ".yml")] = $config->get($string, 0);
+			$stats[basename($playerFile, ".json")] = $config->get($string, 0);
 		}
 		arsort($stats, SORT_NUMERIC);
 		$finalRankings = "";
