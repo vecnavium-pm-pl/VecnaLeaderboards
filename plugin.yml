@@ -5,7 +5,7 @@ version: "2.0.0"
 api: [4.0.0]
 load: POSTWORLD
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
-mcpe-protocol: [448]
+mcpe-protocol: [465]
 
 permissions:
   vecnaleaderboards.lb:
