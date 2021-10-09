@@ -38,7 +38,7 @@ class Main extends PluginBase implements Listener
 	public const LEADERBOARD_TYPE_STREAKS = "streaks";
 	public const LEADERBOARD_TYPE_DEATHS = "deaths";
 	public const LEADERBOARD_TYPE_LEVELS = "levels";
-    private bool $isDev = true;
+    private bool $isDev = false;
 
 	/** @var Main */
 	private static $instance;
