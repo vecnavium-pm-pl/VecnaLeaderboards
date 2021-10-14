@@ -32,8 +32,8 @@ class LeaderboardCommand extends VanillaCommand
 	 */
 	public function __construct(Main $plugin)
 	{
-		parent::__construct("leaderboard", "Leaderboards Command", "/lb help", ["leaderboard", "lb"]);
-		$this->setPermission("vecnaleaderboards.lb");
+		parent::__construct("lbmanage", "Create or delete leaderboards");
+		$this->setPermission("vecnaleaderboards.manage");
 		$this->plugin = $plugin;
 	}
 
@@ -43,50 +43,64 @@ class LeaderboardCommand extends VanillaCommand
 	 * @param array $args
 	 * @return bool
 	 */
-	public function execute(CommandSender $sender, string $commandLabel, array $args): bool
-	{
-		if (!$sender instanceof Player) {
-			$sender->sendMessage(C::RED . "ERROR: Please run this command ingame");
-			return false;
-		}
+    public function execute(CommandSender $sender, string $commandLabel, array $args): bool
+    {
+        if (!$sender instanceof Player) {
+            $sender->sendMessage(C::RED . "Error: Please run this command ingame");
+            return false;
+        }
 
-		if (!isset($args[0])) {
-			$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\b/lb streaks\n/lb delete");
-			return false;
-		}
-		switch ($args[0]) {
-			case Main::LEADERBOARD_TYPE_KILLS:
+        if (!$sender->hasPermission($this->getPermission())) {
+            $sender->sendMessage(C::RED . "You do not have permission to use this command!");
+            return false;
+        }
+
+        if (!isset($args[0])) {
+            $sender->sendMessage(C::RED . "Error: Please state what type of Leaderboard you want. For example");
+            $sender->sendMessage(C::WHITE . "Top Kills LeaderBoard: /lbmanage kills");
+            $sender->sendMessage(C::WHITE . "Top Kill Streaks Leaderboard: /lbmanage streaks");
+            $sender->sendMessage(C::WHITE . "Top Deaths Leaderboard: /lbmanage deaths");
+            $sender->sendMessage(C::WHITE . "Top Levels Leaderboard: /lbmanage levels");
+            return false;
+        }
+        switch ($args[0]) {
+            case Main::LEADERBOARD_TYPE_KILLS:
             case Main::LEADERBOARD_TYPE_DEATHS:
             case Main::LEADERBOARD_TYPE_STREAKS:
             case Main::LEADERBOARD_TYPE_LEVELS:
-				$this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
-				$sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
-				break;
-			case "del":
-			case "remove":
-			case "delete":
-				$nearLeaderboard = $this->plugin->getLeaderboardManager()->getNearLeaderboard($sender);
-				if ($nearLeaderboard === null) {
-					$sender->sendMessage(C::RED . "ERROR: Leaderboard not found. \nBe sure to be close to the Leaderboard to delete it!");
-					break;
-				}
-				$this->plugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
-				$sender->sendMessage(C::GOLD . "Success! Leaderboard has removed.");
-				break;
-			default:
-				$sender->sendMessage(C::RED . "ERROR: Please state what type of Leaderboard you want. Example..\n/lb kills\n/lb streaks\n/lb delete");
-				return false;
-		}
-		return true;
-	}
+                $this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
+                $sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
+                break;
+            case "del":
+            case "remove":
+            case "delete":
+                $nearLeaderboard = $this->plugin->getLeaderboardManager()->getNearLeaderboard($sender);
+                if ($nearLeaderboard === null) {
+                    $sender->sendMessage(C::RED . "Error: Leaderboard not found.");
+                    $sender->sendMessage(C::WHITE ."Be sure to be close to the Leaderboard to delete it!");
+                    break;
+                }
+                $this->plugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
+                $sender->sendMessage(C::GREEN . "Success! Leaderboard has removed.");
+                break;
+            default:
+                $sender->sendMessage(C::RED . "Error: Please state what type of Leaderboard you want. For example");
+                $sender->sendMessage(C::WHITE . "Top Kills LeaderBoard: /lbmanage kills");
+                $sender->sendMessage(C::WHITE . "Top Kill Streaks Leaderboard: /lbmanage streaks");
+                $sender->sendMessage(C::WHITE . "Top Deaths Leaderboard: /lbmanage deaths");
+                $sender->sendMessage(C::WHITE . "Top Levels Leaderboard: /lbmanage levels");
+                return false;
+        }
+        return true;
+    }
 
 
-	/**
-	 * @return Plugin
-	 */
-	public function getPlugin(): Plugin
-	{
-		return $this->plugin;
-	}
+    /**
+     * @return Plugin
+     */
+    public function getPlugin(): Plugin
+    {
+        return $this->plugin;
+    }
 
 }

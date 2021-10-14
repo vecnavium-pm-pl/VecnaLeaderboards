@@ -21,8 +21,9 @@ use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
+use Vecnavium\VecnaLeaderboards\Commands\HelpCommand;
 use Vecnavium\VecnaLeaderboards\Commands\LeaderboardCommand;
-use Vecnavium\VecnaLeaderboards\Commands\StatsCommand;
+use Vecnavium\VecnaLeaderboards\Commands\VersionCommand;
 use Vecnavium\VecnaLeaderboards\Leaderboard\LeaderboardManager;
 use Vecnavium\VecnaLeaderboards\Provider\UserDataSessionProvider;
 use Vecnavium\VecnaLeaderboards\Provider\JsonDataProvider;
@@ -57,6 +58,8 @@ class Main extends PluginBase implements Listener
 		$this->leaderboardManager = new LeaderboardManager($this);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getServer()->getCommandMap()->register("VecnaLeaderboards", new LeaderboardCommand($this));
+        $this->getServer()->getCommandMap()->register("VecnaLeaderboards", new HelpCommand($this));
+        $this->getServer()->getCommandMap()->register("VecnaLeaderboards", new VersionCommand($this));
         @mkdir($this->getDataFolder());
         @mkdir($this->getDataFolder() . "data/");
 

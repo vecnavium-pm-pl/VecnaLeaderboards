@@ -3,11 +3,11 @@ author: Vecnavium
 main: Vecnavium\VecnaLeaderboards\Main
 version: "2.0.0"
 api: [4.0.0]
-load: POSTWORLD
+load: STARTUP
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
 mcpe-protocol: [465]
 
 permissions:
-  vecnaleaderboards.lb:
+  vecnaleaderboards.manage:
     default: op
-    description: "Permission to create Leaderboard"
+    description: "Create or delete leaderboards"
