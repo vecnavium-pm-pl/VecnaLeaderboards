@@ -46,7 +46,7 @@ Have other suggestions? Let me know in the [Support Discord](https://discord.gg/
 
 |Command|Description|Permissions|
 |:--:|:--:|:--:|
-|/leaderboard|Create floating leaderboard text|`vecnaleaderboards.lb`
+|/leaderboard|Create or delete leaderboards|`vecnaleaderboards.manage`
 
 # BugReport
 
