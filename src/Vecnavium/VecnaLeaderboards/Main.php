@@ -50,6 +50,15 @@ class Main extends PluginBase implements Listener
 	/** @var UserDataSessionProvider[] */
 	private $sessions = [];
 
+    private $messages;
+
+    public function onLoad(): void
+    {
+        $this->messages = new Config(
+            $this->getFile() . "resources/languages/" . $this->getConfig()->get("languages", "en") . ".yml"
+        );
+    }
+
 
 	public function onEnable(): void
 	{
@@ -64,7 +73,7 @@ class Main extends PluginBase implements Listener
         @mkdir($this->getDataFolder() . "data/");
 
         if ($this->isDev) {
-            $this->getLogger()->warning("You are using the Development version of VecnaLeaderboards. The plugin will most likely will run into crashes, bugs or errors. Only use this version if you are testing or know what you are doing. Do not, use this in production. You have been warned.");
+            $this->getLogger()->warning($this->getMessage("error.devversion"));
         }
 	}
 
@@ -183,6 +192,20 @@ class Main extends PluginBase implements Listener
 	{
 		return $this->leaderboardManager;
 	}
+
+    public function getMessage(string $key, array $replaces = array()): string {
+        if($rawMessage = $this->messages->getNested($key)) {
+            if(is_array($replaces)) {
+                foreach($replaces as $replace => $value) {
+                    $rawMessage = str_replace("{" . $replace . "}", $value, $rawMessage);
+                }
+            }
+
+            return $rawMessage;
+        }
+
+        return $key;
+    }
 	
 }
 
