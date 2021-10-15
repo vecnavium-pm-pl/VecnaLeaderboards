@@ -31,28 +31,8 @@ This plugin's current feature is only the beginning, ton more other features for
 
 # Planned features
 
-- [X] Top money leaderboard (EconomyAPI)
-
-- [X] Kill streaks announcements
-
-- [X] Top kill streaks leaderboard 
-
-- [X] UI for /stats
-
-- [X] Player levels & rewards based on kill amounts.
-
-- [ ] Top KDR Leaderboard 
-
-- [ ] KDR Player Statistics
-
-- [X] Top death leaderboard 
-
-- [X] Top levels leaderboard
-
-- [X] Levels Player Statistics
-
-- [ ] Being able to configure Player Statistics format.
-
+No planned features. VecnaLeaderboards on PocketMine API 3.0.0 is now on feature freeze and will only be doing plugin updates when it comes to bug fixes and protocol updates. 
+VecnaLeaderboards PocketMine API 4.0.0 is in development with some major changes, updates, new features and rewrites.
 
 And possibly few more that isn't listed
 
