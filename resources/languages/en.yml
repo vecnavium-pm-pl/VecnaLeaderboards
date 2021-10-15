@@ -13,8 +13,8 @@ error:
 
 #Success Messages
 sucess:
-  lbdel: "§2Success! Leaderboard has been removed."
-  lbcreatesuccess: "VecnaLeaderboards: Leaderboard has successfully been created"
+  lbdel: "§2Success: Leaderboard has been removed."
+  lbcreatesuccess: "§2Success: Leaderboard has been created"
 
 #Help Command
 helpcmd:
