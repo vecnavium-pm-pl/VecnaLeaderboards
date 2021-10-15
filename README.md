@@ -34,10 +34,6 @@ This plugin's current feature is only the beginning, ton more other features for
 No planned features. VecnaLeaderboards on PocketMine API 3.0.0 is now on feature freeze and will only be doing plugin updates when it comes to bug fixes and protocol updates. 
 VecnaLeaderboards PocketMine API 4.0.0 is in development with some major changes, updates, new features and rewrites.
 
-And possibly few more that isn't listed
-
-Have other suggestions? Let me know in the [Support Discord](https://discord.gg/jWFB56RqUN) or Create an [Issue](https://github.com/Vecnavium/VecnaLeaderboards/issues/new) about your suggestion!
-
 # Commands & Permissions 
 
 |Command|Description|Permissions|
@@ -60,7 +56,8 @@ If you are using a modified Pocketmine-MP build/version you will not get assiste
 
 # Suggestions
 
-Have a suggestion?
+We will not take any suggestions for VecnaLeaderboards API 3.0.0 for the reason below.
 
-Feel free to contact me in the [Support Discord Server](https://discord.gg/jWFB56RqUN) and suggest the suggestion you have in mind for this plugin!
-No Pocketmine-MP Spoons support! If you are using a modified Pocketmine-MP build/version you will not get assisted.
+VecnaLeaderboards on PocketMine API 3.0.0 is now on feature freeze and will only be doing plugin updates when it comes to bug fixes and protocol updates. 
+VecnaLeaderboards PocketMine API 4.0.0 is in development with some major changes, updates, new features and rewrites.
+
