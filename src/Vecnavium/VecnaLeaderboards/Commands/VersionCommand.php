@@ -36,7 +36,7 @@ class VersionCommand extends VanillaCommand
             $sender->sendMessage(C::GREEN . "VecnaLeaderboards Plugin Information");
             $sender->sendMessage("Author: @Vecnavium");
             $sender->sendMessage("Source Code: https://github.com/Vecnavium/VecnaLeaderboards");
-            $sender->sendMessage("Plugin Version: v2.0.0");
+            $sender->sendMessage("Plugin Version: v2.0.1");
             $sender->sendMessage("Dev Build: False");
         }
         return true;
