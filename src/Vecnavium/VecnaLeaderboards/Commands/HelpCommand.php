@@ -31,9 +31,9 @@ class HelpCommand extends VanillaCommand
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!isset($args[0])) {
-            $sender->sendMessage(C::GREEN . "VecnaLeaderboards List of commands.");
-            $sender->sendMessage(C::WHITE . "/lbmanage - Create or Delete a leaderboard");
-            $sender->sendMessage(C::WHITE . "/lbversion - Shows information on the plugin");
+            $sender->sendMessage($this->plugin->getMessage("helpcmd.helptitle"));
+            $sender->sendMessage($this->plugin->getMessage("helpcmd.lbmanage"));
+            $sender->sendMessage($this->plugin->getMessage("helpcmd.lbversion"));
         }
         return true;
     }

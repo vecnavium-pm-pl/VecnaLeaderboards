@@ -15,7 +15,6 @@ use pocketmine\command\defaults\VanillaCommand;
 use pocketmine\entity\Entity;
 use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
-use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
 
 /**
@@ -46,21 +45,22 @@ class LeaderboardCommand extends VanillaCommand
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!$sender instanceof Player) {
-            $sender->sendMessage(C::RED . "Error: Please run this command ingame");
+            $sender->sendMessage($this->plugin->getMessage("error.runingame"));
             return false;
         }
 
         if (!$sender->hasPermission($this->getPermission())) {
-            $sender->sendMessage(C::RED . "You do not have permission to use this command!");
+            $sender->sendMessage($this->plugin->getMessage("error.lbmanagenoperm"));
             return false;
         }
 
         if (!isset($args[0])) {
-            $sender->sendMessage(C::RED . "Error: Please state what type of Leaderboard you want. For example");
-            $sender->sendMessage(C::WHITE . "Top Kills LeaderBoard: /lbmanage kills");
-            $sender->sendMessage(C::WHITE . "Top Kill Streaks Leaderboard: /lbmanage streaks");
-            $sender->sendMessage(C::WHITE . "Top Deaths Leaderboard: /lbmanage deaths");
-            $sender->sendMessage(C::WHITE . "Top Levels Leaderboard: /lbmanage levels");
+            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelbtitle"));
+            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatekills"));
+            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatestreaks"));
+            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatedeaths"));
+            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelevels"));
+
             return false;
         }
         switch ($args[0]) {
@@ -69,26 +69,25 @@ class LeaderboardCommand extends VanillaCommand
             case Main::LEADERBOARD_TYPE_STREAKS:
             case Main::LEADERBOARD_TYPE_LEVELS:
                 $this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
-                $sender->sendMessage(C::GRAY . "[" . C::WHITE . "VecnaLeaderboards" . C::WHITE . "" . C::GRAY . "] \n" . C::GREEN . $args[0] . " Leaderboard has been created!");
+            $sender->sendMessage($this->plugin->getMessage("success.lbcreatesuccess"));
                 break;
             case "del":
             case "remove":
             case "delete":
                 $nearLeaderboard = $this->plugin->getLeaderboardManager()->getNearLeaderboard($sender);
                 if ($nearLeaderboard === null) {
-                    $sender->sendMessage(C::RED . "Error: Leaderboard not found.");
-                    $sender->sendMessage(C::WHITE ."Be sure to be close to the Leaderboard to delete it!");
+                    $sender->sendMessage($this->plugin->getMessage("error.lbnotfound"));
                     break;
                 }
                 $this->plugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
-                $sender->sendMessage(C::GREEN . "Success! Leaderboard has removed.");
+            $sender->sendMessage($this->plugin->getMessage("sucess.lbdel"));
                 break;
             default:
-                $sender->sendMessage(C::RED . "Error: Please state what type of Leaderboard you want. For example");
-                $sender->sendMessage(C::WHITE . "Top Kills LeaderBoard: /lbmanage kills");
-                $sender->sendMessage(C::WHITE . "Top Kill Streaks Leaderboard: /lbmanage streaks");
-                $sender->sendMessage(C::WHITE . "Top Deaths Leaderboard: /lbmanage deaths");
-                $sender->sendMessage(C::WHITE . "Top Levels Leaderboard: /lbmanage levels");
+                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelbtitle"));
+                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatekills"));
+                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatestreaks"));
+                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatedeaths"));
+                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelevels"));
                 return false;
         }
         return true;
@@ -102,5 +101,6 @@ class LeaderboardCommand extends VanillaCommand
     {
         return $this->plugin;
     }
+
 
 }

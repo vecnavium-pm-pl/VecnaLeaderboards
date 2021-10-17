@@ -33,11 +33,11 @@ class VersionCommand extends VanillaCommand
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!isset($args[0])) {
-            $sender->sendMessage(C::GREEN . "VecnaLeaderboards Plugin Information");
-            $sender->sendMessage("Author: @Vecnavium");
-            $sender->sendMessage("Source Code: https://github.com/Vecnavium/VecnaLeaderboards");
-            $sender->sendMessage("Plugin Version: v2.0.1");
-            $sender->sendMessage("Dev Build: False");
+            $sender->sendMessage($this->plugin->getMessage("versioncmd.versiontitle"));
+            $sender->sendMessage($this->plugin->getMessage("versioncmd.author"));
+            $sender->sendMessage($this->plugin->getMessage("versioncmd.sourcecode"));
+            $sender->sendMessage($this->plugin->getMessage("versioncmd.pluginversion"));
+            $sender->sendMessage($this->plugin->getMessage("versioncmd.devbuild"));
         }
         return true;
     }

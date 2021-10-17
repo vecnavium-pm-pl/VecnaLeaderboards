@@ -1,0 +1,35 @@
+---
+#English language
+
+#Error messages
+error:
+  devversion: "You are using the Development version of VecnaLeaderboards. The plugin will most likely will run into crashes, bugs or errors. Only use this version if you are testing or know what you are doing. Do not, use this in production. You have been warned."
+  runingame: "§4Error: Run this command ingame"
+  lbmanagenoperm: "§4You do not have permission to use this command!"
+  lbmanagestatelbtitle: "§4Error: Please state what type of Leaderboard you want. For example"
+  lbmanagestatekills: "§fTop Kills LeaderBoard: /lbmanage kills"
+  lbmanagestatestreaks: "§fTop Kill Streaks Leaderboard: /lbmanage streaks"
+  lbmanagestatedeaths: "§fTop Deaths Leaderboard: /lbmanage deaths"
+  lbmanagestatelevels: "§fTop Levels Leaderboard: /lbmanage levels"
+  lbnotfound: "§4Error: Leaderboard has not been found! Be sure to be close to the Leaderboard to delete it!"
+
+#Success Messages
+sucess:
+  lbdel: "§2Success: Leaderboard has been removed."
+  lbcreatesuccess: "§2Success: Leaderboard has been created"
+
+#Help Command
+helpcmd:
+    helptitle: "§2VecnaLeaderboards List of commands."
+    lbmanage: "§f/lbmanage - Create or Delete a leaderboard"
+    lbversion: "§f/lbversion - Shows information on the plugin"
+
+#Version Command
+versioncmd:
+  versiontitle: "§2VecnaLeaderboards Plugin Information"
+  author: "§fAuthor: @Vecnavium"
+  sourcecode: "§fSource Code: https://github.com/Vecnavium/VecnaLeaderboards"
+  pluginversion: "§fPlugin Version: v2.0.1"
+  devbuild: "§fDev Build: True"
+
+---
