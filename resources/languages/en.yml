@@ -1,4 +1,6 @@
 ---
+#English language
+
 #Error messages
 error:
   devversion: "You are using the Development version of VecnaLeaderboards. The plugin will most likely will run into crashes, bugs or errors. Only use this version if you are testing or know what you are doing. Do not, use this in production. You have been warned."

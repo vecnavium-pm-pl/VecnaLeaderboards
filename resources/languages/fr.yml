@@ -1,0 +1,35 @@
+---
+#French language
+
+#Error messages
+error:
+  devversion: "Vous utilisez la version de développement de VecnaLeaderboards. Le plugin rencontrera très probablement des plantages, des bugs ou des erreurs. N'utilisez cette version que si vous testez ou savez ce que vous faites. Ne l'utilisez pas en production. Tu étais prévenu."
+  runingame: "§4Erreur: Exécutez cette commande dans le jeu"
+  lbmanagenoperm: "§4Vous n'êtes pas autorisé à utiliser cette commande !"
+  lbmanagestatelbtitle: "§4Erreur: Veuillez indiquer le type de classement que vous souhaitez. Par exemple"
+  lbmanagestatekills: "§fTop Kills LeaderBoard: /lbmanage kills"
+  lbmanagestatestreaks: "§fTop Kill Streaks Leaderboard: /lbmanage streaks"
+  lbmanagestatedeaths: "§fTop Deaths Leaderboard: /lbmanage deaths"
+  lbmanagestatelevels: "§fTop Levels Leaderboard: /lbmanage levels"
+  lbnotfound: "§4Erreur: Le classement n'a pas été trouvé ! Assurez-vous d'être proche du classement pour le supprimer !"
+
+#Success Messages
+sucess:
+  lbdel: "§2Succès: le classement a été supprimé."
+  lbcreatesuccess: "§2Succès: Le classement a été créé"
+
+#Help Command
+helpcmd:
+  helptitle: "§2VecnaLeaderboards Liste des commandes."
+  lbmanage: "§f/lbmanage - Créer ou supprimer un classement"
+  lbversion: "§f/lbversion - Affiche des informations sur le plugin"
+
+#Version Command
+versioncmd:
+  versiontitle: "§2VecnaLeaderboards Informations sur les plugins"
+  author: "§fAuteure: @Vecnavium"
+  sourcecode: "§fCode source: https://github.com/Vecnavium/VecnaLeaderboards"
+  pluginversion: "§fVersion du plug-in: v2.0.1"
+  devbuild: "§fDev Build: vrai"
+
+---

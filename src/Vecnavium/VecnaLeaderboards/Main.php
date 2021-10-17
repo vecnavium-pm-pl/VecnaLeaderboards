@@ -55,7 +55,7 @@ class Main extends PluginBase implements Listener
     public function onLoad(): void
     {
         $this->messages = new Config(
-            $this->getFile() . "resources/languages/" . $this->getConfig()->get("languages", "en") . ".yml"
+            $this->getFile() . "resources/languages/" . $this->getConfig()->get("language", "en") . ".yml"
         );
     }
 
