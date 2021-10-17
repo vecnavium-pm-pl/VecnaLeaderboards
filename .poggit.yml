@@ -1,7 +1,7 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Vecnavium/VecnaLeaderboards
 build-by-default: true
 branches:
-- languages
+- PM4
 projects:
   VecnaLeaderboards:
     path: ""
