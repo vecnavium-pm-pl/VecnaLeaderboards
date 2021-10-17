@@ -2,6 +2,7 @@
 #Config File for VecnaLeaderboards
 #==========================================#
 CONFIG_VERSION: 2
+
 language: "en"
 #====================================================================================#
 
@@ -35,27 +36,13 @@ leaderboard-top-length: 10
 #Format for each levels
 # Level Number:
 #   kills: Amount of kills required to reach to the level
-#   commands(OPTIONAL): The command that will and should be executed once the player has leveled up
 
-#Variables supported you can use for rewards..
-# {kills}- Number of kills
-# {streak} - Kill streaks
-# {deaths} - Number of deaths
-# {p} - Player's username
-# {level} - The player's level
-
-#More variables will be supported soon
 
 levels:
   1:
     kills: 2
-    cmds:
-      - "tell {p} You have successfully reached level 1!"
-      - "say {p} has successfully reached level 1!"
+
   2:
     kills: 4
-    cmds:
-      - "tell {p} You have successfully reached level 2!"
-      - "say {p} has successfully reached level 2!"
 
 #====================================================================================#

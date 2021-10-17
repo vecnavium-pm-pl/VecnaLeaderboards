@@ -52,20 +52,7 @@ class UserDataSessionProvider
 		if ($this->currentStreak > 5 && $this->currentStreak > $this->getStreak()) {
 			$this->setStreak($this->currentStreak);
 		}
-		$playerLevel = $this->getLevel();
-		foreach ($this->getPlugin()->getYamlProvider()->getLevels() as $level => $data) {
-			if ($kills == $data['kills'] && $playerLevel < $level){
-				$this->player->sendPopup(C::DARK_GREEN . "You have successfully Leveled up!");
-				$this->levelUp();
-				foreach ($data["cmds"] as $command) {
-					$cmd = str_replace(["{p}", "{k}", "{s}", "{d}", "{l}"], ["\"" . $this->player->getName() . "\"", $this->getKills(), $this->getStreak(), $this->getDeaths(), $this->getLevel()], $command);
-					$this->getPlugin()->getServer()->dispatchCommand(
-						new ConsoleCommandSender($this->player->getServer(), $this->player->getServer()->getLanguage()), $cmd
-					);
-				}
-			}
-		}
-	}
+}
 
 	/**
 	 * @return int
