@@ -30,6 +30,6 @@ versioncmd:
   author: "§fAuteure: @Vecnavium"
   sourcecode: "§fCode source: https://github.com/Vecnavium/VecnaLeaderboards"
   pluginversion: "§fVersion du plug-in: v2.0.1"
-  devbuild: "§fDev Build: vrai"
+  devbuild: "§fDev Build: Faux"
 
 ---
