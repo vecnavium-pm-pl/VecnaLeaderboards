@@ -31,8 +31,6 @@ More coming soon!
 
 - [ ] Top KDR Leaderboard 
 
-- [ ] KDR Player Statistics
-
 - [X] Top death leaderboard 
 
 - [X] Top levels leaderboard
