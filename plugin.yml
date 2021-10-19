@@ -1,11 +1,11 @@
 name: VecnaLeaderboards
 author: Vecnavium
 main: Vecnavium\VecnaLeaderboards\Main
-version: "1.2.6"
+version: "1.2.7"
 api: [3.0.0]
 load: POSTWORLD
 description: A Pocketmine-MP Plugin that allows you to create leaderboards and view other Players Statistics.
-mcpe-protocol: [465]
+mcpe-protocol: [471]
 softdepend: [EconomyAPI]
 
 permissions:
