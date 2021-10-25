@@ -5,7 +5,7 @@ version: "2.1.0"
 api: [4.0.0]
 load: STARTUP
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
-mcpe-protocol: [465]
+mcpe-protocol: [471]
 
 permissions:
   vecnaleaderboards.manage:
