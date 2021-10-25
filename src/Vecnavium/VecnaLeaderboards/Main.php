@@ -52,6 +52,8 @@ class Main extends PluginBase implements Listener
 
     private $messages;
 
+    private bool $isDev = false;
+
     public function onLoad(): void
     {
         $this->messages = new Config(
