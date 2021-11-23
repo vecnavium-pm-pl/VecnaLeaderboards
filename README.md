@@ -1,10 +1,13 @@
-[![Discord](https://img.shields.io/discord/837701868649709568.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jWFB56RqUN) 
-[![](https://poggit.pmmp.io/shield.state/VecnaLeaderboards)](https://poggit.pmmp.io/p/VecnaLeaderboards) [![](https://poggit.pmmp.io/shield.dl/VecnaLeaderboards)](https://poggit.pmmp.io/p/VecnaLeaderboards) [![](https://poggit.pmmp.io/shield.dl.total/VecnaLeaderboards)](https://poggit.pmmp.io/p/VecnaLeaderboards)
+<p align="center">
+    <a href="https://github.com/Vecnavium/VecnaLeaderboards"><img src="https://github.com/Vecnavium/VecnaLeaderboards/blob/master/icon.png"></img></a><br>
+    <b>This plugin is an advanced Leaderboards plugin, with tons of supported feature, simple fast and easy!</b>
+</p>
 
-## VecnaLeaderboards
-This plugin will be an advanced Leaderboards plugin, with tons of supported feature, simple fast and easy!
-
-This plugin's current feature is only the beginning, ton more other features for this plugin is planned and will be improved from time to time
+<p align="center">
+    <img alt="GitHubrelease" src="https://img.shields.io/github/v/release/Vecnavium/VecnaLeaderboards?label=release&sort=semver">
+      <img alt="Stars" src= "https://img.shields.io/github/stars/Vecnavium/VecnaLeaderboards?style=for-the-badge">
+    <img href="https://discord.gg/6M9tGyWPjr"><img src="https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord" alt="Discord" /></a>
+</p>
 
 
 # Features 
