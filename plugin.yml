@@ -1,7 +1,7 @@
 name: VecnaLeaderboards
 author: Vecnavium
 main: Vecnavium\VecnaLeaderboards\Main
-version: "2.1.0"
+version: "2.1.2"
 api: [4.0.0]
 load: STARTUP
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
