@@ -11,16 +11,15 @@ declare(strict_types=1);
 namespace Vecnavium\VecnaLeaderboards\Commands;
 
 use pocketmine\command\CommandSender;
-use pocketmine\plugin\Plugin;
+use pocketmine\plugin\{Plugin, PluginOwned, PluginOwnedTrait};
 use pocketmine\command\defaults\VanillaCommand;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
 
-class HelpCommand extends VanillaCommand
+class HelpCommand extends VanillaCommand implements PluginOwned
 {
-
-    private $plugin;
+    use PluginOwnedTrait;
 
     public function __construct(Main $plugin)
     {
