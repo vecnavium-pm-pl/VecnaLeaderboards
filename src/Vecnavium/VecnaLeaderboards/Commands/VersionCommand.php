@@ -27,7 +27,7 @@ class VersionCommand extends VanillaCommand implements PluginOwned
     public function __construct(Main $plugin)
     {
         parent::__construct("lbversion", "VencaLeaderboards version command", "/lbversion", ["lbversion"]);
-        $this->owningPlugin
+        $this->owningPlugin = $plugin;
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
