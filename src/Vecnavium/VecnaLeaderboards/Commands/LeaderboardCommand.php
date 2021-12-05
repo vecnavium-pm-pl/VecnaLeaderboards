@@ -14,17 +14,16 @@ use pocketmine\command\CommandSender;
 use pocketmine\command\defaults\VanillaCommand;
 use pocketmine\entity\Entity;
 use pocketmine\player\Player;
-use pocketmine\plugin\Plugin;
+use pocketmine\plugin\{Plugin, PluginOwned, PluginOwnedTrait};
 use Vecnavium\VecnaLeaderboards\Main;
 
 /**
  * Class LeaderboardCommand
  * @package Vecnavium\VecnaLeaderboards\Commands
  */
-class LeaderboardCommand extends VanillaCommand
+class LeaderboardCommand extends VanillaCommand implements PluginOwned
 {
-	/** @var Main */
-	private $plugin;
+	use PluginOwnedTrait;
 
 	/**
 	 * LeaderboardCommand constructor.
@@ -92,15 +91,4 @@ class LeaderboardCommand extends VanillaCommand
         }
         return true;
     }
-
-
-    /**
-     * @return Plugin
-     */
-    public function getPlugin(): Plugin
-    {
-        return $this->plugin;
-    }
-
-
 }

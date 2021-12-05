@@ -16,13 +16,13 @@ use pocketmine\command\defaults\VanillaCommand;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat as C;
 use Vecnavium\VecnaLeaderboards\Main;
+use pocketmine\plugin\PluginOwnedTrait;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\Plugin;
 
-class VersionCommand extends VanillaCommand
+class VersionCommand extends VanillaCommand implements PluginOwned
 {
-
-    private $plugin;
+    use PluginOwnedTrait;
 
     public function __construct(Main $plugin)
     {
