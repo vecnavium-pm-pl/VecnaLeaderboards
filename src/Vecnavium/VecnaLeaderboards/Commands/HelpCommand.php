@@ -24,7 +24,7 @@ class HelpCommand extends VanillaCommand implements PluginOwned
     public function __construct(Main $plugin)
     {
         parent::__construct("lbhelp", "VencaLeaderboards help command", "/lbhelp", ["lbhelp"]);
-        $this->plugin = $plugin;
+        $this->owningPlugin
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
