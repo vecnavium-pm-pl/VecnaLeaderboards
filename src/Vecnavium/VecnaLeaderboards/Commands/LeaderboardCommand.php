@@ -32,7 +32,7 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
 	{
 		parent::__construct("lbmanage", "Create or delete leaderboards");
 		$this->setPermission("vecnaleaderboards.manage");
-		$this->plugin = $plugin;
+		$this->owningPlugin
 	}
 
 	/**
