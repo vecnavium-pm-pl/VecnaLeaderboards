@@ -22,7 +22,14 @@
 
 - Player levels based on kills and rewards
 
-More coming soon!
+# Languages
+
+- English
+- German
+- French
+- Turkish
+
+More features and Languages coming soon!
 
 
 # Planned features
