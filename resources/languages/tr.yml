@@ -1,0 +1,35 @@
+---
+#Türkçe Dilı
+
+#Error messages
+error:
+  devversion: "VecnaLeaderboards Geliştirme sürümünü kullanıyorsunuz. Eklenti büyük olasılıkla çökmeler, hatalar veya hatalarla karşılaşacaktır. Bu sürümü yalnızca test ediyorsanız veya ne yaptığınızı biliyorsanız kullanın. Bunu üretimde kullanmayın. Uyarıldın. "   
+  runingame: "§4Hata: Bu komutu oyun içinde çalıştırın "
+  lbmanagenoperm: "§4Bu komutu kullanma izniniz yok !"
+  lbmanagestatelbtitle: "§4Hata: Lütfen ne tür bir skor tablosu istediğinizi belirtin. Örneğin "
+  lbmanagestatekills: "§fTop Kill Liderlik Tablolarının: /lbmanage kills"
+  lbmanagestatestreaks: "§fTop KillStreaks Liderlik Tablolarının: /lbmanage streaks"
+  lbmanagestatedeaths: "§fTop Ölüm Liderlik Tablolarının: /lbmanage deaths"
+  lbmanagestatelevels: "§fTop Levels Liderlik Tablolarının : /lbmanage levels"
+  lbnotfound: "§4Error: Liderlik Tablolarının bulunamadı! Silmek için Lider Tablosuna yakın olduğunuzdan emin olun. !"
+
+#Success Messages
+sucess:
+  lbdel: "§aBaşarı: Lider tablosu kaldırıldı ."
+  lbcreatesuccess: "§aBaşarı: Lider tablosu oluşturuldu "
+
+#Help Command
+helpcmd:
+    helptitle: "§2VecnaLeaderboards komut listesi ."
+    lbmanage: "§f/lbmanage - Bir lider panosu oluşturun veya silin "
+    lbversion: "§f/lbversion - Eklentiyle ilgili bilgileri gösterir "
+
+#Version Command
+versioncmd:
+  versiontitle: "§2VecnaLeaderboards Eklenti Bilgileri "
+  author: "§fYazar: @Vecnavium"
+  sourcecode: "§fKaynak kodu : https://github.com/Vecnavium/VecnaLeaderboards"
+  pluginversion: "§fEklenti Sürümü : v2.1.0"
+  devbuild: "§fGeliştirme Yapısı : False"
+
+---
