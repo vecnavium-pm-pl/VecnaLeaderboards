@@ -25,6 +25,9 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
 {
 	use PluginOwnedTrait;
 
+    /** @var Main */
+    private $plugin;
+
 	/**
 	 * LeaderboardCommand constructor.
 	 */

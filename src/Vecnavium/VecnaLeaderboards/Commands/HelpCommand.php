@@ -21,6 +21,9 @@ class HelpCommand extends VanillaCommand implements PluginOwned
 {
     use PluginOwnedTrait;
 
+    /** @var Main */
+    private $plugin;
+
     public function __construct(Main $plugin)
     {
         parent::__construct("lbhelp", "VencaLeaderboards help command", "/lbhelp", ["lbhelp"]);
