@@ -1,0 +1,35 @@
+---
+#Deutsche Sprache
+
+#Fehler Chat-Benachrichtigungen
+error:
+  devversion: "Du nutzt das Entwickler Plugin VecnaLeaderboards. Das Plugin was du nutzt ist in einer Entwicklungsphase und es kann vor kommen das der Server abstürzen oder generelle Spiel bugs hervorrufen werden nutz das Plugin auf deiner Last du wurdest informiert darüber!"
+  runingame: "§4Fehler: Bitte nutz die folgenden Commands auf deinem Server nicht über der Console!"
+  lbmanagenoperm: "§4Du hast keine Berechtigung um diesen Command ausführen zu lassen!"
+  lbmanagestatelbtitle: "§4Fehler: Bitte gebe ein Typ für die Statistik an welches du nutzen möchtest!"
+  lbmanagestatekills: "§fTop Kills Bestenliste: /lbmanage kills"
+  lbmanagestatestreaks: "§fTop Kill Streaks Bestenliste: /lbmanage streaks"
+  lbmanagestatedeaths: "§fTop Tode Bestenliste: /lbmanage deaths"
+  lbmanagestatelevels: "§fTop Levels Bestenliste: /lbmanage levels"
+  lbnotfound: "§4Fehler: Bestenliste wurde nicht gefunden!"
+
+#Success Messages
+sucess:
+  lbdel: "§aErfolggreich: Bestenliste wurde soebend gelöscht!"
+  lbcreatesuccess: "§aErfolgreich: Die Bestenliste wurde soebend erstellt!"
+
+#Help Command
+helpcmd:
+    helptitle: "§2VecnaLeaderboards Liste der Commands."
+    lbmanage: "§f/lbmanage - Erstelle oder Lösche eine Bestenliste"
+    lbversion: "§f/lbversion - Zeigt dir Informationen über das Plugin an"
+
+#Version Command
+versioncmd:
+  versiontitle: "§2VecnaLeaderboards Plugin Information"
+  author: "§fAuthor: @Vecnavium"
+  sourcecode: "§fQuellCode: https://github.com/Vecnavium/VecnaLeaderboards"
+  pluginversion: "§fPlugin Version: v2.1.0"
+  devbuild: "§fEntwicklerungphase: False"
+
+---
