@@ -11,7 +11,6 @@
 
 # Features 
 
-
 - Ability to create all sorts leaderboard types such as kills and more to come
 
 - Being able to see others and your own player stats by using /stats
