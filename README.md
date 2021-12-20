@@ -9,6 +9,7 @@
     <a href="https://discord.gg/6M9tGyWPjr"><img src="https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord" alt="Discord" /></a>
 </p>
 
+
 # Features 
 
 - Ability to create all sorts leaderboard types such as kills and more to come
