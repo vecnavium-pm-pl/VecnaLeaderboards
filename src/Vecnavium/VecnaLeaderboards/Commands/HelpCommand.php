@@ -30,9 +30,9 @@ class HelpCommand extends VanillaCommand implements PluginOwned
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!isset($args[0])) {
-            $sender->sendMessage($this->plugin->getMessage("helpcmd.helptitle"));
-            $sender->sendMessage($this->plugin->getMessage("helpcmd.lbmanage"));
-            $sender->sendMessage($this->plugin->getMessage("helpcmd.lbversion"));
+            $sender->sendMessage($this->owningPlugin->getMessage("helpcmd.helptitle"));
+            $sender->sendMessage($this->owningPlugin->getMessage("helpcmd.lbmanage"));
+            $sender->sendMessage($this->owningPlugin->getMessage("helpcmd.lbversion"));
         }
         return true;
     }

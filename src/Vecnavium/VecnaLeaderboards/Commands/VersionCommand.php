@@ -33,11 +33,11 @@ class VersionCommand extends VanillaCommand implements PluginOwned
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!isset($args[0])) {
-            $sender->sendMessage($this->plugin->getMessage("versioncmd.versiontitle"));
-            $sender->sendMessage($this->plugin->getMessage("versioncmd.author"));
-            $sender->sendMessage($this->plugin->getMessage("versioncmd.sourcecode"));
-            $sender->sendMessage($this->plugin->getMessage("versioncmd.pluginversion"));
-            $sender->sendMessage($this->plugin->getMessage("versioncmd.devbuild"));
+            $sender->sendMessage($this->owningPlugin->getMessage("versioncmd.versiontitle"));
+            $sender->sendMessage($this->owningPlugin->getMessage("versioncmd.author"));
+            $sender->sendMessage($this->owningPlugin->getMessage("versioncmd.sourcecode"));
+            $sender->sendMessage($this->owningPlugin->getMessage("versioncmd.pluginversion"));
+            $sender->sendMessage($this->owningPlugin->getMessage("versioncmd.devbuild"));
         }
         return true;
     }

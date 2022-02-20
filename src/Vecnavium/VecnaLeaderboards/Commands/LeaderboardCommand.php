@@ -44,21 +44,21 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!$sender instanceof Player) {
-            $sender->sendMessage($this->plugin->getMessage("error.runingame"));
+            $sender->sendMessage($this->owningPlugin->getMessage("error.runingame"));
             return false;
         }
 
         if (!$sender->hasPermission($this->getPermission())) {
-            $sender->sendMessage($this->plugin->getMessage("error.lbmanagenoperm"));
+            $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagenoperm"));
             return false;
         }
 
         if (!isset($args[0])) {
-            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelbtitle"));
-            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatekills"));
-            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatestreaks"));
-            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatedeaths"));
-            $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelevels"));
+            $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatelbtitle"));
+            $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatekills"));
+            $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatestreaks"));
+            $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatedeaths"));
+            $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatelevels"));
 
             return false;
         }
@@ -67,26 +67,26 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
             case Main::LEADERBOARD_TYPE_DEATHS:
             case Main::LEADERBOARD_TYPE_STREAKS:
             case Main::LEADERBOARD_TYPE_LEVELS:
-                $this->plugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
-            $sender->sendMessage($this->plugin->getMessage("success.lbcreatesuccess"));
+                $this->owningPlugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
+            $sender->sendMessage($this->owningPlugin->getMessage("success.lbcreatesuccess"));
                 break;
             case "del":
             case "remove":
             case "delete":
-                $nearLeaderboard = $this->plugin->getLeaderboardManager()->getNearLeaderboard($sender);
+                $nearLeaderboard = $this->owningPlugin->getLeaderboardManager()->getNearLeaderboard($sender);
                 if ($nearLeaderboard === null) {
-                    $sender->sendMessage($this->plugin->getMessage("error.lbnotfound"));
+                    $sender->sendMessage($this->owningPlugin->getMessage("error.lbnotfound"));
                     break;
                 }
-                $this->plugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
-            $sender->sendMessage($this->plugin->getMessage("sucess.lbdel"));
+                $this->owningPlugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
+            $sender->sendMessage($this->owningPlugin->getMessage("sucess.lbdel"));
                 break;
             default:
-                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelbtitle"));
-                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatekills"));
-                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatestreaks"));
-                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatedeaths"));
-                $sender->sendMessage($this->plugin->getMessage("error.lbmanagestatelevels"));
+                $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatelbtitle"));
+                $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatekills"));
+                $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatestreaks"));
+                $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatedeaths"));
+                $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatelevels"));
                 return false;
         }
         return true;
