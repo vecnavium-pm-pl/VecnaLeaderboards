@@ -88,7 +88,7 @@ class Leaderboard
 
 	public function despawn(?Player $player = null): void
 	{
-		if ($this->text === null || $this->position === null) {
+		if ($this->text === null || $this->position === null || !$this->position->isValid()) {
 			return;
 		}
 		
