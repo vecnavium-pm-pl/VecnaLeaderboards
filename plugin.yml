@@ -1,7 +1,7 @@
 name: VecnaLeaderboards
 author: Vecnavium
 main: Vecnavium\VecnaLeaderboards\Main
-version: "2.1.4"
+version: "2.1.5"
 api: [4.0.0]
 mcpe-protocol: [486]
 load: STARTUP
