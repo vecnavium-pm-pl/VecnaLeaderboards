@@ -1,5 +1,7 @@
 name: VecnaLeaderboards
-author: Vecnavium
+authors:
+  - Vecnavium
+  - cosmicnebula200
 main: Vecnavium\VecnaLeaderboards\Main
 version: "2.1.5"
 api: [4.0.0]

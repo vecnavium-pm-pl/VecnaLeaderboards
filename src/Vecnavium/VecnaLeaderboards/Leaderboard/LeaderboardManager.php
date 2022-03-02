@@ -25,9 +25,9 @@ use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
 class LeaderboardManager
 {
 	/** @var Main */
-	private $plugin;
+	private Main $plugin;
 	/** @var Leaderboard[] */
-	private $leaderboards = [];
+	private array $leaderboards = [];
 
 	/**
 	 * ScoreboardManager constructor.

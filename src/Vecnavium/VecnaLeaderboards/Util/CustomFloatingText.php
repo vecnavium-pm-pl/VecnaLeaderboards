@@ -33,11 +33,11 @@ use Ramsey\Uuid\Uuid;
 class CustomFloatingText
 {
 	/** @var int */
-	private $eid;
+	private int $eid;
 	/** @var string */
-	private $text;
+	private string $text;
 	/** @var Position */
-	private $position;
+	private Position $position;
 
 	/**
 	 * CustomFloatingText constructor.
@@ -59,10 +59,10 @@ class CustomFloatingText
 	public function spawn(Player $player): void
 	{
 		$pk = new AddPlayerPacket();
-		$pk->entityRuntimeId = $this->eid;
+		$pk->actorRuntimeId = $this->eid;
 		$pk->uuid = Uuid::uuid4();
 		$pk->username = $this->text;
-		$pk->entityUniqueId = $this->eid;
+		$pk->actorUniqueId = $this->eid;
 		$pk->position = $this->position->asVector3();
 		$pk->item = ItemStackWrapper::legacy(TypeConverter::getInstance()->coreItemStackToNet(ItemFactory::air()));
 		$flags =
@@ -87,7 +87,7 @@ class CustomFloatingText
 	public function update(string $text, Player $player): void
 	{
 		$pk = new SetActorDataPacket();
-		$pk->entityRuntimeId = $this->eid;
+		$pk->actorRuntimeId = $this->eid;
 		$pk->metadata = [EntityMetadataProperties::NAMETAG => new StringMetadataProperty($text)];
 		$player->getNetworkSession()->sendDataPacket($pk);
 	}
@@ -98,7 +98,7 @@ class CustomFloatingText
 	public function remove(Player $player): void
 	{
 		$pk = new RemoveActorPacket();
-		$pk->entityUniqueId = $this->eid;
+		$pk->actorUniqueId = $this->eid;
 		$player->getNetworkSession()->sendDataPacket($pk);
 	}
 
