@@ -19,11 +19,11 @@ use pocketmine\utils\TextFormat as C;
 class UserDataSessionProvider
 {
 	/** @var Player */
-	private $player;
+	private Player $player;
 	/** @var Config */
-	private $config;
+	private Config $config;
 	/** @var int */
-	private $currentStreak = 0;
+	private int $currentStreak = 0;
 
 	/**
 	 * UserDataSessionProvider constructor.

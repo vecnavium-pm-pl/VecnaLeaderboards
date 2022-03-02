@@ -42,16 +42,17 @@ class Main extends PluginBase implements Listener
 
 
 	/** @var Main */
-	private static $instance;
+	private static Main $instance;
 	/** @var JsonDataProvider */
-	private $jsonProvider;
+	private JsonDataProvider $jsonProvider;
 	/** @var LeaderboardManager */
-	private $leaderboardManager;
+	private LeaderboardManager $leaderboardManager;
 	/** @var UserDataSessionProvider[] */
-	private $sessions = [];
+	private array $sessions = [];
 
     private $messages;
 
+    /** @var bool */
     private bool $isDev = false;
 
     public function onLoad(): void

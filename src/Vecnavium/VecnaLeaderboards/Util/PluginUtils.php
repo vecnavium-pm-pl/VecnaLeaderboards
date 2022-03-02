@@ -23,7 +23,7 @@ class PluginUtils
 
 	/**
 	 * @param string $string
-	 * @return array|string|string[]
+	 * @return string
 	 */
 	public static function colorize(string $string): string
 	{

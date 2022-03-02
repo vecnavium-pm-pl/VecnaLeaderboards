@@ -22,11 +22,11 @@ class HelpCommand extends VanillaCommand implements PluginOwned
     use PluginOwnedTrait;
 
     /** @var Main */
-    private $plugin;
+    private Main $plugin;
 
     public function __construct(Main $plugin)
     {
-        parent::__construct("lbhelp", "VencaLeaderboards help command", "/lbhelp", ["lbhelp"]);
+        parent::__construct("lbhelp", "VencaLeaderboards help command", "/lbhelp");
         $this->owningPlugin = $plugin;
     }
 
