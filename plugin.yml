@@ -3,7 +3,7 @@ authors:
   - Vecnavium
   - cosmicnebula200
 main: Vecnavium\VecnaLeaderboards\Main
-version: "2.1.5"
+version: "2.1.6"
 api: [4.0.0]
 mcpe-protocol: [486]
 load: STARTUP
