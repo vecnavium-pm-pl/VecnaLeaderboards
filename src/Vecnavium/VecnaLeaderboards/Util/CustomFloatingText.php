@@ -13,8 +13,10 @@ namespace Vecnavium\VecnaLeaderboards\Util;
 use pocketmine\item\ItemFactory;
 use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\protocol\AddPlayerPacket;
+use pocketmine\network\mcpe\protocol\AdventureSettingsPacket;
 use pocketmine\network\mcpe\protocol\RemoveActorPacket;
 use pocketmine\network\mcpe\protocol\SetActorDataPacket;
+use pocketmine\network\mcpe\protocol\types\DeviceOS;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\network\mcpe\protocol\types\entity\FloatMetadataProperty;
@@ -58,21 +60,31 @@ class CustomFloatingText
 	 */
 	public function spawn(Player $player): void
 	{
-		$pk = new AddPlayerPacket();
-		$pk->actorRuntimeId = $this->eid;
-		$pk->uuid = Uuid::uuid4();
-		$pk->username = $this->text;
-		$pk->actorUniqueId = $this->eid;
-		$pk->position = $this->position->asVector3();
-		$pk->item = ItemStackWrapper::legacy(TypeConverter::getInstance()->coreItemStackToNet(ItemFactory::air()));
-		$flags =
-			1 << EntityMetadataFlags::CAN_SHOW_NAMETAG |
-			1 << EntityMetadataFlags::ALWAYS_SHOW_NAMETAG |
-			1 << EntityMetadataFlags::IMMOBILE;
-		$pk->metadata = [
-			EntityMetadataProperties::FLAGS => new LongMetadataProperty($flags),
-			EntityMetadataProperties::SCALE => new FloatMetadataProperty(0.01) //zero causes problems on debug builds
-		];
+		$pk = AddPlayerPacket::create(
+			Uuid::uuid4(),
+			$this->text,
+			$this->eid,
+			$this->eid,
+			"",
+			$this->position->asVector3(),
+			null,
+			0,
+			0,
+			0,
+			ItemStackWrapper::legacy(TypeConverter::getInstance()->coreItemStackToNet(ItemFactory::air())),
+			[
+				EntityMetadataProperties::FLAGS => new LongMetadataProperty(
+					1 << EntityMetadataFlags::CAN_SHOW_NAMETAG |
+					1 << EntityMetadataFlags::ALWAYS_SHOW_NAMETAG |
+					1 << EntityMetadataFlags::IMMOBILE
+				),
+				EntityMetadataProperties::SCALE => new FloatMetadataProperty(0.01) //zero causes problems on debug builds
+			],
+			AdventureSettingsPacket::create(0, 0, 0, 0, 0, $this->eid),
+			[],
+			"",
+			DeviceOS::UNKNOWN
+		);
 
 		$level = $this->position->getWorld();
 		if ($level !== null) {
