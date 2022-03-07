@@ -24,13 +24,13 @@ use Vecnavium\VecnaLeaderboards\Util\PluginUtils;
 class Leaderboard
 {
 	/** @var int */
-	private $id;
+	private int $id;
 	/** @var string */
-	private $type;
+	private string $type;
 	/** @var Position */
-	private $position;
+	private Position $position;
 	/** @var CustomFloatingText|null */
-	private $text = null;
+	private CustomFloatingText|null $text = null;
 
 
 	/**
@@ -88,7 +88,7 @@ class Leaderboard
 
 	public function despawn(?Player $player = null): void
 	{
-		if ($this->text === null || $this->position === null) {
+		if ($this->text === null || $this->position === null || !$this->position->isValid()) {
 			return;
 		}
 		

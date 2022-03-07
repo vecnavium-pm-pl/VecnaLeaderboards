@@ -17,11 +17,11 @@ use Vecnavium\VecnaLeaderboards\Main;
 class JsonDataProvider
 {
 	/** @var Main */
-	private $plugin;
+	private Main $plugin;
 	/** @var int */
-	private $leaderboardRange;
+	private int $leaderboardRange;
 	/** @var array */
-	private $levels;
+	private array $levels;
 
 	/**
 	 * YamlDataProvider constructor.

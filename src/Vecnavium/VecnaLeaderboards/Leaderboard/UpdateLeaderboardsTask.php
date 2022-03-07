@@ -20,7 +20,7 @@ use pocketmine\scheduler\Task;
 class UpdateLeaderboardsTask extends Task
 {
 	/** @var LeaderboardManager */
-	private $manager;
+	private LeaderboardManager $manager;
 
 	/**
 	 * UpdateLeaderboardsTask constructor.

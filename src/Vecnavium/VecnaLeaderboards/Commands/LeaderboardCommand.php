@@ -26,7 +26,7 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
 	use PluginOwnedTrait;
 
     /** @var Main */
-    private $plugin;
+    private Main $plugin;
 
 	/**
 	 * LeaderboardCommand constructor.
@@ -70,7 +70,7 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
             case Main::LEADERBOARD_TYPE_DEATHS:
             case Main::LEADERBOARD_TYPE_STREAKS:
             case Main::LEADERBOARD_TYPE_LEVELS:
-                $this->owningPlugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
+            $this->owningPlugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
             $sender->sendMessage($this->owningPlugin->getMessage("success.lbcreatesuccess"));
                 break;
             case "del":
@@ -81,7 +81,7 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
                     $sender->sendMessage($this->owningPlugin->getMessage("error.lbnotfound"));
                     break;
                 }
-                $this->owningPlugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
+            $this->owningPlugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
             $sender->sendMessage($this->owningPlugin->getMessage("sucess.lbdel"));
                 break;
             default:
