@@ -14,7 +14,7 @@ error:
   lbnotfound: "§4Error: Liderlik Tablolarının bulunamadı! Silmek için Lider Tablosuna yakın olduğunuzdan emin olun. !"
 
 #Success Messages
-sucess:
+success:
   lbdel: "§aBaşarı: Lider tablosu kaldırıldı ."
   lbcreatesuccess: "§aBaşarı: Lider tablosu oluşturuldu "
 

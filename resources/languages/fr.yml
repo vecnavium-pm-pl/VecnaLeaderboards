@@ -14,7 +14,7 @@ error:
   lbnotfound: "§4Erreur: Le classement n'a pas été trouvé ! Assurez-vous d'être proche du classement pour le supprimer !"
 
 #Success Messages
-sucess:
+success:
   lbdel: "§2Succès: le classement a été supprimé."
   lbcreatesuccess: "§2Succès: Le classement a été créé"
 

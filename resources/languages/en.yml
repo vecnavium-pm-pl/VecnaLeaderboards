@@ -14,7 +14,7 @@ error:
   lbnotfound: "§4Error: Leaderboard has not been found! Be sure to be close to the Leaderboard to delete it!"
 
 #Success Messages
-sucess:
+success:
   lbdel: "§2Success: Leaderboard has been removed."
   lbcreatesuccess: "§2Success: Leaderboard has been created"
 

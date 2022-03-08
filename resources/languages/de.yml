@@ -14,7 +14,7 @@ error:
   lbnotfound: "§4Fehler: Bestenliste wurde nicht gefunden!"
 
 #Success Messages
-sucess:
+success:
   lbdel: "§aErfolggreich: Bestenliste wurde soebend gelöscht!"
   lbcreatesuccess: "§aErfolgreich: Die Bestenliste wurde soebend erstellt!"
 
