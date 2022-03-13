@@ -51,11 +51,6 @@ class UserDataSessionProvider
         $this->currentStreak++;
         if ($this->currentStreak > 5 && $this->currentStreak > $this->getStreak()) {
             $this->setStreak($this->currentStreak);
-            Main::getInstance()->getServer()->broadcastMessage(
-                C::GRAY . "" . C::DARK_RED . "KillStreak alert:" .
-                C::GRAY . "> " . C::WHITE . $this->player->getName() . " is on a " . $this->currentStreak .
-                " killstreak. Go kill them to end their streak! ");
-            $this->setStreak($this->currentStreak);
         }
         $playerLevel = $this->getLevel();
         foreach ($this->getPlugin()->getJsonProvider()->getLevel() as $level => $data) {
