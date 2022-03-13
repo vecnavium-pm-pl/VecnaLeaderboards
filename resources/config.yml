@@ -42,7 +42,7 @@ leaderboard-top-length: 10
 #   kills: Amount of kills required to reach to the level
 
 
-levels:
+levels-system:
   1:
     kills: 2
 

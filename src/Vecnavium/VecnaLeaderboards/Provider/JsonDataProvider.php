@@ -24,7 +24,7 @@ class JsonDataProvider
 	private array $levels;
 
 	/**
-	 * YamlDataProvider constructor.
+	 * JsonDataProvider constructor.
 	 * @param Main $plugin
 	 */
 	public function __construct(Main $plugin)
@@ -40,7 +40,7 @@ class JsonDataProvider
 		}
 		$this->plugin->saveDefaultConfig();
 		$this->leaderboardRange = $this->plugin->getConfig()->get("leaderboard-top-length", 10);
-		$this->levels = $this->plugin->getConfig()->get('levels', []);
+		$this->levels = $this->plugin->getConfig()->get('levels-system', []);
 	}
 
 	/**
@@ -63,7 +63,7 @@ class JsonDataProvider
 				$string = "streaks";
 				break;
             case Main::LEADERBOARD_TYPE_LEVELS:
-                $string = "levels";
+                $string = "level";
                 break;
             case Main::LEADERBOARD_TYPE_DEATHS:
                 $string = "deaths";
@@ -96,7 +96,7 @@ class JsonDataProvider
 	/**
 	 * @return array
 	 */
-	public function getLevels(): array
+	public function getLevel(): array
 	{
 		return $this->levels;
 	}

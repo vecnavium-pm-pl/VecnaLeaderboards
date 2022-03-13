@@ -183,7 +183,7 @@ class Main extends PluginBase implements Listener
 	/**
 	 * @return JsonDataProvider
 	 */
-	public function getYamlProvider(): JsonDataProvider
+	public function getJsonProvider(): JsonDataProvider
 	{
 		return $this->jsonProvider;
 	}

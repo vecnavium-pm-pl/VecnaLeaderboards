@@ -43,17 +43,28 @@ class UserDataSessionProvider
 		return (int)$this->config->get('kills', 0);
 	}
 
-	public function addKill(): void
-	{
-		$kills = $this->getKills() + 1;
-		$this->config->set('kills', $kills);
-		$this->config->save();
-		$this->currentStreak++;
-		if ($this->currentStreak > 5 && $this->currentStreak > $this->getStreak()) {
-			$this->setStreak($this->currentStreak);
-		}
-}
-
+    public function addKill(): void
+    {
+        $kills = $this->getKills() + 1;
+        $this->config->set('kills', $kills);
+        $this->config->save();
+        $this->currentStreak++;
+        if ($this->currentStreak > 5 && $this->currentStreak > $this->getStreak()) {
+            $this->setStreak($this->currentStreak);
+            Main::getInstance()->getServer()->broadcastMessage(
+                C::GRAY . "" . C::DARK_RED . "KillStreak alert:" .
+                C::GRAY . "> " . C::WHITE . $this->player->getName() . " is on a " . $this->currentStreak .
+                " killstreak. Go kill them to end their streak! ");
+            $this->setStreak($this->currentStreak);
+        }
+        $playerLevel = $this->getLevel();
+        foreach ($this->getPlugin()->getJsonProvider()->getLevel() as $level => $data) {
+            if ($kills == $data['kills'] && $playerLevel < $level) {
+                $this->player->sendPopup(C::DARK_GREEN . "You have successfully Leveled up!");
+                $this->levelUp();
+                }
+            }
+        }
 	/**
 	 * @return int
 	 */
