@@ -82,7 +82,7 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
                     break;
                 }
             $this->owningPlugin->getLeaderboardManager()->unregisterLeaderboard($nearLeaderboard->getId());
-            $sender->sendMessage($this->owningPlugin->getMessage("sucess.lbdel"));
+            $sender->sendMessage($this->owningPlugin->getMessage("success.lbdel"));
                 break;
             default:
                 $sender->sendMessage($this->owningPlugin->getMessage("error.lbmanagestatelbtitle"));
