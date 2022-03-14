@@ -74,7 +74,7 @@ class Main extends PluginBase implements Listener
         $this->getServer()->getCommandMap()->register("VecnaLeaderboards", new VersionCommand($this));
         @mkdir($this->getDataFolder());
         @mkdir($this->getDataFolder() . "data/");
-
+        $this->checkUpdate();
         if ($this->isDev) {
             $this->getLogger()->warning($this->getMessage("error.devversion"));
         }
@@ -85,6 +85,11 @@ class Main extends PluginBase implements Listener
 	{
 		$this->leaderboardManager->saveLeaderboards();
 	}
+
+    public function checkUpdate(bool $isRetry = false): void {
+
+        $this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this->getDescription()->getName(), $this->getDescription()->getVersion()));
+    }
 
 	/**
 	 * @param string $option
