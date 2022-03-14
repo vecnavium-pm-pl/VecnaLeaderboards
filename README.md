@@ -46,7 +46,9 @@ Have other suggestions? Let me know in the [Support Discord](https://discord.gg/
 
 |Command|Description|Permissions|
 |:--:|:--:|:--:|
-|/leaderboard|Create or delete leaderboards|`vecnaleaderboards.manage`
+|/lbhelp|List of commands for VecnaLeaderboards|`vecnaleaderboards.manage`
+|/lbmanage|Create or delete leaderboards|`vecnaleaderboards.manage`
+|/lbversion|Get VecnaLeaderboards plugin version|`vecnaleaderboards.manage`
 
 # BugReport
 
