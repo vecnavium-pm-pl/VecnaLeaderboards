@@ -59,9 +59,6 @@ class JsonDataProvider
 		$stats = [];
 
 		switch ($type) {
-			case Main::LEADERBOARD_TYPE_STREAKS:
-				$string = "streaks";
-				break;
             case Main::LEADERBOARD_TYPE_LEVELS:
                 $string = "level";
                 break;

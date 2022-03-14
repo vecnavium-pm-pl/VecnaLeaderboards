@@ -23,7 +23,6 @@ class UserDataSessionProvider
 	/** @var Config */
 	private Config $config;
 	/** @var int */
-	private int $currentStreak = 0;
 
 	/**
 	 * UserDataSessionProvider constructor.
@@ -48,10 +47,6 @@ class UserDataSessionProvider
         $kills = $this->getKills() + 1;
         $this->config->set('kills', $kills);
         $this->config->save();
-        $this->currentStreak++;
-        if ($this->currentStreak > 5 && $this->currentStreak > $this->getStreak()) {
-            $this->setStreak($this->currentStreak);
-        }
         $playerLevel = $this->getLevel();
         foreach ($this->getPlugin()->getJsonProvider()->getLevel() as $level => $data) {
             if ($kills == $data['kills'] && $playerLevel < $level) {
@@ -76,25 +71,8 @@ class UserDataSessionProvider
 		$deaths = $this->getDeaths();
 		$this->config->set('deaths', $deaths + 1);
 		$this->config->save();
-		$this->currentStreak = 0;
 	}
 
-	/**
-	 * @return int
-	 */
-	public function getStreak(): int
-	{
-		return (int)$this->config->get('killstreak', 0);
-	}
-
-	/**
-	 * @param int $streak
-	 */
-	public function setStreak(int $streak): void
-	{
-		$this->config->set('killstreak', $streak);
-		$this->config->save();
-	}
 
 	/**
 	 * @return int
@@ -121,13 +99,6 @@ class UserDataSessionProvider
 		return $this->player;
 	}
 
-	/**
-	 * @return int
-	 */
-	public function getCurrentStreak(): int
-	{
-		return $this->currentStreak;
-	}
 
 	/**
 	 * @return Main
