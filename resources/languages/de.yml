@@ -8,7 +8,6 @@ error:
   lbmanagenoperm: "§4Du hast keine Berechtigung um diesen Command ausführen zu lassen!"
   lbmanagestatelbtitle: "§4Fehler: Bitte gebe ein Typ für die Statistik an welches du nutzen möchtest!"
   lbmanagestatekills: "§fTop Kills Bestenliste: /lbmanage kills"
-  lbmanagestatestreaks: "§fTop Kill Streaks Bestenliste: /lbmanage streaks"
   lbmanagestatedeaths: "§fTop Tode Bestenliste: /lbmanage deaths"
   lbmanagestatelevels: "§fTop Levels Bestenliste: /lbmanage levels"
   lbnotfound: "§4Fehler: Bestenliste wurde nicht gefunden!"

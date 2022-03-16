@@ -8,7 +8,6 @@ error:
   lbmanagenoperm: "§4Vous n'êtes pas autorisé à utiliser cette commande !"
   lbmanagestatelbtitle: "§4Erreur: Veuillez indiquer le type de classement que vous souhaitez. Par exemple"
   lbmanagestatekills: "§fTop Kills LeaderBoard: /lbmanage kills"
-  lbmanagestatestreaks: "§fTop Kill Streaks Leaderboard: /lbmanage streaks"
   lbmanagestatedeaths: "§fTop Deaths Leaderboard: /lbmanage deaths"
   lbmanagestatelevels: "§fTop Levels Leaderboard: /lbmanage levels"
   lbnotfound: "§4Erreur: Le classement n'a pas été trouvé ! Assurez-vous d'être proche du classement pour le supprimer !"

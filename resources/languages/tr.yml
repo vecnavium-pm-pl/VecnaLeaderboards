@@ -8,7 +8,6 @@ error:
   lbmanagenoperm: "§4Bu komutu kullanma izniniz yok !"
   lbmanagestatelbtitle: "§4Hata: Lütfen ne tür bir skor tablosu istediğinizi belirtin. Örneğin "
   lbmanagestatekills: "§fTop Kill Liderlik Tablolarının: /lbmanage kills"
-  lbmanagestatestreaks: "§fTop KillStreaks Liderlik Tablolarının: /lbmanage streaks"
   lbmanagestatedeaths: "§fTop Ölüm Liderlik Tablolarının: /lbmanage deaths"
   lbmanagestatelevels: "§fTop Levels Liderlik Tablolarının : /lbmanage levels"
   lbnotfound: "§4Error: Liderlik Tablolarının bulunamadı! Silmek için Lider Tablosuna yakın olduğunuzdan emin olun. !"
