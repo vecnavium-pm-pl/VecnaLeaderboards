@@ -68,7 +68,6 @@ class LeaderboardCommand extends VanillaCommand implements PluginOwned
         switch ($args[0]) {
             case Main::LEADERBOARD_TYPE_KILLS:
             case Main::LEADERBOARD_TYPE_DEATHS:
-            case Main::LEADERBOARD_TYPE_STREAKS:
             case Main::LEADERBOARD_TYPE_LEVELS:
             $this->owningPlugin->getLeaderboardManager()->registerLeaderboard(Entity::nextRuntimeId(), $args[0], $sender->getLocation()->asPosition());
             $sender->sendMessage($this->owningPlugin->getMessage("success.lbcreatesuccess"));
