@@ -3,7 +3,7 @@ authors:
   - Vecnavium
   - cosmicnebula200
 main: Vecnavium\VecnaLeaderboards\Main
-version: "2.1.9"
+version: "2.2.0"
 api: [4.0.0]
 mcpe-protocol: [503]
 load: POSTWORLD
