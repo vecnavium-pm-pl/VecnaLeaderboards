@@ -72,6 +72,7 @@ class CustomFloatingText
 			0,
 			0,
 			ItemStackWrapper::legacy(TypeConverter::getInstance()->coreItemStackToNet(ItemFactory::air())),
+			0,
 			[
 				EntityMetadataProperties::FLAGS => new LongMetadataProperty(
 					1 << EntityMetadataFlags::CAN_SHOW_NAMETAG |
