@@ -5,7 +5,7 @@ authors:
 main: Vecnavium\VecnaLeaderboards\Main
 version: "2.2.1"
 api: [4.0.0]
-mcpe-protocol: [527]
+mcpe-protocol: [534]
 load: POSTWORLD
 description: A Pocketmine-MP Plugin that keeps track of Player Statistics
 
